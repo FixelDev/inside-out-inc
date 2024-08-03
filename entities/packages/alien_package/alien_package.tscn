@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://cf55jit22rshh"]
+
+[ext_resource type="PackedScene" uid="uid://3a33oceaqq6d" path="res://entities/packages/package.tscn" id="1_r4a85"]
+[ext_resource type="Script" path="res://entities/packages/alien_package/alien_package.gd" id="2_58w13"]
+
+[node name="AlienPackage" instance=ExtResource("1_r4a85")]
+script = ExtResource("2_58w13")

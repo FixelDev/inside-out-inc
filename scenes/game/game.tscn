@@ -1,0 +1,84 @@
+[gd_scene load_steps=8 format=3 uid="uid://domuj11pt21e0"]
+
+[ext_resource type="Texture2D" uid="uid://0xu767unbmot" path="res://scenes/game/graphics/wall.png" id="1_jn13p"]
+[ext_resource type="Texture2D" uid="uid://txy8dn2rvt0i" path="res://scenes/game/graphics/window.png" id="2_pk478"]
+[ext_resource type="Material" uid="uid://4gnfyg7ugi1n" path="res://scenes/game/window_mask.tres" id="3_h6v4r"]
+[ext_resource type="Texture2D" uid="uid://dtodbabyfgmru" path="res://icon.svg" id="4_o65ey"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4i6qj"]
+bg_color = Color(0.0605303, 0.0605304, 0.0605303, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xhsd4"]
+bg_color = Color(0.851395, 0, 0.170154, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fmgvr"]
+bg_color = Color(1.58831e-06, 0.726311, 0.168332, 1)
+
+[node name="Game" type="Node2D"]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Table" type="Panel" parent="UI"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -261.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_4i6qj")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Table"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 74.0
+offset_bottom = -74.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 174
+alignment = 1
+
+[node name="EmergencyButton" type="Button" parent="UI/Table/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_xhsd4")
+text = "EMERGENCY"
+
+[node name="AcceptButton" type="Button" parent="UI/Table/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_fmgvr")
+text = "ACCEPT"
+
+[node name="Wall" type="Sprite2D" parent="."]
+position = Vector2(640.5, 293)
+scale = Vector2(80.0625, 36.625)
+texture = ExtResource("1_jn13p")
+
+[node name="WindowMask" type="PointLight2D" parent="Wall"]
+position = Vector2(0, -1.46075)
+scale = Vector2(0.793911, 0.66041)
+energy = 0.0
+texture = ExtResource("2_pk478")
+
+[node name="Window" type="Sprite2D" parent="Wall"]
+material = ExtResource("3_h6v4r")
+texture = ExtResource("2_pk478")
+
+[node name="EmergencyCrate" type="Sprite2D" parent="Wall"]
+modulate = Color(0.107974, 0.107479, 0.106129, 1)
+material = ExtResource("3_h6v4r")
+position = Vector2(0.00624512, -14.744)
+texture = ExtResource("2_pk478")
+
+[node name="Xray" type="PointLight2D" parent="."]
+position = Vector2(518, 296)
+scale = Vector2(1.54688, 1.54688)
+energy = 0.0
+range_item_cull_mask = 2
+texture = ExtResource("4_o65ey")

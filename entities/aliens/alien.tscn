@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cd05ohtnknfib"]
+
+[ext_resource type="Script" path="res://entities/aliens/alien.gd" id="1_0n3s4"]
+[ext_resource type="Texture2D" uid="uid://bfuqn1pa271j6" path="res://entities/aliens/alien1/alien1.png" id="2_r1j4y"]
+
+[node name="Alien" type="Sprite2D"]
+scale = Vector2(2.375, 2.375)
+region_rect = Rect2(0, 16, 16, 16)
+script = ExtResource("1_0n3s4")
+alien_sprites = Array[Texture2D]([ExtResource("2_r1j4y")])

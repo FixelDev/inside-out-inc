@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://3a33oceaqq6d"]
+
+[ext_resource type="Script" path="res://entities/packages/package.gd" id="1_sjuyr"]
+
+[node name="Package" type="Node2D"]
+script = ExtResource("1_sjuyr")
+
+[node name="NormalSprite" type="Sprite2D" parent="."]
+
+[node name="XRaySprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+light_mask = 2
+visibility_layer = 2
