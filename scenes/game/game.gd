@@ -15,6 +15,10 @@ var current_package: Package
 
 func _ready() -> void:
 	spawn_package()
+	Globals.packages_count = 6
+	Globals.packages_current_count = 0
+	Globals.strikes_count = 3
+	Globals.strikes_current_count = 0
 
 func _process(delta) -> void:
 	pass
