@@ -1,13 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://3a33oceaqq6d"]
+[gd_scene load_steps=3 format=3 uid="uid://3a33oceaqq6d"]
 
 [ext_resource type="Script" path="res://entities/packages/package.gd" id="1_sjuyr"]
+[ext_resource type="Material" uid="uid://4gnfyg7ugi1n" path="res://scenes/game/window_mask.tres" id="2_fb5ry"]
 
 [node name="Package" type="Node2D"]
+scale = Vector2(12, 12)
 script = ExtResource("1_sjuyr")
 
 [node name="NormalSprite" type="Sprite2D" parent="."]
+material = ExtResource("2_fb5ry")
 
 [node name="XRaySprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 light_mask = 2
 visibility_layer = 2
+material = ExtResource("2_fb5ry")
