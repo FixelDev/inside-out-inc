@@ -11,5 +11,8 @@ func open() -> void:
 	animation_player.play_backwards("toggle")
 
 
-func _on_game_emergency_mode_enabled():
-	close()
+func _on_game_emergency_mode_toggled(enabled):
+	if enabled:
+		close()
+	else:
+		open()

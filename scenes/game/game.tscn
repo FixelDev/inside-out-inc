@@ -158,9 +158,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -185.0
-offset_top = -279.0
+offset_top = -321.0
 offset_right = 185.0
-offset_bottom = 124.0
+offset_bottom = 166.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_x5fn5")
@@ -265,11 +265,21 @@ script = ExtResource("5_yaqef")
 [node name="PackagesSpawnPoint" type="Marker2D" parent="."]
 position = Vector2(640, 352)
 
-[connection signal="emergency_mode_enabled" from="." to="UI/EmergencyModule" method="_on_game_emergency_mode_enabled"]
-[connection signal="emergency_mode_enabled" from="." to="Wall/EmergencyCrate" method="_on_game_emergency_mode_enabled"]
+[node name="Timers" type="Node" parent="."]
+
+[node name="TimerToSpawnPackage" type="Timer" parent="Timers"]
+unique_name_in_owner = true
+wait_time = 2.0
+one_shot = true
+
+[connection signal="emergency_mode_toggled" from="." to="UI/EmergencyModule" method="_on_game_emergency_mode_toggled"]
+[connection signal="emergency_mode_toggled" from="." to="Wall/EmergencyCrate" method="_on_game_emergency_mode_toggled"]
 [connection signal="pressed" from="UI/Table/HBoxContainer/EmergencyButton" to="." method="_on_emergency_button_pressed"]
 [connection signal="pressed" from="UI/Table/HBoxContainer/AcceptButton" to="." method="_on_accept_button_pressed"]
+[connection signal="emergency_code_checked" from="UI/EmergencyModule" to="." method="_on_emergency_module_emergency_code_checked"]
+[connection signal="emergency_code_checked" from="UI/EmergencyModule" to="UI/EmergencyKeypadPanel" method="_on_emergency_module_emergency_code_checked"]
 [connection signal="pressed" from="UI/EmergencyModule/EmergencyKeypad" to="UI/EmergencyModule" method="_on_emergency_keypad_pressed"]
 [connection signal="code_submited" from="UI/EmergencyKeypadPanel" to="UI/EmergencyModule" method="_on_emergency_keypad_panel_code_submited"]
 [connection signal="pressed" from="UI/EmergencyKeypadPanel/VBoxContainer/ButtonsContainer/ResetButton" to="UI/EmergencyKeypadPanel" method="_on_reset_button_pressed"]
 [connection signal="pressed" from="UI/EmergencyKeypadPanel/VBoxContainer/ButtonsContainer/AcceptButton" to="UI/EmergencyKeypadPanel" method="_on_accept_button_pressed"]
+[connection signal="timeout" from="Timers/TimerToSpawnPackage" to="." method="_on_timer_to_spawn_package_timeout"]
