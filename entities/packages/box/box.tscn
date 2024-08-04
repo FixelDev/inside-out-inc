@@ -10,3 +10,18 @@ x_ray_sprites = Array[Texture2D]([ExtResource("2_guhwv"), ExtResource("3_0qffl")
 
 [node name="NormalSprite" parent="." index="0"]
 texture = ExtResource("4_gpv4q")
+
+[node name="Marker2D" type="Marker2D" parent="AlienPartsHolder" index="0"]
+position = Vector2(-5.16667, 5.16667)
+
+[node name="Marker2D2" type="Marker2D" parent="AlienPartsHolder" index="1"]
+position = Vector2(6.16667, -6.16667)
+
+[node name="Marker2D3" type="Marker2D" parent="AlienPartsHolder" index="2"]
+position = Vector2(0.833333, 0)
+
+[node name="Marker2D4" type="Marker2D" parent="AlienPartsHolder" index="3"]
+position = Vector2(-4.66667, -2.91667)
+
+[node name="Marker2D5" type="Marker2D" parent="AlienPartsHolder" index="4"]
+position = Vector2(4.41667, 3.33333)

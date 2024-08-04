@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://lmf2ghp18sxu"]
+
+[ext_resource type="Script" path="res://globals/alien_database/alien_database.gd" id="1_5mmha"]
+[ext_resource type="PackedScene" uid="uid://5dmyy8poi2g" path="res://entities/aliens/alien1/alien_1.tscn" id="2_mmmpp"]
+[ext_resource type="PackedScene" uid="uid://ev03s8g2l1s8" path="res://entities/aliens/parts/alien_eye/alien_eye.tscn" id="3_eksvc"]
+
+[node name="AlienDatabase" type="Node"]
+script = ExtResource("1_5mmha")
+aliens_scenes = Array[PackedScene]([ExtResource("2_mmmpp")])
+alien_parts_scenes = Array[PackedScene]([ExtResource("3_eksvc")])

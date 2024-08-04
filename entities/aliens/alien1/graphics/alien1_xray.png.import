@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgyi4msmvv7ol"
-path="res://.godot/imported/alien_eye.png-5fece794d8e3716cea8206ae932846f1.ctex"
+uid="uid://drqhuk2rrsrgg"
+path="res://.godot/imported/alien1_xray.png-eb67a3c8b47ee289e648e713859e9d95.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/aliens/parts/graphics/alien_eye.png"
-dest_files=["res://.godot/imported/alien_eye.png-5fece794d8e3716cea8206ae932846f1.ctex"]
+source_file="res://entities/aliens/alien1/graphics/alien1_xray.png"
+dest_files=["res://.godot/imported/alien1_xray.png-eb67a3c8b47ee289e648e713859e9d95.ctex"]
 
 [params]
 

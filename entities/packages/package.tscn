@@ -15,3 +15,6 @@ unique_name_in_owner = true
 light_mask = 2
 visibility_layer = 2
 material = ExtResource("2_fb5ry")
+
+[node name="AlienPartsHolder" type="Node2D" parent="."]
+unique_name_in_owner = true
