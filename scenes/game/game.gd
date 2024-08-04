@@ -2,7 +2,8 @@ extends Node2D
 
 @export var packages_scenes: Array[PackedScene] = []
 @export var package_spawn_point: Marker2D
-@export var emergency_crate: EmergencyCrate
+
+signal emergency_mode_enabled()
 
 var current_package: Package
 
@@ -19,7 +20,7 @@ func spawn_package() -> void:
 
 
 func _on_emergency_button_pressed():
-	enable_emergency_mode()
+	emergency_mode_enabled.emit()
 	
 
 func _on_accept_button_pressed():
@@ -34,6 +35,3 @@ func _on_accept_button_pressed():
 func destroy_package() -> void:
 	current_package.queue_free()
 
-
-func enable_emergency_mode() -> void:
-	emergency_crate.close()

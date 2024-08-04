@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://domuj11pt21e0"]
+[gd_scene load_steps=23 format=3 uid="uid://domuj11pt21e0"]
 
 [ext_resource type="Texture2D" uid="uid://0xu767unbmot" path="res://scenes/game/graphics/wall.png" id="1_jn13p"]
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_w4xhy"]
@@ -10,7 +10,9 @@
 [ext_resource type="Script" path="res://entities/emergency_module/emergency_keypad.gd" id="5_2847e"]
 [ext_resource type="Script" path="res://entities/xray/xray.gd" id="5_yaqef"]
 [ext_resource type="PackedScene" uid="uid://djfmjkuiwck6x" path="res://entities/packages/box/box.tscn" id="6_p84wr"]
+[ext_resource type="Script" path="res://entities/emergency_module/emergency_keypad_panel/emergency_keypad_panel.gd" id="6_pw2re"]
 [ext_resource type="Script" path="res://entities/emergency_crate/emergency_crate.gd" id="7_fli0l"]
+[ext_resource type="PackedScene" uid="uid://vvlem36g7n7g" path="res://entities/emergency_module/emergency_keypad_panel/number_button.tscn" id="7_qrn5g"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4i6qj"]
 bg_color = Color(0.0605303, 0.0605304, 0.0605303, 1)
@@ -20,6 +22,15 @@ bg_color = Color(0.851395, 0, 0.170154, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fmgvr"]
 bg_color = Color(1.58831e-06, 0.726311, 0.168332, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x5fn5"]
+bg_color = Color(0.255659, 0.255659, 0.255659, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_whimn"]
+bg_color = Color(0.963617, 0.121957, 0.251386, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ymref"]
+bg_color = Color(0, 0.718134, 0.366609, 1)
 
 [sub_resource type="Animation" id="Animation_f1e78"]
 length = 0.001
@@ -58,11 +69,10 @@ _data = {
 "toggle": SubResource("Animation_j0ks7")
 }
 
-[node name="Game" type="Node2D" node_paths=PackedStringArray("package_spawn_point", "emergency_crate")]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("package_spawn_point")]
 script = ExtResource("1_w4xhy")
 packages_scenes = Array[PackedScene]([ExtResource("2_gk3w8"), ExtResource("6_p84wr")])
 package_spawn_point = NodePath("PackagesSpawnPoint")
-emergency_crate = NodePath("Wall/EmergencyCrate")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -103,12 +113,28 @@ size_flags_horizontal = 4
 theme_override_styles/normal = SubResource("StyleBoxFlat_fmgvr")
 text = "ACCEPT"
 
-[node name="EmergencyModule" type="Control" parent="UI"]
+[node name="EmergencyModule" type="Control" parent="UI" node_paths=PackedStringArray("emergency_code_label", "emergency_keypad", "emergency_keypad_panel")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("4_jyb38")
+emergency_code_label = NodePath("EmergencyCodeLabel")
+emergency_keypad = NodePath("EmergencyKeypad")
+emergency_keypad_panel = NodePath("../EmergencyKeypadPanel")
+
+[node name="EmergencyCodeLabel" type="Label" parent="UI/EmergencyModule"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 19.0
+offset_top = 117.0
+offset_right = 105.0
+offset_bottom = 164.0
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="EmergencyKeypad" type="Button" parent="UI/EmergencyModule"]
 layout_mode = 1
@@ -124,18 +150,76 @@ disabled = true
 text = "tel"
 script = ExtResource("5_2847e")
 
-[node name="EmergencyCode" type="Label" parent="UI/EmergencyModule"]
-layout_mode = 1
-anchors_preset = 4
+[node name="EmergencyKeypadPanel" type="Panel" parent="UI"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 19.0
-offset_top = 117.0
-offset_right = 105.0
-offset_bottom = 164.0
+offset_left = -185.0
+offset_top = -279.0
+offset_right = 185.0
+offset_bottom = 124.0
+grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_x5fn5")
+script = ExtResource("6_pw2re")
+number_button_scene = ExtResource("7_qrn5g")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/EmergencyKeypadPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = 19.0
+offset_right = -25.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="UI/EmergencyKeypadPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="EnteredCodeLabel" type="Label" parent="UI/EmergencyKeypadPanel/VBoxContainer/PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 46
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Spacer" type="Control" parent="UI/EmergencyKeypadPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 16.245)
+layout_mode = 2
+
+[node name="NumberButtonsContainer" type="GridContainer" parent="UI/EmergencyKeypadPanel/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 3
+
+[node name="Spacer2" type="Control" parent="UI/EmergencyKeypadPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 16.245)
+layout_mode = 2
+
+[node name="ButtonsContainer" type="HBoxContainer" parent="UI/EmergencyKeypadPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 80
+alignment = 1
+
+[node name="ResetButton" type="Button" parent="UI/EmergencyKeypadPanel/VBoxContainer/ButtonsContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_whimn")
+text = "X"
+
+[node name="AcceptButton" type="Button" parent="UI/EmergencyKeypadPanel/VBoxContainer/ButtonsContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_ymref")
+text = "O"
 
 [node name="Wall" type="Sprite2D" parent="."]
 position = Vector2(641, 292)
@@ -181,5 +265,11 @@ script = ExtResource("5_yaqef")
 [node name="PackagesSpawnPoint" type="Marker2D" parent="."]
 position = Vector2(640, 352)
 
+[connection signal="emergency_mode_enabled" from="." to="UI/EmergencyModule" method="_on_game_emergency_mode_enabled"]
+[connection signal="emergency_mode_enabled" from="." to="Wall/EmergencyCrate" method="_on_game_emergency_mode_enabled"]
 [connection signal="pressed" from="UI/Table/HBoxContainer/EmergencyButton" to="." method="_on_emergency_button_pressed"]
 [connection signal="pressed" from="UI/Table/HBoxContainer/AcceptButton" to="." method="_on_accept_button_pressed"]
+[connection signal="pressed" from="UI/EmergencyModule/EmergencyKeypad" to="UI/EmergencyModule" method="_on_emergency_keypad_pressed"]
+[connection signal="code_submited" from="UI/EmergencyKeypadPanel" to="UI/EmergencyModule" method="_on_emergency_keypad_panel_code_submited"]
+[connection signal="pressed" from="UI/EmergencyKeypadPanel/VBoxContainer/ButtonsContainer/ResetButton" to="UI/EmergencyKeypadPanel" method="_on_reset_button_pressed"]
+[connection signal="pressed" from="UI/EmergencyKeypadPanel/VBoxContainer/ButtonsContainer/AcceptButton" to="UI/EmergencyKeypadPanel" method="_on_accept_button_pressed"]
