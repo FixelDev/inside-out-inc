@@ -20,3 +20,6 @@ func set_random_xray_sprite() -> void:
 	else:
 		#GENERATE ALIEN
 		pass
+		
+func is_evil() -> bool:
+	return package_type != PackageType.NORMAL
