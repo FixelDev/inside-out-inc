@@ -2,6 +2,7 @@ class_name TimeLeftProgressBar extends ProgressBar
 
 @onready var time_left_label = %TimeLeftLabel
 @onready var timer_time_to_left = %TimerTimeToLeft
+@onready var timer_extra_time = %TimerExtraTime
 
 var is_timer_in_progress: bool = false
 
@@ -16,6 +17,7 @@ func start_timer(seconds_left: float) -> void:
 	
 
 func stop_timer() -> void:
+	timer_extra_time.stop()
 	timer_time_to_left.stop()
 	is_timer_in_progress = false
 	
@@ -31,4 +33,5 @@ func _process(_delta) -> void:
 
 func _on_timer_time_to_left_timeout():
 	is_timer_in_progress = false
-	print("TIMEOUT")
+	timer_extra_time.start()
+

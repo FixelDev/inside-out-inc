@@ -2,6 +2,8 @@ extends Node2D
 
 @export var packages_scenes: Array[PackedScene] = []
 @export var package_spawn_point: Marker2D
+@export var emergency_button: Button
+@export var accept_button: Button
 
 @onready var timer_to_spawn_package: Timer = %TimerToSpawnPackage
 @onready var time_left_progress_bar: TimeLeftProgressBar = %TimeLeftProgressBar
@@ -19,6 +21,7 @@ func _process(delta) -> void:
 
 
 func spawn_package() -> void:
+	toggle_buttons(true)
 	var package_scene: PackedScene = packages_scenes.pick_random()
 	current_package = package_scene.instantiate()
 	add_child(current_package)
@@ -29,11 +32,15 @@ func spawn_package() -> void:
 
 
 func _on_emergency_button_pressed():
+	toggle_buttons(false)
 	emergency_mode_toggled.emit(true)
 	time_left_progress_bar.start_timer(7.0)
 
+
 func _on_accept_button_pressed():
+	toggle_buttons(false)
 	destroy_package()
+	time_left_progress_bar.stop_timer()
 	
 	if current_package.is_evil():
 		print("STRIKE")
@@ -63,3 +70,16 @@ func _on_emergency_module_emergency_code_checked(is_correct):
 
 func _on_timer_to_spawn_package_timeout():
 	spawn_package()
+
+
+func _on_timer_extra_time_timeout():
+	toggle_buttons(false)
+	print("STRIKE")
+	#ADD CORRECT PACKAGE BEHAVIOUR
+	
+	destroy_package()
+
+
+func toggle_buttons(enabled: bool) -> void:
+	accept_button.disabled = !enabled
+	emergency_button.disabled = !enabled
