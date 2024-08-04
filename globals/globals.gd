@@ -29,3 +29,10 @@ var strikes_current_count: int:
 		stats_changed.emit()
 	get:
 		return strikes_current_count
+		
+var coins: int:
+	set(value):
+		coins = value
+		stats_changed.emit()
+	get:
+		return coins

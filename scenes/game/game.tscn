@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://domuj11pt21e0"]
+[gd_scene load_steps=28 format=3 uid="uid://domuj11pt21e0"]
 
 [ext_resource type="Texture2D" uid="uid://0xu767unbmot" path="res://scenes/game/graphics/wall.png" id="1_jn13p"]
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_w4xhy"]
@@ -16,6 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://vvlem36g7n7g" path="res://entities/emergency_module/emergency_keypad_panel/number_button.tscn" id="7_qrn5g"]
 [ext_resource type="Script" path="res://ui/stats_container/stats_container.gd" id="9_f07pv"]
 [ext_resource type="Texture2D" uid="uid://dpgjmrl5uuvo8" path="res://entities/packages/box/graphics/box.png" id="9_j1wal"]
+[ext_resource type="Texture2D" uid="uid://bvyndehskgl1f" path="res://ui/stats_container/graphics/coin.png" id="10_xwoyr"]
+[ext_resource type="Texture2D" uid="uid://byoy4hqusvlds" path="res://ui/stats_container/graphics/strike.png" id="12_xb1sl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4i6qj"]
 bg_color = Color(0.0605303, 0.0605304, 0.0605303, 1)
@@ -267,6 +269,25 @@ offset_bottom = 183.0
 grow_horizontal = 0
 script = ExtResource("9_f07pv")
 
+[node name="CoinsCounterCointainer" type="HBoxContainer" parent="UI/StatsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/StatsContainer/CoinsCounterCointainer"]
+layout_mode = 2
+texture = ExtResource("10_xwoyr")
+expand_mode = 2
+
+[node name="CoinsCounterLabel" type="Label" parent="UI/StatsContainer/CoinsCounterCointainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 31
+text = "100"
+
+[node name="Spacer" type="Control" parent="UI/StatsContainer"]
+custom_minimum_size = Vector2(0, 26.78)
+layout_mode = 2
+
 [node name="PackagesCounterCotainer" type="HBoxContainer" parent="UI/StatsContainer"]
 layout_mode = 2
 
@@ -286,7 +307,7 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="UI/StatsContainer/StrikesCounterCotainer"]
 layout_mode = 2
-texture = ExtResource("4_o65ey")
+texture = ExtResource("12_xb1sl")
 expand_mode = 2
 
 [node name="StrikesCounterLabel" type="Label" parent="UI/StatsContainer/StrikesCounterCotainer"]

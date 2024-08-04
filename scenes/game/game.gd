@@ -14,11 +14,17 @@ var current_package: Package
 
 
 func _ready() -> void:
+	init_stats()
 	spawn_package()
+	
+
+func init_stats() -> void:
 	Globals.packages_count = 6
 	Globals.packages_current_count = 0
 	Globals.strikes_count = 3
 	Globals.strikes_current_count = 0
+	Globals.coins = 0
+
 
 func _process(delta) -> void:
 	pass
@@ -33,7 +39,7 @@ func spawn_package() -> void:
 	
 	print(current_package.is_evil())
 	time_left_progress_bar.start_timer(10.0)
-
+	Globals.packages_current_count += 1
 
 func _on_emergency_button_pressed():
 	toggle_buttons(false)
@@ -47,10 +53,18 @@ func _on_accept_button_pressed():
 	time_left_progress_bar.stop_timer()
 	
 	if current_package.is_evil():
-		print("STRIKE")
+		strike()
 	else:
-		print("COINS")
+		give_coins(5)
 	
+
+func give_coins(amount: int) -> void:
+	Globals.coins += amount
+
+
+func strike() -> void:
+	Globals.strikes_current_count += 1
+
 
 func destroy_package() -> void:
 	current_package.queue_free()
@@ -67,9 +81,9 @@ func _on_emergency_module_emergency_code_checked(is_correct):
 	destroy_package()
 	
 	if current_package.is_evil():
-		print("COINS")
+		give_coins(5)
 	else:
-		print("STRIKE")
+		strike()
 
 
 func _on_timer_to_spawn_package_timeout():
@@ -78,7 +92,7 @@ func _on_timer_to_spawn_package_timeout():
 
 func _on_timer_extra_time_timeout():
 	toggle_buttons(false)
-	print("STRIKE")
+	strike()
 	#ADD CORRECT PACKAGE BEHAVIOUR
 	
 	destroy_package()

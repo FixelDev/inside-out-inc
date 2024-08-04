@@ -1,17 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://djfmjkuiwck6x"]
+[gd_scene load_steps=5 format=3 uid="uid://djfmjkuiwck6x"]
 
 [ext_resource type="PackedScene" uid="uid://3a33oceaqq6d" path="res://entities/packages/package.tscn" id="1_54ueh"]
 [ext_resource type="Texture2D" uid="uid://db8ohljbtabpl" path="res://entities/packages/box/graphics/box_xray1.png" id="2_guhwv"]
 [ext_resource type="Texture2D" uid="uid://epritqypi0ji" path="res://entities/packages/box/graphics/box_xray2.png" id="3_0qffl"]
-[ext_resource type="Material" uid="uid://4gnfyg7ugi1n" path="res://scenes/game/window_mask.tres" id="4_coilt"]
 [ext_resource type="Texture2D" uid="uid://dpgjmrl5uuvo8" path="res://entities/packages/box/graphics/box.png" id="4_gpv4q"]
 
 [node name="Box" instance=ExtResource("1_54ueh")]
 x_ray_sprites = Array[Texture2D]([ExtResource("2_guhwv"), ExtResource("3_0qffl")])
 
 [node name="NormalSprite" parent="." index="0"]
-material = ExtResource("4_coilt")
 texture = ExtResource("4_gpv4q")
-
-[node name="XRaySprite" parent="." index="1"]
-material = ExtResource("4_coilt")
