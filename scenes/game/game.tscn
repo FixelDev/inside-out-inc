@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://domuj11pt21e0"]
+[gd_scene load_steps=71 format=3 uid="uid://domuj11pt21e0"]
 
 [ext_resource type="Texture2D" uid="uid://0xu767unbmot" path="res://scenes/game/graphics/wall.png" id="1_jn13p"]
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_w4xhy"]
@@ -18,18 +18,33 @@
 [ext_resource type="Texture2D" uid="uid://mx0xh02esobb" path="res://ui/buttons/emergency_button.png" id="7_ttvmm"]
 [ext_resource type="Texture2D" uid="uid://cll583n4badmr" path="res://scenes/game/graphics/table/table_decoration2.png" id="7_yiyiw"]
 [ext_resource type="Texture2D" uid="uid://c42dj4f2p5dqs" path="res://ui/buttons/accept_button.png" id="8_h5wn8"]
+[ext_resource type="Texture2D" uid="uid://b8tej2evewbu3" path="res://ui/buttons/emergency_button_hover.png" id="8_mj55a"]
 [ext_resource type="Script" path="res://ui/stats_container/stats_container.gd" id="9_f07pv"]
 [ext_resource type="Texture2D" uid="uid://dpgjmrl5uuvo8" path="res://entities/packages/box/graphics/box.png" id="9_j1wal"]
+[ext_resource type="Texture2D" uid="uid://cbi2nbpih7ev7" path="res://ui/buttons/emergency_button_pressed.png" id="9_n70hm"]
+[ext_resource type="Texture2D" uid="uid://dfits2j68rm2u" path="res://ui/buttons/emergency_disabled.png" id="10_7v0cx"]
 [ext_resource type="Texture2D" uid="uid://bvyndehskgl1f" path="res://ui/stats_container/graphics/coin.png" id="10_xwoyr"]
 [ext_resource type="Texture2D" uid="uid://c1fuuqwtbkkds" path="res://entities/emergency_module/keypad.png" id="11_ebbve"]
+[ext_resource type="Texture2D" uid="uid://dcb6ydq8taaol" path="res://ui/buttons/accept_button_hover.png" id="12_60dsw"]
 [ext_resource type="Texture2D" uid="uid://byoy4hqusvlds" path="res://ui/stats_container/graphics/strike.png" id="12_xb1sl"]
 [ext_resource type="Texture2D" uid="uid://b5x7jxgjhscc8" path="res://ui/panel.png" id="13_1o150"]
+[ext_resource type="Texture2D" uid="uid://b4kbms1dpxp51" path="res://ui/buttons/accept_button_pressed.png" id="13_oqfgs"]
+[ext_resource type="Texture2D" uid="uid://bl7aj2dmlhpoh" path="res://ui/buttons/accept_button_disabled.png" id="14_gduhh"]
 [ext_resource type="Texture2D" uid="uid://dvtq3nlhda6lo" path="res://scenes/game/graphics/border.png" id="14_o33iu"]
 [ext_resource type="Texture2D" uid="uid://ce7v5hjbfm5ei" path="res://ui/progress_bar/under.png" id="14_ogtul"]
+[ext_resource type="Texture2D" uid="uid://c6j6os1rfv4j2" path="res://ui/progress_bar/fill_emergency.png" id="15_dsmix"]
 [ext_resource type="Texture2D" uid="uid://73jnfsbs3rjq" path="res://ui/progress_bar/border.png" id="15_kkt2q"]
+[ext_resource type="Texture2D" uid="uid://c63xgyr4j7ocj" path="res://ui/progress_bar/fill_normal.png" id="16_23ip5"]
 [ext_resource type="Texture2D" uid="uid://ewvysmrso6d5" path="res://scenes/game/graphics/wall/wall_decoration.png" id="17_nlatq"]
 [ext_resource type="Texture2D" uid="uid://t3ryi2inpjgp" path="res://entities/xray/graphics/xray.png" id="17_u2lnh"]
 [ext_resource type="Texture2D" uid="uid://u6wcejef6fm1" path="res://scenes/game/graphics/bg.png" id="18_4apnj"]
+[ext_resource type="Texture2D" uid="uid://vns4u1aw07sq" path="res://entities/emergency_module/keypad_hover.png" id="19_0flgl"]
+[ext_resource type="Texture2D" uid="uid://cb1h8st7s045s" path="res://entities/emergency_module/keypad_disabled.png" id="20_nroji"]
+[ext_resource type="Texture2D" uid="uid://bkgmaajtqp3sh" path="res://entities/emergency_module/emergency_keypad_panel/display.png" id="21_3q47j"]
+[ext_resource type="Texture2D" uid="uid://bynrdy5uuy4eu" path="res://entities/emergency_module/emergency_keypad_panel/button.png" id="22_amina"]
+[ext_resource type="Texture2D" uid="uid://bnsjx4wro4fjc" path="res://scenes/game/graphics/table.png" id="31_lajfo"]
+[ext_resource type="Texture2D" uid="uid://kwkoqtvpnhil" path="res://entities/emergency_crate/graphics/crate_bottom.png" id="32_b2w7x"]
+[ext_resource type="Texture2D" uid="uid://d4ejv8ag53m6o" path="res://entities/emergency_crate/graphics/crate_decoration.png" id="33_fdnng"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h1ktb"]
 texture = ExtResource("6_4fdm3")
@@ -42,12 +57,58 @@ texture_margin_top = 14.0
 texture_margin_right = 14.0
 texture_margin_bottom = 42.0
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jsqyr"]
+texture = ExtResource("8_mj55a")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 42.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vfn5u"]
+texture = ExtResource("9_n70hm")
+texture_margin_left = 14.0
+texture_margin_top = 30.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fu3we"]
+texture = ExtResource("10_7v0cx")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 42.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gx0jm"]
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pjlxq"]
 texture = ExtResource("8_h5wn8")
 texture_margin_left = 14.0
 texture_margin_top = 35.0
 texture_margin_right = 100.0
 texture_margin_bottom = 62.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6uybi"]
+texture = ExtResource("12_60dsw")
+texture_margin_left = 14.0
+texture_margin_top = 35.0
+texture_margin_right = 100.0
+texture_margin_bottom = 62.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p2h2l"]
+texture = ExtResource("13_oqfgs")
+texture_margin_left = 14.0
+texture_margin_top = 51.0
+texture_margin_right = 100.0
+texture_margin_bottom = 40.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_adl5j"]
+texture = ExtResource("14_gduhh")
+texture_margin_left = 14.0
+texture_margin_top = 35.0
+texture_margin_right = 100.0
+texture_margin_bottom = 62.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0wsyv"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_85yi6"]
 texture = ExtResource("13_1o150")
@@ -59,14 +120,46 @@ texture_margin_bottom = 14.0
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rreug"]
 texture = ExtResource("11_ebbve")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x5fn5"]
-bg_color = Color(0.255659, 0.255659, 0.255659, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gk736"]
+texture = ExtResource("19_0flgl")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_whimn"]
-bg_color = Color(0.963617, 0.121957, 0.251386, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ltgkb"]
+texture = ExtResource("19_0flgl")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ymref"]
-bg_color = Color(0, 0.718134, 0.366609, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pg0ji"]
+texture = ExtResource("20_nroji")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2xoq1"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u46ae"]
+texture = ExtResource("13_1o150")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mxst1"]
+texture = ExtResource("21_3q47j")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6tgc2"]
+texture = ExtResource("22_amina")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
+modulate_color = Color(0.701961, 0.219608, 0.192157, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ajktt"]
+texture = ExtResource("22_amina")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
+modulate_color = Color(0.137255, 0.564706, 0.388235, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2433e"]
 texture = ExtResource("13_1o150")
@@ -80,30 +173,30 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, -0.0681197)]
+"values": [Vector2(641, -131)]
 }
 
 [sub_resource type="Animation" id="Animation_j0ks7"]
 resource_name = "toggle"
-length = 0.7
+length = 0.9
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.7),
+"times": PackedFloat32Array(0, 0.3, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(0, -0.0681197), Vector2(-7.62344e-07, 9.58362), Vector2(-0.012491, 10.7304)]
+"values": [Vector2(641, -131), Vector2(641, 242), Vector2(641, 289)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gv6mo"]
@@ -115,7 +208,7 @@ _data = {
 [node name="Game" type="Node2D" node_paths=PackedStringArray("package_spawn_point", "emergency_button", "accept_button")]
 script = ExtResource("1_w4xhy")
 packages_scenes = Array[PackedScene]([ExtResource("2_gk3w8"), ExtResource("6_p84wr")])
-package_spawn_point = NodePath("PackagesSpawnPoint")
+package_spawn_point = NodePath("WallWindow/PackagesSpawnPoint")
 emergency_button = NodePath("UI/Table/VBoxContainer/HBoxContainer/EmergencyButton")
 accept_button = NodePath("UI/Table/VBoxContainer/HBoxContainer/AcceptButton")
 
@@ -149,7 +242,7 @@ texture_repeat = 2
 layout_mode = 0
 offset_top = -24.0
 offset_right = 325.0
-offset_bottom = 9.0
+offset_bottom = -1.0
 scale = Vector2(4, 4)
 theme_override_styles/panel = SubResource("StyleBoxTexture_h1ktb")
 
@@ -179,12 +272,22 @@ custom_minimum_size = Vector2(200, 130)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_styles/normal = SubResource("StyleBoxTexture_bw53p")
+theme_override_styles/hover = SubResource("StyleBoxTexture_jsqyr")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_vfn5u")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_fu3we")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gx0jm")
+text = "EMERGENCY"
 
 [node name="AcceptButton" type="Button" parent="UI/Table/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_styles/normal = SubResource("StyleBoxTexture_pjlxq")
+theme_override_styles/hover = SubResource("StyleBoxTexture_6uybi")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_p2h2l")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_adl5j")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0wsyv")
+text = "ACCEPT"
 
 [node name="NinePatchRect" type="NinePatchRect" parent="UI/Table"]
 layout_mode = 0
@@ -235,21 +338,80 @@ offset_bottom = 223.0
 grow_vertical = 2
 scale = Vector2(2.36, 2.36)
 theme_override_styles/normal = SubResource("StyleBoxTexture_rreug")
+theme_override_styles/hover = SubResource("StyleBoxTexture_gk736")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ltgkb")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_pg0ji")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2xoq1")
+disabled = true
 text = "
 "
 script = ExtResource("5_2847e")
 
-[node name="TimeLeftProgressBar" type="TextureProgressBar" parent="UI"]
-unique_name_in_owner = true
+[node name="TimeLeftProgressBarContainer" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Under" type="TextureRect" parent="UI/TimeLeftProgressBarContainer"]
+layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -263.0
-offset_right = 263.0
+offset_left = 365.0
+offset_top = 6.0
+offset_right = 877.0
+offset_bottom = 64.0
+grow_horizontal = 2
+texture = ExtResource("14_ogtul")
+expand_mode = 2
+
+[node name="FillEmergency" type="TextureRect" parent="UI/TimeLeftProgressBarContainer"]
+unique_name_in_owner = true
+visible = false
+texture_repeat = 2
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 374.0
+offset_top = 17.0
+offset_right = 869.0
+offset_bottom = 55.0
+grow_horizontal = 2
+texture = ExtResource("15_dsmix")
+expand_mode = 2
+stretch_mode = 1
+
+[node name="FillNormal" type="TextureRect" parent="UI/TimeLeftProgressBarContainer"]
+unique_name_in_owner = true
+visible = false
+texture_repeat = 2
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 374.0
+offset_top = 17.0
+offset_right = 869.0
+offset_bottom = 55.0
+grow_horizontal = 2
+texture = ExtResource("16_23ip5")
+expand_mode = 2
+stretch_mode = 1
+
+[node name="TimeLeftProgressBar" type="TextureProgressBar" parent="UI/TimeLeftProgressBarContainer"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 357.0
+offset_right = 883.0
 offset_bottom = 72.0
 grow_horizontal = 2
 step = 0.001
-value = 30.0
+value = 1.0
 fill_mode = 1
 nine_patch_stretch = true
 stretch_margin_left = 14
@@ -260,7 +422,7 @@ texture_over = ExtResource("15_kkt2q")
 texture_progress = ExtResource("14_ogtul")
 script = ExtResource("4_1w6ym")
 
-[node name="TimeLeftLabel" type="Label" parent="UI/TimeLeftProgressBar"]
+[node name="TimeLeftLabel" type="Label" parent="UI/TimeLeftProgressBarContainer/TimeLeftProgressBar"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -285,7 +447,7 @@ offset_right = 185.0
 offset_bottom = 241.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_x5fn5")
+theme_override_styles/panel = SubResource("StyleBoxTexture_u46ae")
 script = ExtResource("6_pw2re")
 number_button_scene = ExtResource("7_qrn5g")
 
@@ -303,10 +465,11 @@ grow_vertical = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="UI/EmergencyKeypadPanel/VBoxContainer"]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_mxst1")
 
 [node name="EnteredCodeLabel" type="Label" parent="UI/EmergencyKeypadPanel/VBoxContainer/PanelContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 90)
+custom_minimum_size = Vector2(0, 65.96)
 layout_mode = 2
 theme_override_font_sizes/font_size = 46
 horizontal_alignment = 1
@@ -322,6 +485,7 @@ layout_mode = 2
 columns = 3
 
 [node name="Spacer2" type="Control" parent="UI/EmergencyKeypadPanel/VBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(0, 16.245)
 layout_mode = 2
 
@@ -334,14 +498,14 @@ alignment = 1
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/normal = SubResource("StyleBoxFlat_whimn")
+theme_override_styles/normal = SubResource("StyleBoxTexture_6tgc2")
 text = "X"
 
 [node name="AcceptButton" type="Button" parent="UI/EmergencyKeypadPanel/VBoxContainer/ButtonsContainer"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/normal = SubResource("StyleBoxFlat_ymref")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ajktt")
 text = "O"
 
 [node name="PanelContainer" type="PanelContainer" parent="UI"]
@@ -525,8 +689,6 @@ patch_margin_right = 5
 patch_margin_bottom = 4
 
 [node name="WallWindow" type="Node2D" parent="."]
-metadata/_edit_group_ = true
-metadata/_edit_lock_ = true
 
 [node name="WindowMask" type="PointLight2D" parent="WallWindow"]
 position = Vector2(639.5, 258.5)
@@ -543,23 +705,60 @@ texture = ExtResource("18_4apnj")
 region_enabled = true
 region_rect = Rect2(-613, -277, 1145, 534)
 
+[node name="PackagesSpawnPoint" type="Marker2D" parent="WallWindow"]
+position = Vector2(640, 292)
+
 [node name="EmergencyCrate" type="Node2D" parent="WallWindow"]
-position = Vector2(641, -93)
+position = Vector2(641, -131)
 scale = Vector2(4.36, 4.36)
 script = ExtResource("7_fli0l")
 
-[node name="Sprite2D" type="Sprite2D" parent="WallWindow/EmergencyCrate"]
-modulate = Color(0.109804, 0.109804, 0.109804, 0.458824)
+[node name="Crate" type="Sprite2D" parent="WallWindow/EmergencyCrate"]
 material = ExtResource("3_h6v4r")
-position = Vector2(0, -0.0681197)
-scale = Vector2(13.5321, 3.28611)
-texture = ExtResource("2_pk478")
+position = Vector2(0, -8.92167)
+scale = Vector2(6.8664, 2.37813)
+texture = ExtResource("31_lajfo")
+region_rect = Rect2(-167, 57, 263, 39)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="WallWindow/EmergencyCrate"]
 unique_name_in_owner = true
 libraries = {
 "": SubResource("AnimationLibrary_gv6mo")
 }
+
+[node name="Decoration1" type="NinePatchRect" parent="WallWindow/EmergencyCrate"]
+material = ExtResource("3_h6v4r")
+offset_left = -112.0
+offset_top = 28.0
+offset_right = 110.0
+offset_bottom = 41.0
+texture = ExtResource("32_b2w7x")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 4
+patch_margin_bottom = 6
+
+[node name="Decoration2" type="TextureRect" parent="WallWindow/EmergencyCrate"]
+texture_repeat = 2
+material = ExtResource("3_h6v4r")
+offset_left = -110.0
+offset_top = 11.0
+offset_right = 111.0
+offset_bottom = 28.0
+texture = ExtResource("33_fdnng")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Decoration3" type="TextureRect" parent="WallWindow/EmergencyCrate"]
+texture_repeat = 2
+material = ExtResource("3_h6v4r")
+offset_left = -109.862
+offset_top = -53.6697
+offset_right = 111.138
+offset_bottom = -36.6697
+texture = ExtResource("33_fdnng")
+expand_mode = 1
+stretch_mode = 1
 
 [node name="Xray" type="PointLight2D" parent="."]
 position = Vector2(500, 266)
@@ -569,9 +768,6 @@ range_item_cull_mask = 2
 texture = ExtResource("17_u2lnh")
 texture_scale = 0.43
 script = ExtResource("5_yaqef")
-
-[node name="PackagesSpawnPoint" type="Marker2D" parent="."]
-position = Vector2(640, 292)
 
 [node name="Timers" type="Node" parent="."]
 
@@ -600,4 +796,5 @@ one_shot = true
 [connection signal="pressed" from="UI/EmergencyKeypadPanel/VBoxContainer/ButtonsContainer/ResetButton" to="UI/EmergencyKeypadPanel" method="_on_reset_button_pressed"]
 [connection signal="pressed" from="UI/EmergencyKeypadPanel/VBoxContainer/ButtonsContainer/AcceptButton" to="UI/EmergencyKeypadPanel" method="_on_accept_button_pressed"]
 [connection signal="timeout" from="Timers/TimerToSpawnPackage" to="." method="_on_timer_to_spawn_package_timeout"]
+[connection signal="timeout" from="Timers/TimerTimeToLeft" to="UI/TimeLeftProgressBarContainer/TimeLeftProgressBar" method="_on_timer_time_to_left_timeout"]
 [connection signal="timeout" from="Timers/TimerExtraTime" to="." method="_on_timer_extra_time_timeout"]

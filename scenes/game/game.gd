@@ -34,17 +34,17 @@ func spawn_package() -> void:
 	toggle_buttons(true)
 	var package_scene: PackedScene = packages_scenes.pick_random()
 	current_package = package_scene.instantiate()
-	add_child(current_package)
+	package_spawn_point.add_child(current_package)
 	current_package.global_position = package_spawn_point.global_position
 	
 	print(current_package.is_evil())
-	time_left_progress_bar.start_timer(10.0)
+	time_left_progress_bar.start_timer(10.0, time_left_progress_bar.TimerType.NORMAL)
 	Globals.packages_current_count += 1
 
 func _on_emergency_button_pressed():
 	toggle_buttons(false)
 	emergency_mode_toggled.emit(true)
-	time_left_progress_bar.start_timer(7.0)
+	time_left_progress_bar.start_timer(7.0, time_left_progress_bar.TimerType.EMERGENCY)
 
 
 func _on_accept_button_pressed():
@@ -93,6 +93,7 @@ func _on_timer_to_spawn_package_timeout():
 func _on_timer_extra_time_timeout():
 	toggle_buttons(false)
 	strike()
+	emergency_mode_toggled.emit(false)
 	#ADD CORRECT PACKAGE BEHAVIOUR
 	
 	destroy_package()

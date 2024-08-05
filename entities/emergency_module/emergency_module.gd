@@ -8,7 +8,6 @@ signal emergency_code_checked(is_correct: bool)
 
 var emergency_code: int
 
-
 func _ready() -> void:
 	emergency_code = randi_range(1000, 9999)
 	emergency_code_label.text = str(emergency_code)

@@ -4,7 +4,6 @@
 [ext_resource type="Material" uid="uid://4gnfyg7ugi1n" path="res://scenes/game/window_mask.tres" id="2_fb5ry"]
 
 [node name="Package" type="Node2D"]
-scale = Vector2(12, 12)
 script = ExtResource("1_sjuyr")
 
 [node name="NormalSprite" type="Sprite2D" parent="."]

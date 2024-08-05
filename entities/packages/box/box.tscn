@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dpgjmrl5uuvo8" path="res://entities/packages/box/graphics/box.png" id="4_gpv4q"]
 
 [node name="Box" instance=ExtResource("1_54ueh")]
+scale = Vector2(3, 3)
 x_ray_sprites = Array[Texture2D]([ExtResource("2_guhwv"), ExtResource("3_0qffl")])
 
 [node name="NormalSprite" parent="." index="0"]
