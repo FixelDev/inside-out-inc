@@ -12,6 +12,7 @@ evil_packages_percent = 0.2
 alien_percent = 0.6
 alien_in_package_percent = 0.3
 alien_parts_in_package_percent = 0.1
+alien_parts_in_package_timer_percent = 0.0
 alien_parts_easy_percent = 1.0
 alien_parts_medium_percent = 0.0
 alien_parts_hard_percent = 0.0

@@ -12,6 +12,7 @@ class_name Day extends Resource
 @export var alien_percent: float
 @export var alien_in_package_percent: float
 @export var alien_parts_in_package_percent: float
+@export var alien_parts_in_package_timer_percent: float
 
 @export_group("Alien parts difficulty")
 @export var alien_parts_easy_percent: float
