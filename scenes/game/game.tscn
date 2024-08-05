@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://domuj11pt21e0"]
+[gd_scene load_steps=31 format=3 uid="uid://domuj11pt21e0"]
 
 [ext_resource type="Texture2D" uid="uid://0xu767unbmot" path="res://scenes/game/graphics/wall.png" id="1_jn13p"]
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_w4xhy"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://txy8dn2rvt0i" path="res://scenes/game/graphics/window.png" id="2_pk478"]
 [ext_resource type="Material" uid="uid://4gnfyg7ugi1n" path="res://scenes/game/window_mask.tres" id="3_h6v4r"]
 [ext_resource type="Script" path="res://scenes/game/time_left_progress_bar.gd" id="4_1w6ym"]
+[ext_resource type="StyleBox" uid="uid://bv61dycl0wq5p" path="res://scenes/game/graphics/table_texture.tres" id="4_4t4ae"]
 [ext_resource type="Script" path="res://entities/emergency_module/emergency_module.gd" id="4_jyb38"]
 [ext_resource type="Script" path="res://entities/emergency_module/emergency_keypad.gd" id="5_2847e"]
 [ext_resource type="Script" path="res://entities/xray/xray.gd" id="5_yaqef"]
@@ -17,16 +18,17 @@
 [ext_resource type="Texture2D" uid="uid://dpgjmrl5uuvo8" path="res://entities/packages/box/graphics/box.png" id="9_j1wal"]
 [ext_resource type="Texture2D" uid="uid://bvyndehskgl1f" path="res://ui/stats_container/graphics/coin.png" id="10_xwoyr"]
 [ext_resource type="Texture2D" uid="uid://byoy4hqusvlds" path="res://ui/stats_container/graphics/strike.png" id="12_xb1sl"]
+[ext_resource type="Texture2D" uid="uid://dvtq3nlhda6lo" path="res://scenes/game/graphics/border.png" id="14_o33iu"]
 [ext_resource type="Texture2D" uid="uid://t3ryi2inpjgp" path="res://entities/xray/graphics/xray.png" id="17_u2lnh"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4i6qj"]
-bg_color = Color(0.0605303, 0.0605304, 0.0605303, 1)
+[ext_resource type="Texture2D" uid="uid://u6wcejef6fm1" path="res://scenes/game/graphics/bg.png" id="18_4apnj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xhsd4"]
 bg_color = Color(0.851395, 0, 0.170154, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fmgvr"]
 bg_color = Color(1.58831e-06, 0.726311, 0.168332, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_keo0h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x5fn5"]
 bg_color = Color(0.255659, 0.255659, 0.255659, 1)
@@ -92,7 +94,7 @@ offset_top = -261.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_4i6qj")
+theme_override_styles/panel = ExtResource("4_4t4ae")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/Table"]
 layout_mode = 1
@@ -104,28 +106,6 @@ offset_top = 56.0
 offset_right = -353.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="TimeLeftProgressBar" type="ProgressBar" parent="UI/Table/VBoxContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 29.635)
-layout_mode = 2
-max_value = 10.0
-step = 0.001
-value = 10.0
-show_percentage = false
-script = ExtResource("4_1w6ym")
-
-[node name="TimeLeftLabel" type="Label" parent="UI/Table/VBoxContainer/TimeLeftProgressBar"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "22.3"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Spacer" type="Control" parent="UI/Table/VBoxContainer"]
 custom_minimum_size = Vector2(0, 14.3)
@@ -187,6 +167,36 @@ disabled = true
 text = "tel"
 script = ExtResource("5_2847e")
 
+[node name="TimeLeftProgressBar" type="ProgressBar" parent="UI"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 29.635)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -287.0
+offset_top = 25.0
+offset_right = 287.0
+offset_bottom = 54.635
+grow_horizontal = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_keo0h")
+max_value = 10.0
+step = 0.001
+value = 10.0
+show_percentage = false
+script = ExtResource("4_1w6ym")
+
+[node name="TimeLeftLabel" type="Label" parent="UI/TimeLeftProgressBar"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "22.3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="EmergencyKeypadPanel" type="Panel" parent="UI"]
 visible = false
 anchors_preset = 8
@@ -195,9 +205,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -185.0
-offset_top = -351.0
+offset_top = -241.5
 offset_right = 185.0
-offset_bottom = 132.0
+offset_bottom = 241.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_x5fn5")
@@ -210,9 +220,9 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 25.0
-offset_top = 19.0
+offset_top = 34.0
 offset_right = -25.0
-offset_bottom = -19.0
+offset_bottom = -33.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -221,6 +231,7 @@ layout_mode = 2
 
 [node name="EnteredCodeLabel" type="Label" parent="UI/EmergencyKeypadPanel/VBoxContainer/PanelContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 90)
 layout_mode = 2
 theme_override_font_sizes/font_size = 46
 horizontal_alignment = 1
@@ -316,34 +327,65 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 31
 text = "0/2"
 
+[node name="NinePatchRect" type="NinePatchRect" parent="UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -97.5
+offset_top = -79.0
+offset_right = 97.5
+offset_bottom = 79.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_o33iu")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
 [node name="Wall" type="Sprite2D" parent="."]
+texture_repeat = 2
 position = Vector2(641, 292)
-scale = Vector2(80.0625, 36.625)
+scale = Vector2(4.36, 4.36)
 texture = ExtResource("1_jn13p")
+region_enabled = true
+region_rect = Rect2(0, 0, 297.472, 148.222)
 metadata/_edit_group_ = true
 
-[node name="WindowMask" type="PointLight2D" parent="Wall"]
-position = Vector2(0, -1.46075)
-scale = Vector2(0.793911, 0.66041)
+[node name="WallWindow" type="Node2D" parent="."]
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="WindowMask" type="PointLight2D" parent="WallWindow"]
+position = Vector2(639.5, 258.5)
+scale = Vector2(59.5625, 25.5625)
 energy = 0.0
 texture = ExtResource("2_pk478")
 
-[node name="Window" type="Sprite2D" parent="Wall"]
+[node name="Window" type="Sprite2D" parent="WallWindow"]
+texture_repeat = 2
 material = ExtResource("3_h6v4r")
-texture = ExtResource("2_pk478")
+position = Vector2(644, 260)
+scale = Vector2(3.56, 3.56)
+texture = ExtResource("18_4apnj")
+region_enabled = true
+region_rect = Rect2(-613, -277, 1145, 534)
 
-[node name="EmergencyCrate" type="Node2D" parent="Wall"]
-position = Vector2(0, -12.5324)
+[node name="EmergencyCrate" type="Node2D" parent="WallWindow"]
+position = Vector2(641, -93)
+scale = Vector2(4.36, 4.36)
 script = ExtResource("7_fli0l")
 
-[node name="Sprite2D" type="Sprite2D" parent="Wall/EmergencyCrate"]
+[node name="Sprite2D" type="Sprite2D" parent="WallWindow/EmergencyCrate"]
 modulate = Color(0.109804, 0.109804, 0.109804, 0.458824)
 material = ExtResource("3_h6v4r")
 position = Vector2(0, -0.0681197)
-scale = Vector2(0.825917, 0.721826)
+scale = Vector2(13.5321, 3.28611)
 texture = ExtResource("2_pk478")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Wall/EmergencyCrate"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="WallWindow/EmergencyCrate"]
 unique_name_in_owner = true
 libraries = {
 "": SubResource("AnimationLibrary_gv6mo")
@@ -378,7 +420,7 @@ wait_time = 2.0
 one_shot = true
 
 [connection signal="emergency_mode_toggled" from="." to="UI/EmergencyModule" method="_on_game_emergency_mode_toggled"]
-[connection signal="emergency_mode_toggled" from="." to="Wall/EmergencyCrate" method="_on_game_emergency_mode_toggled"]
+[connection signal="emergency_mode_toggled" from="." to="WallWindow/EmergencyCrate" method="_on_game_emergency_mode_toggled"]
 [connection signal="pressed" from="UI/Table/VBoxContainer/HBoxContainer/EmergencyButton" to="." method="_on_emergency_button_pressed"]
 [connection signal="pressed" from="UI/Table/VBoxContainer/HBoxContainer/AcceptButton" to="." method="_on_accept_button_pressed"]
 [connection signal="emergency_code_checked" from="UI/EmergencyModule" to="." method="_on_emergency_module_emergency_code_checked"]
@@ -388,5 +430,5 @@ one_shot = true
 [connection signal="pressed" from="UI/EmergencyKeypadPanel/VBoxContainer/ButtonsContainer/ResetButton" to="UI/EmergencyKeypadPanel" method="_on_reset_button_pressed"]
 [connection signal="pressed" from="UI/EmergencyKeypadPanel/VBoxContainer/ButtonsContainer/AcceptButton" to="UI/EmergencyKeypadPanel" method="_on_accept_button_pressed"]
 [connection signal="timeout" from="Timers/TimerToSpawnPackage" to="." method="_on_timer_to_spawn_package_timeout"]
-[connection signal="timeout" from="Timers/TimerTimeToLeft" to="UI/Table/VBoxContainer/TimeLeftProgressBar" method="_on_timer_time_to_left_timeout"]
+[connection signal="timeout" from="Timers/TimerTimeToLeft" to="UI/TimeLeftProgressBar" method="_on_timer_time_to_left_timeout"]
 [connection signal="timeout" from="Timers/TimerExtraTime" to="." method="_on_timer_extra_time_timeout"]
