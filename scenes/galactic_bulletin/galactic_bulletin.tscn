@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://ddbur8nrk7v2v"]
+[gd_scene load_steps=4 format=3 uid="uid://ddbur8nrk7v2v"]
 
 [ext_resource type="Script" path="res://scenes/galactic_bulletin/galactic_bulletin.gd" id="1_scx40"]
+[ext_resource type="Script" path="res://scenes/galactic_bulletin/galactic_bulletin_panel.gd" id="2_4qvp5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_blgrw"]
 bg_color = Color(0.0549306, 0.0561564, 0.0966754, 1)
@@ -31,6 +32,7 @@ offset_right = 250.0
 offset_bottom = 260.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("2_4qvp5")
 
 [node name="DayPanel" type="Panel" parent="UI/BG/GalacticBulletinPanel"]
 layout_mode = 1
@@ -44,6 +46,7 @@ offset_bottom = 19.0
 grow_horizontal = 2
 
 [node name="DayLabel" type="Label" parent="UI/BG/GalacticBulletinPanel/DayPanel"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

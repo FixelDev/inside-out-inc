@@ -5,22 +5,21 @@ class_name Package extends Node2D
 @onready var x_ray_sprite = %XRaySprite
 @onready var alien_parts_holder = %AlienPartsHolder
 
-enum PackageType {NORMAL, ALIEN, ALIEN_PARTS}
 
-var package_type: PackageType
+var package_type: String
 
 
-func _ready() -> void:
-	package_type = PackageType.values().pick_random()
+func init_package(package_type: String) -> void:
+	self.package_type = package_type
+	
 	set_random_xray_sprite()
 	
 	match(package_type):
-		PackageType.ALIEN:
+		Globals.ALIEN_IN_PACKAGE:
 			spawn_alien_inside()
 			
-		PackageType.ALIEN_PARTS:
+		Globals.ALIEN_PARTS_IN_PACKAGE:
 			spawn_alien_parts_inside()
-
 
 func spawn_alien_inside() -> void:
 	var alien: Alien = AlienDatabase.get_random_alien_scene().instantiate()
@@ -44,9 +43,9 @@ func spawn_alien_parts_inside() -> void:
 
 
 func set_random_xray_sprite() -> void:
-	if package_type != PackageType.ALIEN:
+	if package_type != Globals.ALIEN_IN_PACKAGE:
 		x_ray_sprite.texture = x_ray_sprites.pick_random()
 
 
 func is_evil() -> bool:
-	return package_type != PackageType.NORMAL
+	return package_type != Globals.NORMAL_PACKAGE

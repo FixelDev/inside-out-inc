@@ -1,8 +1,7 @@
-[gd_scene load_steps=71 format=3 uid="uid://domuj11pt21e0"]
+[gd_scene load_steps=70 format=3 uid="uid://domuj11pt21e0"]
 
 [ext_resource type="Texture2D" uid="uid://0xu767unbmot" path="res://scenes/game/graphics/wall.png" id="1_jn13p"]
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_w4xhy"]
-[ext_resource type="PackedScene" uid="uid://bco4ic8i0xaln" path="res://entities/packages/alien_package/alien_package_1.tscn" id="2_gk3w8"]
 [ext_resource type="Texture2D" uid="uid://txy8dn2rvt0i" path="res://scenes/game/graphics/window.png" id="2_pk478"]
 [ext_resource type="Material" uid="uid://4gnfyg7ugi1n" path="res://scenes/game/window_mask.tres" id="3_h6v4r"]
 [ext_resource type="Script" path="res://scenes/game/time_left_progress_bar.gd" id="4_1w6ym"]
@@ -11,7 +10,6 @@
 [ext_resource type="Script" path="res://entities/emergency_module/emergency_keypad.gd" id="5_2847e"]
 [ext_resource type="Script" path="res://entities/xray/xray.gd" id="5_yaqef"]
 [ext_resource type="Texture2D" uid="uid://dbdwgcwke8seb" path="res://scenes/game/graphics/table/table_decoration.png" id="6_4fdm3"]
-[ext_resource type="PackedScene" uid="uid://djfmjkuiwck6x" path="res://entities/packages/box/box.tscn" id="6_p84wr"]
 [ext_resource type="Script" path="res://entities/emergency_module/emergency_keypad_panel/emergency_keypad_panel.gd" id="6_pw2re"]
 [ext_resource type="Script" path="res://entities/emergency_crate/emergency_crate.gd" id="7_fli0l"]
 [ext_resource type="PackedScene" uid="uid://vvlem36g7n7g" path="res://entities/emergency_module/emergency_keypad_panel/number_button.tscn" id="7_qrn5g"]
@@ -45,6 +43,7 @@
 [ext_resource type="Texture2D" uid="uid://bnsjx4wro4fjc" path="res://scenes/game/graphics/table.png" id="31_lajfo"]
 [ext_resource type="Texture2D" uid="uid://kwkoqtvpnhil" path="res://entities/emergency_crate/graphics/crate_bottom.png" id="32_b2w7x"]
 [ext_resource type="Texture2D" uid="uid://d4ejv8ag53m6o" path="res://entities/emergency_crate/graphics/crate_decoration.png" id="33_fdnng"]
+[ext_resource type="Script" path="res://scenes/game/package_spawner.gd" id="46_mkleq"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h1ktb"]
 texture = ExtResource("6_4fdm3")
@@ -205,19 +204,17 @@ _data = {
 "toggle": SubResource("Animation_j0ks7")
 }
 
-[node name="Game" type="Node2D" node_paths=PackedStringArray("package_spawn_point", "emergency_button", "accept_button")]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("emergency_button", "accept_button")]
 script = ExtResource("1_w4xhy")
-packages_scenes = Array[PackedScene]([ExtResource("2_gk3w8"), ExtResource("6_p84wr")])
-package_spawn_point = NodePath("WallWindow/PackagesSpawnPoint")
 emergency_button = NodePath("UI/Table/VBoxContainer/HBoxContainer/EmergencyButton")
 accept_button = NodePath("UI/Table/VBoxContainer/HBoxContainer/AcceptButton")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="WindowBorder" type="NinePatchRect" parent="UI"]
-offset_left = 147.0
+offset_left = 198.0
 offset_top = 38.0
-offset_right = 393.0
+offset_right = 419.0
 offset_bottom = 150.0
 scale = Vector2(4, 4)
 texture = ExtResource("14_o33iu")
@@ -512,10 +509,10 @@ text = "O"
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -149.0
-offset_top = 32.0
-offset_right = 1.00012
-offset_bottom = 250.0
+offset_left = -214.0
+offset_top = 38.0
+offset_right = -70.0
+offset_bottom = 256.0
 grow_horizontal = 0
 scale = Vector2(1.37857, 1.38881)
 theme_override_styles/panel = SubResource("StyleBoxTexture_2433e")
@@ -528,6 +525,7 @@ theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
 [node name="StatsContainer" type="VBoxContainer" parent="UI/PanelContainer/MarginContainer"]
+visible = false
 layout_mode = 2
 script = ExtResource("9_f07pv")
 
@@ -692,7 +690,7 @@ patch_margin_bottom = 4
 
 [node name="WindowMask" type="PointLight2D" parent="WallWindow"]
 position = Vector2(639.5, 258.5)
-scale = Vector2(59.5625, 25.5625)
+scale = Vector2(53.3125, 25.5625)
 energy = 0.0
 texture = ExtResource("2_pk478")
 
@@ -784,6 +782,10 @@ one_shot = true
 unique_name_in_owner = true
 wait_time = 2.0
 one_shot = true
+
+[node name="PackageSpawner" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("46_mkleq")
 
 [connection signal="emergency_mode_toggled" from="." to="UI/EmergencyModule" method="_on_game_emergency_mode_toggled"]
 [connection signal="emergency_mode_toggled" from="." to="WallWindow/EmergencyCrate" method="_on_game_emergency_mode_toggled"]

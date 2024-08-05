@@ -4,17 +4,20 @@ class_name Day extends Resource
 @export var packages_amount: int
 @export var strikes_amount: int
 
-@export_group("Normal and evil packages percentage")
-@export var normal_packages_percent: float
-@export var evil_packages_percent: float
+@export var package_type_odds: Dictionary = {
+	Globals.NORMAL_PACKAGE: 0.0,
+	Globals.EVIL_PACKAGE: 0.0,
+}
 
-@export_group("Evil packages types percentage")
-@export var alien_percent: float
-@export var alien_in_package_percent: float
-@export var alien_parts_in_package_percent: float
-@export var alien_parts_in_package_timer_percent: float
+@export var evil_package_odds: Dictionary = {
+	Globals.ALIEN_PACKAGE: 0.0,
+	Globals.ALIEN_IN_PACKAGE: 0.0,
+	Globals.ALIEN_PARTS_IN_PACKAGE: 0.0,
+	Globals.ALIEN_PARTS_IN_PACKAGE_TIMER: 0.0,
+}
 
-@export_group("Alien parts difficulty")
-@export var alien_parts_easy_percent: float
-@export var alien_parts_medium_percent: float
-@export var alien_parts_hard_percent: float
+@export var alien_parts_difficulty_odds: Dictionary = {
+	Globals.ALIEN_PARTS_EASY: 0.0,
+	Globals.ALIEN_PARTS_MEDIUM: 0.0,
+	Globals.ALIEN_PARTS_HARD: 0.0,
+}

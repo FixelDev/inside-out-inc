@@ -7,11 +7,18 @@ script = ExtResource("1_4tuy3")
 number = 2
 packages_amount = 5
 strikes_amount = 3
-normal_packages_percent = 0.7
-evil_packages_percent = 0.3
-alien_percent = 0.5
-alien_in_package_percent = 0.3
-alien_parts_in_package_percent = 0.2
-alien_parts_easy_percent = 0.8
-alien_parts_medium_percent = 0.2
-alien_parts_hard_percent = 0.0
+package_type_odds = {
+"evil_package": 0.4,
+"normal_package": 0.6
+}
+evil_package_odds = {
+"alien_in_package": 0.5,
+"alien_package": 0.5,
+"alien_parts_in_package": 0.0,
+"alien_parts_in_package_timer": 0.0
+}
+alien_parts_difficulty_odds = {
+"alien_parts_easy": 0.0,
+"alien_parts_hard": 0.0,
+"alien_parts_medium": 0.0
+}
