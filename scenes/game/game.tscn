@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://domuj11pt21e0"]
+[gd_scene load_steps=72 format=3 uid="uid://domuj11pt21e0"]
 
 [ext_resource type="Texture2D" uid="uid://0xu767unbmot" path="res://scenes/game/graphics/wall.png" id="1_jn13p"]
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_w4xhy"]
@@ -43,6 +43,8 @@
 [ext_resource type="Texture2D" uid="uid://bnsjx4wro4fjc" path="res://scenes/game/graphics/table.png" id="31_lajfo"]
 [ext_resource type="Texture2D" uid="uid://kwkoqtvpnhil" path="res://entities/emergency_crate/graphics/crate_bottom.png" id="32_b2w7x"]
 [ext_resource type="Texture2D" uid="uid://d4ejv8ag53m6o" path="res://entities/emergency_crate/graphics/crate_decoration.png" id="33_fdnng"]
+[ext_resource type="PackedScene" uid="uid://djfmjkuiwck6x" path="res://entities/packages/box/box.tscn" id="45_e7rc1"]
+[ext_resource type="PackedScene" uid="uid://bco4ic8i0xaln" path="res://entities/packages/alien_package/alien_package_1.tscn" id="46_fy6wy"]
 [ext_resource type="Script" path="res://scenes/game/package_spawner.gd" id="46_mkleq"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h1ktb"]
@@ -525,7 +527,6 @@ theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
 [node name="StatsContainer" type="VBoxContainer" parent="UI/PanelContainer/MarginContainer"]
-visible = false
 layout_mode = 2
 script = ExtResource("9_f07pv")
 
@@ -783,9 +784,12 @@ unique_name_in_owner = true
 wait_time = 2.0
 one_shot = true
 
-[node name="PackageSpawner" type="Node2D" parent="."]
+[node name="PackageSpawner" type="Node2D" parent="." node_paths=PackedStringArray("package_spawn_point")]
 unique_name_in_owner = true
 script = ExtResource("46_mkleq")
+packages_scenes = Array[PackedScene]([ExtResource("45_e7rc1")])
+aliens_scenes = Array[PackedScene]([ExtResource("46_fy6wy")])
+package_spawn_point = NodePath("../WallWindow/PackagesSpawnPoint")
 
 [connection signal="emergency_mode_toggled" from="." to="UI/EmergencyModule" method="_on_game_emergency_mode_toggled"]
 [connection signal="emergency_mode_toggled" from="." to="WallWindow/EmergencyCrate" method="_on_game_emergency_mode_toggled"]

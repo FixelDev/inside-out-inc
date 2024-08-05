@@ -2,8 +2,8 @@ class_name Package extends Node2D
 
 @export var x_ray_sprites: Array[Texture2D]
 
-@onready var x_ray_sprite = %XRaySprite
-@onready var alien_parts_holder = %AlienPartsHolder
+var x_ray_sprite
+var alien_parts_holder
 
 
 var package_type: String
@@ -11,6 +11,9 @@ var package_type: String
 
 func init_package(package_type: String) -> void:
 	self.package_type = package_type
+	
+	x_ray_sprite = %XRaySprite
+	alien_parts_holder = %AlienPartsHolder
 	
 	set_random_xray_sprite()
 	
@@ -20,6 +23,7 @@ func init_package(package_type: String) -> void:
 			
 		Globals.ALIEN_PARTS_IN_PACKAGE:
 			spawn_alien_parts_inside()
+
 
 func spawn_alien_inside() -> void:
 	var alien: Alien = AlienDatabase.get_random_alien_scene().instantiate()
@@ -44,7 +48,7 @@ func spawn_alien_parts_inside() -> void:
 
 func set_random_xray_sprite() -> void:
 	if package_type != Globals.ALIEN_IN_PACKAGE:
-		x_ray_sprite.texture = x_ray_sprites.pick_random()
+		%XRaySprite.texture = x_ray_sprites.pick_random()
 
 
 func is_evil() -> bool:

@@ -48,3 +48,38 @@ var coins: int = 0:
 		stats_changed.emit()
 	get:
 		return coins
+
+
+func get_dictionary_key_based_on_odds(dictionary_odds: Dictionary) -> String:
+	var successful_keys_dict: Dictionary
+	var successful_values_dict: Dictionary
+	
+	var index = 0
+	
+	for key in dictionary_odds.keys():
+		var random_value: float = randf_range(0.01, 1)
+		
+		if random_value <= dictionary_odds[key]:
+			successful_keys_dict[index] = key
+			successful_values_dict[index] = dictionary_odds[key]
+			index += 1
+	
+	var dict_key: String
+	
+	if successful_keys_dict.keys().size() > 0:		
+		var smallest_value_index: int = successful_values_dict.keys()[0]
+		
+		for key_index in successful_keys_dict.keys():
+			if successful_values_dict[key_index] < successful_values_dict[smallest_value_index]:
+				smallest_value_index = key_index
+				
+		dict_key = successful_keys_dict[smallest_value_index]
+	else:
+		var biggest_odds: float = dictionary_odds.values()[0]
+		
+		for key in dictionary_odds.keys():
+			if dictionary_odds[key] >= biggest_odds:
+				biggest_odds = dictionary_odds[key]
+				dict_key = key
+	
+	return dict_key
