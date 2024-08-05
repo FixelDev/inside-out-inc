@@ -1,11 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cd05ohtnknfib"]
+[gd_scene load_steps=2 format=3 uid="uid://cd05ohtnknfib"]
 
 [ext_resource type="Script" path="res://entities/aliens/alien.gd" id="1_0n3s4"]
-[ext_resource type="Material" uid="uid://4gnfyg7ugi1n" path="res://scenes/game/window_mask.tres" id="1_3l6n0"]
 
 [node name="Alien" type="Sprite2D"]
 light_mask = 2
 visibility_layer = 2
-material = ExtResource("1_3l6n0")
 region_rect = Rect2(0, 16, 16, 16)
 script = ExtResource("1_0n3s4")

@@ -7,6 +7,8 @@
 [node name="AlienPackage" instance=ExtResource("1_8500i")]
 scale = Vector2(12, 12)
 x_ray_sprites = Array[Texture2D]([ExtResource("2_aw60n")])
+window_mask = null
 
 [node name="NormalSprite" parent="." index="0"]
+unique_name_in_owner = false
 texture = ExtResource("3_8lxyy")

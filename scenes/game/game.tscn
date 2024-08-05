@@ -819,7 +819,7 @@ expand_mode = 1
 stretch_mode = 1
 
 [node name="Xray" type="PointLight2D" parent="."]
-position = Vector2(500, 266)
+position = Vector2(554, 248)
 scale = Vector2(1.54688, 1.54688)
 energy = 0.0
 range_item_cull_mask = 2

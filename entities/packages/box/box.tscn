@@ -12,7 +12,6 @@ scale = Vector2(3, 3)
 x_ray_sprites = Array[Texture2D]([ExtResource("2_guhwv"), ExtResource("3_0qffl")])
 
 [node name="NormalSprite" parent="." index="0"]
-material = null
 texture = ExtResource("4_gpv4q")
 
 [node name="Marker2D" type="Marker2D" parent="AlienPartsHolder/Easy" index="0"]

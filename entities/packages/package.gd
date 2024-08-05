@@ -1,6 +1,7 @@
 class_name Package extends Node2D
 
 @export var x_ray_sprites: Array[Texture2D]
+@export var window_mask: CanvasItemMaterial
 
 var x_ray_sprite
 
@@ -12,6 +13,9 @@ func init_package(package_type: String) -> void:
 	self.package_type = package_type
 	
 	x_ray_sprite = %XRaySprite
+	x_ray_sprite.material = window_mask
+	
+	%NormalSprite.material = window_mask
 	
 	set_random_xray_sprite()
 	
@@ -26,6 +30,7 @@ func init_package(package_type: String) -> void:
 func spawn_alien_inside() -> void:
 	var alien: Alien = AlienDatabase.get_random_alien_scene().instantiate()
 	add_child(alien)
+	alien.material = window_mask
 	alien.global_position = global_position
 
 
@@ -52,6 +57,7 @@ func spawn_alien_parts_inside(with_timer: bool) -> void:
 		
 		var alien_part = random_alien_part_scene.instantiate()
 		add_child(alien_part)
+		alien_part.material = window_mask
 		alien_part.global_position = spawn_point.global_position
 		
 		if with_timer:
