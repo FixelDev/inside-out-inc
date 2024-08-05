@@ -63,7 +63,9 @@ func give_coins(amount: int) -> void:
 
 func strike() -> void:
 	Globals.strikes_current_count += 1
-
+	
+	if Globals.strikes_current_count >= Globals.strikes_count:
+		SceneManager.load_scene(SceneManager.game_over_scene)
 
 func destroy_package() -> void:
 	current_package.queue_free()

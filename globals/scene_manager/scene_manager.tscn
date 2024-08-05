@@ -1,6 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://be04v30voe4it"]
+[gd_scene load_steps=6 format=3 uid="uid://be04v30voe4it"]
 
 [ext_resource type="Script" path="res://globals/scene_manager/scene_manager.gd" id="1_liu1a"]
+[ext_resource type="PackedScene" uid="uid://domuj11pt21e0" path="res://scenes/game/game.tscn" id="2_amwk1"]
+[ext_resource type="PackedScene" uid="uid://du7fbmcghrmf4" path="res://scenes/menu/menu.tscn" id="3_1yvtm"]
+[ext_resource type="PackedScene" uid="uid://fuicjracfebf" path="res://scenes/game_over/game_over.tscn" id="4_2omyk"]
+[ext_resource type="PackedScene" uid="uid://ddbur8nrk7v2v" path="res://scenes/galactic_bulletin/galactic_bulletin.tscn" id="4_r7uft"]
 
 [node name="SceneManager" type="Node2D"]
 script = ExtResource("1_liu1a")
+game_scene = ExtResource("2_amwk1")
+menu_scene = ExtResource("3_1yvtm")
+galactic_bulletin_scene = ExtResource("4_r7uft")
+game_over_scene = ExtResource("4_2omyk")

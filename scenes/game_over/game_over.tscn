@@ -1,10 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://fuicjracfebf"]
+[gd_scene load_steps=7 format=3 uid="uid://fuicjracfebf"]
 
 [ext_resource type="Texture2D" uid="uid://u6wcejef6fm1" path="res://scenes/game/graphics/bg.png" id="1_bdssc"]
 [ext_resource type="Script" path="res://scenes/game_over/game_over.gd" id="1_e1f0a"]
-[ext_resource type="PackedScene" uid="uid://domuj11pt21e0" path="res://scenes/game/game.tscn" id="2_bg4pj"]
 [ext_resource type="Texture2D" uid="uid://dax526h3k8g01" path="res://scenes/game_over/pink_slip.png" id="2_vih7x"]
-[ext_resource type="PackedScene" uid="uid://du7fbmcghrmf4" path="res://scenes/menu/menu.tscn" id="3_muypk"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ihk6y"]
 texture = ExtResource("1_bdssc")
@@ -23,8 +21,6 @@ texture_margin_bottom = 14.0
 
 [node name="GameOver" type="Node2D"]
 script = ExtResource("1_e1f0a")
-game_scene = ExtResource("2_bg4pj")
-menu_scene = ExtResource("3_muypk")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
