@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://domuj11pt21e0"]
+[gd_scene load_steps=43 format=3 uid="uid://domuj11pt21e0"]
 
 [ext_resource type="Texture2D" uid="uid://0xu767unbmot" path="res://scenes/game/graphics/wall.png" id="1_jn13p"]
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_w4xhy"]
@@ -25,6 +25,8 @@
 [ext_resource type="Texture2D" uid="uid://byoy4hqusvlds" path="res://ui/stats_container/graphics/strike.png" id="12_xb1sl"]
 [ext_resource type="Texture2D" uid="uid://b5x7jxgjhscc8" path="res://ui/panel.png" id="13_1o150"]
 [ext_resource type="Texture2D" uid="uid://dvtq3nlhda6lo" path="res://scenes/game/graphics/border.png" id="14_o33iu"]
+[ext_resource type="Texture2D" uid="uid://ce7v5hjbfm5ei" path="res://ui/progress_bar/under.png" id="14_ogtul"]
+[ext_resource type="Texture2D" uid="uid://73jnfsbs3rjq" path="res://ui/progress_bar/border.png" id="15_kkt2q"]
 [ext_resource type="Texture2D" uid="uid://ewvysmrso6d5" path="res://scenes/game/graphics/wall/wall_decoration.png" id="17_nlatq"]
 [ext_resource type="Texture2D" uid="uid://t3ryi2inpjgp" path="res://entities/xray/graphics/xray.png" id="17_u2lnh"]
 [ext_resource type="Texture2D" uid="uid://u6wcejef6fm1" path="res://scenes/game/graphics/bg.png" id="18_4apnj"]
@@ -47,10 +49,15 @@ texture_margin_top = 35.0
 texture_margin_right = 100.0
 texture_margin_bottom = 62.0
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_85yi6"]
+texture = ExtResource("13_1o150")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rreug"]
 texture = ExtResource("11_ebbve")
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_keo0h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x5fn5"]
 bg_color = Color(0.255659, 0.255659, 0.255659, 1)
@@ -207,11 +214,12 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 19.0
-offset_top = 117.0
-offset_right = 105.0
-offset_bottom = 164.0
+offset_left = 7.0
+offset_top = 100.0
+offset_right = 140.0
+offset_bottom = 166.0
 grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_85yi6")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -231,22 +239,25 @@ text = "
 "
 script = ExtResource("5_2847e")
 
-[node name="TimeLeftProgressBar" type="ProgressBar" parent="UI"]
+[node name="TimeLeftProgressBar" type="TextureProgressBar" parent="UI"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 29.635)
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -287.0
-offset_top = 25.0
-offset_right = 287.0
-offset_bottom = 54.635
+offset_left = -263.0
+offset_right = 263.0
+offset_bottom = 72.0
 grow_horizontal = 2
-theme_override_styles/background = SubResource("StyleBoxFlat_keo0h")
-max_value = 10.0
 step = 0.001
-value = 10.0
-show_percentage = false
+value = 30.0
+fill_mode = 1
+nine_patch_stretch = true
+stretch_margin_left = 14
+stretch_margin_top = 14
+stretch_margin_right = 14
+stretch_margin_bottom = 14
+texture_over = ExtResource("15_kkt2q")
+texture_progress = ExtResource("14_ogtul")
 script = ExtResource("4_1w6ym")
 
 [node name="TimeLeftLabel" type="Label" parent="UI/TimeLeftProgressBar"]
@@ -418,6 +429,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Decoration4" type="NinePatchRect" parent="Wall/Decorations"]
+layout_mode = 0
 offset_left = -136.927
 offset_top = -55.0459
 offset_right = -111.927
@@ -429,6 +441,7 @@ patch_margin_right = 5
 patch_margin_bottom = 4
 
 [node name="Decoration7" type="NinePatchRect" parent="Wall/Decorations"]
+layout_mode = 0
 offset_left = 128.0
 offset_top = -3.0
 offset_right = 148.0
@@ -440,6 +453,7 @@ patch_margin_right = 5
 patch_margin_bottom = 4
 
 [node name="Decoration8" type="NinePatchRect" parent="Wall/Decorations"]
+layout_mode = 0
 offset_left = 99.0
 offset_top = 12.0
 offset_right = 129.0
@@ -451,6 +465,7 @@ patch_margin_right = 5
 patch_margin_bottom = 4
 
 [node name="Decoration5" type="NinePatchRect" parent="Wall/Decorations"]
+layout_mode = 0
 offset_left = -160.092
 offset_top = -55.0459
 offset_right = -135.092
@@ -462,6 +477,7 @@ patch_margin_right = 5
 patch_margin_bottom = 4
 
 [node name="Decoration6" type="NinePatchRect" parent="Wall/Decorations"]
+layout_mode = 0
 offset_left = -150.0
 offset_top = -67.0
 offset_right = -113.0
@@ -473,6 +489,7 @@ patch_margin_right = 5
 patch_margin_bottom = 4
 
 [node name="Decoration3" type="NinePatchRect" parent="Wall/Decorations"]
+layout_mode = 0
 offset_left = -150.0
 offset_top = -11.0
 offset_right = -125.0
@@ -484,6 +501,7 @@ patch_margin_right = 5
 patch_margin_bottom = 4
 
 [node name="Decoration2" type="NinePatchRect" parent="Wall/Decorations"]
+layout_mode = 0
 offset_left = -132.0
 offset_top = 8.0
 offset_right = -100.0
@@ -495,6 +513,7 @@ patch_margin_right = 5
 patch_margin_bottom = 4
 
 [node name="Decoration" type="NinePatchRect" parent="Wall/Decorations"]
+layout_mode = 0
 offset_left = -164.22
 offset_top = 22.0184
 offset_right = -122.22
@@ -581,5 +600,4 @@ one_shot = true
 [connection signal="pressed" from="UI/EmergencyKeypadPanel/VBoxContainer/ButtonsContainer/ResetButton" to="UI/EmergencyKeypadPanel" method="_on_reset_button_pressed"]
 [connection signal="pressed" from="UI/EmergencyKeypadPanel/VBoxContainer/ButtonsContainer/AcceptButton" to="UI/EmergencyKeypadPanel" method="_on_accept_button_pressed"]
 [connection signal="timeout" from="Timers/TimerToSpawnPackage" to="." method="_on_timer_to_spawn_package_timeout"]
-[connection signal="timeout" from="Timers/TimerTimeToLeft" to="UI/TimeLeftProgressBar" method="_on_timer_time_to_left_timeout"]
 [connection signal="timeout" from="Timers/TimerExtraTime" to="." method="_on_timer_extra_time_timeout"]

@@ -1,4 +1,4 @@
-class_name TimeLeftProgressBar extends ProgressBar
+class_name TimeLeftProgressBar extends TextureProgressBar
 
 @onready var time_left_label = %TimeLeftLabel
 @onready var timer_time_to_left = %TimerTimeToLeft
