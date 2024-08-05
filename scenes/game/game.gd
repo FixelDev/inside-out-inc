@@ -13,6 +13,9 @@ signal emergency_mode_toggled(enabled: bool)
 
 func _ready() -> void:
 	init_stats()
+	#var timer:SceneTreeTimer = get_tree().create_timer(1)
+	#timer.timeout.connect(spawn_package)
+	
 	spawn_package()
 	
 
@@ -36,13 +39,14 @@ func spawn_package() -> void:
 	toggle_buttons(true)
 	package_spawner.spawn_package()
 	
-	time_left_progress_bar.start_timer(10.0, time_left_progress_bar.TimerType.NORMAL)
+	time_left_progress_bar.start_timer(DayManager.current_day.normal_time_left, time_left_progress_bar.TimerType.NORMAL)
 	Globals.packages_current_count += 1
+
 
 func _on_emergency_button_pressed():
 	toggle_buttons(false)
 	emergency_mode_toggled.emit(true)
-	time_left_progress_bar.start_timer(7.0, time_left_progress_bar.TimerType.EMERGENCY)
+	time_left_progress_bar.start_timer(DayManager.current_day.emergency_time_left, time_left_progress_bar.TimerType.EMERGENCY)
 
 
 func _on_accept_button_pressed():

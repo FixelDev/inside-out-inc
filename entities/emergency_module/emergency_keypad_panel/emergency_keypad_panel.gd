@@ -21,6 +21,7 @@ func generate_number_buttons() -> void:
 	generate_number_button("0")
 	generate_dummy_button()
 
+
 func generate_dummy_button() -> void:
 	var number_button: Button = number_button_scene.instantiate()
 	number_buttons_container.add_child(number_button)
@@ -68,3 +69,7 @@ func _on_emergency_module_emergency_code_checked(is_correct):
 		
 	else:
 		show_on_display("INCORRECT")
+
+
+func clear() -> void:
+	show_on_display("")

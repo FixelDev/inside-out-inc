@@ -16,8 +16,8 @@ func spawn_package() -> void:
 		package_scene = packages_scenes.pick_random()
 	
 	current_package = package_scene.instantiate()
-	current_package.init_package(package_type)
 	package_spawn_point.add_child(current_package)
+	current_package.init_package(package_type)
 	current_package.global_position = package_spawn_point.global_position
 
 

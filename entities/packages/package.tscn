@@ -17,3 +17,12 @@ material = ExtResource("2_fb5ry")
 
 [node name="AlienPartsHolder" type="Node2D" parent="."]
 unique_name_in_owner = true
+
+[node name="Easy" type="Node2D" parent="AlienPartsHolder"]
+unique_name_in_owner = true
+
+[node name="Medium" type="Node2D" parent="AlienPartsHolder"]
+unique_name_in_owner = true
+
+[node name="Hard" type="Node2D" parent="AlienPartsHolder"]
+unique_name_in_owner = true

@@ -3,6 +3,8 @@ class_name Day extends Resource
 @export var number: int
 @export var packages_amount: int
 @export var strikes_amount: int
+@export var normal_time_left: float
+@export var emergency_time_left: float
 
 @export var package_type_odds: Dictionary = {
 	Globals.NORMAL_PACKAGE: 0.0,
