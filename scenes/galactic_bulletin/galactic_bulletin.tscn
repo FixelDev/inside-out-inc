@@ -1,0 +1,79 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddbur8nrk7v2v"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_blgrw"]
+bg_color = Color(0.0549306, 0.0561564, 0.0966754, 1)
+
+[node name="GalacticBulletin" type="Node2D"]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="BG" type="Panel" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_blgrw")
+
+[node name="GalacticBulletinPanel" type="Panel" parent="UI/BG"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -260.0
+offset_right = 250.0
+offset_bottom = 260.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DayPanel" type="Panel" parent="UI/BG/GalacticBulletinPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -189.0
+offset_top = -21.0
+offset_right = 189.0
+offset_bottom = 19.0
+grow_horizontal = 2
+
+[node name="DayLabel" type="Label" parent="UI/BG/GalacticBulletinPanel/DayPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Day 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="UI/BG/GalacticBulletinPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 34.0
+offset_top = 56.0
+offset_right = -34.0
+offset_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "BLABLA"
+
+[node name="StartButton" type="Button" parent="UI/BG/GalacticBulletinPanel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -8.0
+offset_right = 4.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Start"
