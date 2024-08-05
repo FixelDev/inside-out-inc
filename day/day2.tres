@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Day" load_steps=2 format=3 uid="uid://c2ght1wrtoe4d"]
+
+[ext_resource type="Script" path="res://day/day.gd" id="1_4tuy3"]
+
+[resource]
+script = ExtResource("1_4tuy3")
+number = 2
+packages_amount = 5
+strikes_amount = 3
+normal_packages_percent = 0.7
+evil_packages_percent = 0.3
+alien_percent = 0.5
+alien_in_package_percent = 0.3
+alien_parts_in_package_percent = 0.2
+alien_parts_easy_percent = 0.8
+alien_parts_medium_percent = 0.2
+alien_parts_hard_percent = 0.0

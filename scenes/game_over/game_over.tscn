@@ -1,0 +1,81 @@
+[gd_scene load_steps=6 format=3 uid="uid://fuicjracfebf"]
+
+[ext_resource type="Texture2D" uid="uid://u6wcejef6fm1" path="res://scenes/game/graphics/bg.png" id="1_bdssc"]
+[ext_resource type="Texture2D" uid="uid://dax526h3k8g01" path="res://scenes/game_over/pink_slip.png" id="2_vih7x"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ihk6y"]
+texture = ExtResource("1_bdssc")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_54tuj"]
+bg_color = Color(0.137255, 0.137255, 0.137255, 0.305882)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rut3g"]
+texture = ExtResource("2_vih7x")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
+
+[node name="GameOver" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+texture_repeat = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3.2, 3.2)
+theme_override_styles/panel = SubResource("StyleBoxTexture_ihk6y")
+
+[node name="Panel2" type="Panel" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_54tuj")
+
+[node name="PinkSlip" type="Panel" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -319.0
+offset_top = -249.0
+offset_right = 319.0
+offset_bottom = 141.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_rut3g")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PinkSlip"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 22.0
+offset_top = 17.0
+offset_right = -22.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/PinkSlip/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 46
+text = "PINK SLIP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer/PinkSlip/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 31
+text = "You are fired lol"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -19,11 +19,10 @@ func _ready() -> void:
 	
 
 func init_stats() -> void:
-	Globals.packages_count = 6
+	Globals.packages_count = DayManager.current_day.packages_amount
 	Globals.packages_current_count = 0
-	Globals.strikes_count = 3
+	Globals.strikes_count = DayManager.current_day.strikes_amount
 	Globals.strikes_current_count = 0
-	Globals.coins = 0
 
 
 func _process(delta) -> void:

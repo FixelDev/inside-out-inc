@@ -1,0 +1,9 @@
+[gd_scene load_steps=4 format=3 uid="uid://kw172ydjrdqv"]
+
+[ext_resource type="Script" path="res://globals/day_manager/day_manager.gd" id="1_uhfh6"]
+[ext_resource type="Resource" uid="uid://c83cqmqx7tjty" path="res://day/day1.tres" id="2_r16bc"]
+[ext_resource type="Resource" uid="uid://c2ght1wrtoe4d" path="res://day/day2.tres" id="3_cqlx2"]
+
+[node name="DayManager" type="Node2D"]
+script = ExtResource("1_uhfh6")
+days = Array[Resource("res://day/day.gd")]([ExtResource("2_r16bc"), ExtResource("3_cqlx2")])
