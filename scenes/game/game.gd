@@ -8,6 +8,7 @@ extends Node2D
 @onready var time_left_progress_bar: TimeLeftProgressBar = %TimeLeftProgressBar
 @onready var package_spawner = %PackageSpawner
 @onready var xray = %Xray
+@onready var info_paper = %InfoPaper
 
 signal emergency_mode_toggled(enabled: bool)
 
@@ -18,8 +19,10 @@ func _ready() -> void:
 	#var timer:SceneTreeTimer = get_tree().create_timer(1)
 	#timer.timeout.connect(spawn_package)
 	
-	spawn_package()
-	
+	if DayManager.current_day.number > 1:
+		spawn_package()
+	else:
+		info_paper.visible = true
 
 func init_stats() -> void:
 	Globals.packages_count = DayManager.current_day.packages_amount
@@ -124,3 +127,8 @@ func _on_package_spawner_package_destroyed(is_evil):
 		
 	xray.visible = false
 	timer_to_spawn_package.start()
+
+
+func _on_begin_button_pressed():
+	info_paper.visible = false
+	spawn_package()

@@ -1,0 +1,5 @@
+[gd_resource type="Theme" format=3 uid="uid://dkvqiimbpsekt"]
+
+[resource]
+Label/colors/font_color = Color(0.513726, 0.678431, 0.831373, 1)
+Label/constants/line_spacing = 8

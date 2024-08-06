@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=3 uid="uid://domuj11pt21e0"]
+[gd_scene load_steps=107 format=3 uid="uid://domuj11pt21e0"]
 
 [ext_resource type="Texture2D" uid="uid://0xu767unbmot" path="res://scenes/game/graphics/wall.png" id="1_jn13p"]
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_w4xhy"]
@@ -49,6 +49,11 @@
 [ext_resource type="Texture2D" uid="uid://d4ejv8ag53m6o" path="res://entities/emergency_crate/graphics/crate_decoration.png" id="33_fdnng"]
 [ext_resource type="Texture2D" uid="uid://c4t8nqvyspmif" path="res://entities/emergency_module/emergency_keypad_panel/accept_button_hover.png" id="33_ykf5n"]
 [ext_resource type="Texture2D" uid="uid://cylt3gcsa7vhm" path="res://entities/emergency_module/emergency_keypad_panel/accept_button_pressed.png" id="34_3weag"]
+[ext_resource type="Theme" uid="uid://dkvqiimbpsekt" path="res://scenes/game/info_paper_theme.tres" id="39_ds15h"]
+[ext_resource type="Texture2D" uid="uid://darfsxriegxbq" path="res://scenes/game/graphics/paper.png" id="40_elg3j"]
+[ext_resource type="PackedScene" uid="uid://kold78v3pbef" path="res://ui/line_divider.tscn" id="41_y1et5"]
+[ext_resource type="Texture2D" uid="uid://ir6p6ko5xehv" path="res://scenes/game/graphics/paper_button_hover.png" id="42_681lv"]
+[ext_resource type="Texture2D" uid="uid://dgerfodrjvj10" path="res://scenes/game/graphics/paper_button.png" id="42_uukyc"]
 [ext_resource type="Texture2D" uid="uid://duhabuen6d406" path="res://scenes/game/graphics/emergency_lamp.png" id="44_qa7fk"]
 [ext_resource type="PackedScene" uid="uid://djfmjkuiwck6x" path="res://entities/packages/box/box.tscn" id="45_e7rc1"]
 [ext_resource type="PackedScene" uid="uid://bco4ic8i0xaln" path="res://entities/packages/alien_package/alien_package_1.tscn" id="46_fy6wy"]
@@ -262,6 +267,38 @@ texture_margin_left = 14.0
 texture_margin_top = 14.0
 texture_margin_right = 14.0
 texture_margin_bottom = 14.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iei85"]
+texture = ExtResource("40_elg3j")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ocymi"]
+texture = ExtResource("42_uukyc")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e3acs"]
+texture = ExtResource("42_681lv")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_53tus"]
+texture = ExtResource("42_uukyc")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pk5j0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mixbw"]
 
 [sub_resource type="Animation" id="Animation_f1e78"]
 length = 0.001
@@ -718,6 +755,171 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 16
 text = "0/2"
 
+[node name="InfoPaper" type="PanelContainer" parent="UI"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("39_ds15h")
+theme_override_styles/panel = SubResource("StyleBoxTexture_iei85")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/InfoPaper"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/InfoPaper/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/InfoPaper/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Before you start..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spacer" type="Control" parent="UI/InfoPaper/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
+[node name="LineDivider" parent="UI/InfoPaper/MarginContainer/VBoxContainer" instance=ExtResource("41_y1et5")]
+layout_mode = 2
+color = Color(0.513726, 0.678431, 0.831373, 1)
+
+[node name="Spacer2" type="Control" parent="UI/InfoPaper/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="UI/InfoPaper/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+text = "Hello Inspector, we have a few hints before your first day:"
+autowrap_mode = 2
+
+[node name="Spacer3" type="Control" parent="UI/InfoPaper/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="UI/InfoPaper/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+text = "-Hover your mouse over packages to inspect them"
+autowrap_mode = 2
+
+[node name="Spacer6" type="Control" parent="UI/InfoPaper/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/InfoPaper/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="UI/InfoPaper/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "-If the package is alien-free use:"
+autowrap_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/InfoPaper/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(59.35, 0)
+layout_mode = 2
+texture = ExtResource("8_h5wn8")
+expand_mode = 5
+
+[node name="Spacer4" type="Control" parent="UI/InfoPaper/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="UI/InfoPaper/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="UI/InfoPaper/MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(250.045, 10)
+layout_mode = 2
+text = "-Otherwise use:"
+autowrap_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/InfoPaper/MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(0, 35.64)
+layout_mode = 2
+texture = ExtResource("7_ttvmm")
+expand_mode = 3
+
+[node name="Label5" type="Label" parent="UI/InfoPaper/MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(179.59, 10)
+layout_mode = 2
+text = " and then: "
+autowrap_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="UI/InfoPaper/MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(0, 35.64)
+layout_mode = 2
+texture = ExtResource("11_ebbve")
+expand_mode = 3
+
+[node name="Label6" type="Label" parent="UI/InfoPaper/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(179.59, 10)
+layout_mode = 2
+text = "to enter the emergency code"
+autowrap_mode = 2
+
+[node name="Spacer5" type="Control" parent="UI/InfoPaper/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Label7" type="Label" parent="UI/InfoPaper/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(179.59, 10)
+layout_mode = 2
+text = "-Read Galactic Bulletin to learn what can happen during the day."
+autowrap_mode = 2
+
+[node name="Spacer7" type="Control" parent="UI/InfoPaper/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="LineDivider2" parent="UI/InfoPaper/MarginContainer/VBoxContainer" instance=ExtResource("41_y1et5")]
+layout_mode = 2
+color = Color(0.513726, 0.678431, 0.831373, 1)
+
+[node name="Spacer8" type="Control" parent="UI/InfoPaper/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Label8" type="Label" parent="UI/InfoPaper/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(179.59, 10)
+layout_mode = 2
+text = "Good luck Inspector,
+Inside Out Inc. CEO"
+autowrap_mode = 2
+
+[node name="Spacer9" type="Control" parent="UI/InfoPaper/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="BeginButton" type="Button" parent="UI/InfoPaper/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.513726, 0.678431, 0.831373, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_ocymi")
+theme_override_styles/hover = SubResource("StyleBoxTexture_e3acs")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_53tus")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_pk5j0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mixbw")
+text = "Begin"
+
 [node name="Wall" type="Sprite2D" parent="."]
 texture_repeat = 2
 position = Vector2(641, 292)
@@ -861,7 +1063,6 @@ position = Vector2(1345, 332)
 
 [node name="LaserGun" type="Marker2D" parent="WallWindow"]
 position = Vector2(36, 8)
-scale = Vector2(1, 1)
 
 [node name="DestroyParticles" parent="WallWindow" instance=ExtResource("55_4wqyy")]
 position = Vector2(641, 334)
@@ -973,6 +1174,7 @@ shape = SubResource("RectangleShape2D_skdt4")
 [connection signal="code_submited" from="UI/EmergencyKeypadPanel" to="UI/EmergencyModule" method="_on_emergency_keypad_panel_code_submited"]
 [connection signal="pressed" from="UI/EmergencyKeypadPanel/VBoxContainer/ButtonsContainer/ResetButton" to="UI/EmergencyKeypadPanel" method="_on_reset_button_pressed"]
 [connection signal="pressed" from="UI/EmergencyKeypadPanel/VBoxContainer/ButtonsContainer/AcceptButton" to="UI/EmergencyKeypadPanel" method="_on_accept_button_pressed"]
+[connection signal="pressed" from="UI/InfoPaper/MarginContainer/VBoxContainer/BeginButton" to="." method="_on_begin_button_pressed"]
 [connection signal="timeout" from="Timers/TimerToSpawnPackage" to="." method="_on_timer_to_spawn_package_timeout"]
 [connection signal="timeout" from="Timers/TimerTimeToLeft" to="UI/TimeLeftProgressBarContainer/TimeLeftProgressBar" method="_on_timer_time_to_left_timeout"]
 [connection signal="timeout" from="Timers/TimerExtraTime" to="." method="_on_timer_extra_time_timeout"]
