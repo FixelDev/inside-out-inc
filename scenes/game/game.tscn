@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://domuj11pt21e0"]
+[gd_scene load_steps=79 format=3 uid="uid://domuj11pt21e0"]
 
 [ext_resource type="Texture2D" uid="uid://0xu767unbmot" path="res://scenes/game/graphics/wall.png" id="1_jn13p"]
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_w4xhy"]
@@ -40,6 +40,7 @@
 [ext_resource type="Texture2D" uid="uid://cb1h8st7s045s" path="res://entities/emergency_module/keypad_disabled.png" id="20_nroji"]
 [ext_resource type="Texture2D" uid="uid://bkgmaajtqp3sh" path="res://entities/emergency_module/emergency_keypad_panel/display.png" id="21_3q47j"]
 [ext_resource type="Texture2D" uid="uid://bynrdy5uuy4eu" path="res://entities/emergency_module/emergency_keypad_panel/button.png" id="22_amina"]
+[ext_resource type="Shader" path="res://ui/scrolling_stripes/scrolling_stripes.gdshader" id="22_ri8qu"]
 [ext_resource type="Texture2D" uid="uid://bnsjx4wro4fjc" path="res://scenes/game/graphics/table.png" id="31_lajfo"]
 [ext_resource type="Texture2D" uid="uid://kwkoqtvpnhil" path="res://entities/emergency_crate/graphics/crate_bottom.png" id="32_b2w7x"]
 [ext_resource type="Texture2D" uid="uid://d4ejv8ag53m6o" path="res://entities/emergency_crate/graphics/crate_decoration.png" id="33_fdnng"]
@@ -172,6 +173,16 @@ texture = ExtResource("19_0flgl")
 texture = ExtResource("20_nroji")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2xoq1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k71cx"]
+shader = ExtResource("22_ri8qu")
+shader_parameter/speed = 0.1
+shader_parameter/color = Vector4(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vco7p"]
+shader = ExtResource("22_ri8qu")
+shader_parameter/speed = 0.1
+shader_parameter/color = Vector4(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u46ae"]
 texture = ExtResource("13_1o150")
@@ -428,6 +439,7 @@ expand_mode = 2
 unique_name_in_owner = true
 visible = false
 texture_repeat = 2
+material = SubResource("ShaderMaterial_k71cx")
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -445,6 +457,7 @@ stretch_mode = 1
 unique_name_in_owner = true
 visible = false
 texture_repeat = 2
+material = SubResource("ShaderMaterial_vco7p")
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -831,7 +844,8 @@ expand_mode = 1
 stretch_mode = 1
 
 [node name="Xray" type="PointLight2D" parent="."]
-position = Vector2(827, 303)
+material = ExtResource("3_h6v4r")
+position = Vector2(482, 308)
 scale = Vector2(1.54688, 1.54688)
 energy = 0.0
 range_item_cull_mask = 2

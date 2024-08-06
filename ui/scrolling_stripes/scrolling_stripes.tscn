@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://cxkfs2kfxf0sd"]
+
+[ext_resource type="Shader" path="res://ui/scrolling_stripes/scrolling_stripes.gdshader" id="1_b41td"]
+[ext_resource type="Texture2D" uid="uid://ci4n4s6iqo1y2" path="res://ui/scrolling_stripes/fill_universal.png" id="2_q67ff"]
+[ext_resource type="Script" path="res://ui/scrolling_stripes/scrolling_stripes.gd" id="3_2fwqr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lg2dw"]
+shader = ExtResource("1_b41td")
+shader_parameter/speed = 0.1
+shader_parameter/color = Vector4(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e4gcx"]
+texture = ExtResource("2_q67ff")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="ScrollingStripes" type="Panel"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_lg2dw")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(7.08, 7.08)
+theme_override_styles/panel = SubResource("StyleBoxTexture_e4gcx")
+script = ExtResource("3_2fwqr")
+speed = 0.1
+color = Color(1, 1, 1, 1)
