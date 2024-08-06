@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwxqwd52lirsk"]
+
+[ext_resource type="PackedScene" uid="uid://cf55jit22rshh" path="res://entities/packages/alien_package/alien_package.tscn" id="1_8p45j"]
+[ext_resource type="Texture2D" uid="uid://bxboil1cs7nua" path="res://entities/ceo/ceo.png" id="2_ghyje"]
+[ext_resource type="Texture2D" uid="uid://bqi5n1nfuk6t8" path="res://entities/ceo/ceo_xray.png" id="3_u3hx4"]
+
+[node name="Ceo" instance=ExtResource("1_8p45j")]
+
+[node name="NormalSprite" parent="." index="0"]
+texture = ExtResource("2_ghyje")
+
+[node name="XRaySprite" parent="." index="1"]
+texture = ExtResource("3_u3hx4")

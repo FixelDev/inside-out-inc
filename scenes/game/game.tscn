@@ -1,4 +1,4 @@
-[gd_scene load_steps=107 format=3 uid="uid://domuj11pt21e0"]
+[gd_scene load_steps=108 format=3 uid="uid://domuj11pt21e0"]
 
 [ext_resource type="Texture2D" uid="uid://0xu767unbmot" path="res://scenes/game/graphics/wall.png" id="1_jn13p"]
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_w4xhy"]
@@ -60,6 +60,7 @@
 [ext_resource type="Script" path="res://scenes/game/package_spawner.gd" id="46_mkleq"]
 [ext_resource type="PackedScene" uid="uid://c0qvln8yg28ys" path="res://entities/laser/laser.tscn" id="54_6k7yb"]
 [ext_resource type="PackedScene" uid="uid://ca22i4rw6fnel" path="res://entities/packages/destroy_particles.tscn" id="55_4wqyy"]
+[ext_resource type="PackedScene" uid="uid://dwxqwd52lirsk" path="res://entities/ceo/ceo.tscn" id="61_7lq78"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h1ktb"]
 texture = ExtResource("6_4fdm3")
@@ -1052,6 +1053,16 @@ position = Vector2(116, 48)
 scale = Vector2(2.5625, 2.5625)
 texture = ExtResource("44_qa7fk")
 
+[node name="ceo_destination_point" type="Marker2D" parent="WallWindow"]
+unique_name_in_owner = true
+position = Vector2(625, 318.895)
+scale = Vector2(5, 5)
+
+[node name="ceo_spawn_point" type="Marker2D" parent="WallWindow"]
+unique_name_in_owner = true
+position = Vector2(64.0001, 318.895)
+scale = Vector2(5, 5)
+
 [node name="PackagesSpawnPoint" type="Marker2D" parent="WallWindow"]
 position = Vector2(640, -129)
 
@@ -1157,6 +1168,7 @@ package_forward_point = NodePath("../WallWindow/PackageForwardPoint")
 laser_gun = NodePath("../WallWindow/LaserGun")
 laser_scene = ExtResource("54_6k7yb")
 destroy_particles = NodePath("../WallWindow/DestroyParticles")
+ceo_scene = ExtResource("61_7lq78")
 
 [node name="DestroyArea" type="Area2D" parent="."]
 position = Vector2(640, 337)

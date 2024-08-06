@@ -1,0 +1,117 @@
+[gd_scene load_steps=6 format=3 uid="uid://dv5637c3672aj"]
+
+[ext_resource type="Script" path="res://scenes/ending/ending.gd" id="1_1nwhp"]
+[ext_resource type="PackedScene" uid="uid://cxkfs2kfxf0sd" path="res://ui/scrolling_stripes/scrolling_stripes.tscn" id="1_mqwbs"]
+[ext_resource type="Theme" uid="uid://dkvqiimbpsekt" path="res://scenes/game/info_paper_theme.tres" id="2_ccmw1"]
+[ext_resource type="PackedScene" uid="uid://kold78v3pbef" path="res://ui/line_divider.tscn" id="3_bt0ws"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lletf"]
+bg_color = Color(0.612306, 0.802791, 0.974824, 1)
+
+[node name="Ending" type="Node2D"]
+script = ExtResource("1_1nwhp")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lletf")
+
+[node name="ScrollingStripes" parent="CanvasLayer" instance=ExtResource("1_mqwbs")]
+color = Color(0.298039, 0.545098, 0.886275, 0.211765)
+
+[node name="InfoPaper" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_ccmw1")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/InfoPaper"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/InfoPaper/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/InfoPaper/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Thank you"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="CanvasLayer/InfoPaper/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
+[node name="LineDivider" parent="CanvasLayer/InfoPaper/MarginContainer/VBoxContainer" instance=ExtResource("3_bt0ws")]
+layout_mode = 2
+color = Color(0.513726, 0.678431, 0.831373, 1)
+
+[node name="Control2" type="Control" parent="CanvasLayer/InfoPaper/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="CanvasLayer/InfoPaper/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 10)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Inspector,
+Due to the unfortunate events that occurred with our former CEO, our company image was completely ruined. We will never be ever able to regain our customers' trust. We decided to shut down Inside Out Inc. for good."
+autowrap_mode = 2
+
+[node name="Control3" type="Control" parent="CanvasLayer/InfoPaper/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
+[node name="LineDivider2" parent="CanvasLayer/InfoPaper/MarginContainer/VBoxContainer" instance=ExtResource("3_bt0ws")]
+layout_mode = 2
+color = Color(0.513726, 0.678431, 0.831373, 1)
+
+[node name="Control4" type="Control" parent="CanvasLayer/InfoPaper/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="CanvasLayer/InfoPaper/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 10)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Thank you for your hard work"
+autowrap_mode = 2
+
+[node name="Control6" type="Control" parent="CanvasLayer/InfoPaper/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="CanvasLayer/InfoPaper/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 10)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Inside Out Inc. temporary committee"
+autowrap_mode = 2
+
+[node name="Control5" type="Control" parent="CanvasLayer/InfoPaper/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
+[node name="MenuButton" type="Button" parent="CanvasLayer/InfoPaper/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Main Menu"
+
+[connection signal="pressed" from="CanvasLayer/InfoPaper/MarginContainer/VBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]

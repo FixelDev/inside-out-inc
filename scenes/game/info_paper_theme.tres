@@ -1,5 +1,50 @@
-[gd_resource type="Theme" format=3 uid="uid://dkvqiimbpsekt"]
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://dkvqiimbpsekt"]
+
+[ext_resource type="Texture2D" uid="uid://ir6p6ko5xehv" path="res://scenes/game/graphics/paper_button_hover.png" id="1_in8pp"]
+[ext_resource type="Texture2D" uid="uid://dgerfodrjvj10" path="res://scenes/game/graphics/paper_button.png" id="2_jirn6"]
+[ext_resource type="Texture2D" uid="uid://darfsxriegxbq" path="res://scenes/game/graphics/paper.png" id="3_fy2in"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dv0ps"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3mm2u"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0vtnk"]
+texture = ExtResource("1_in8pp")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x0kc4"]
+texture = ExtResource("2_jirn6")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7brag"]
+texture = ExtResource("2_jirn6")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q0xhr"]
+texture = ExtResource("3_fy2in")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
 
 [resource]
+Button/colors/font_color = Color(0.513726, 0.678431, 0.831373, 1)
+Button/colors/font_focus_color = Color(0.513726, 0.678431, 0.831373, 1)
+Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/styles/disabled = SubResource("StyleBoxEmpty_dv0ps")
+Button/styles/focus = SubResource("StyleBoxEmpty_3mm2u")
+Button/styles/hover = SubResource("StyleBoxTexture_0vtnk")
+Button/styles/normal = SubResource("StyleBoxTexture_x0kc4")
+Button/styles/pressed = SubResource("StyleBoxTexture_7brag")
 Label/colors/font_color = Color(0.513726, 0.678431, 0.831373, 1)
 Label/constants/line_spacing = 8
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_q0xhr")

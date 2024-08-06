@@ -11,4 +11,9 @@ func _ready() -> void:
 	
 func increase_day() -> void:
 	current_day_index += 1
+	
 	current_day = days[current_day_index]
+
+
+func is_last_day() -> bool:
+	return current_day.number == days.size()

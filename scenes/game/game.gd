@@ -33,13 +33,18 @@ func init_stats() -> void:
 
 func spawn_package() -> void:
 	if Globals.packages_current_count >= Globals.packages_count:
-		DayManager.increase_day()
-		SceneManager.load_scene(SceneManager.galactic_bulletin_scene)
+		if DayManager.is_last_day():
+			SceneManager.load_scene(SceneManager.ending_scene)
+		else:
+			DayManager.increase_day()
+			SceneManager.load_scene(SceneManager.galactic_bulletin_scene)
 		return
 	
 	
-	
-	package_spawner.spawn_package()
+	if DayManager.is_last_day() and Globals.packages_current_count == Globals.packages_count - 1:
+		package_spawner.spawn_ceo()
+	else:
+		package_spawner.spawn_package()
 	
 
 

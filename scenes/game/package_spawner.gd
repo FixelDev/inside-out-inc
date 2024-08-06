@@ -9,6 +9,11 @@ class_name PackageSpawner extends Node2D
 @export var laser_scene: PackedScene
 #@export var xray: Node2D
 @export var destroy_particles: CPUParticles2D
+@export var ceo_scene: PackedScene
+
+@onready var ceo_destination_point = %ceo_destination_point
+@onready var ceo_spawn_point = %ceo_spawn_point
+
 
 signal package_delivered()
 signal package_destroyed(is_evil: bool)
@@ -36,6 +41,22 @@ func spawn_package() -> void:
 	
 	var tween: Tween = get_tree().create_tween()
 	tween.tween_property(current_package, "global_position:y", package_destination_point.global_position.y, 1.2).set_trans(Tween.TRANS_CUBIC)
+	tween.parallel().tween_property(current_package, "rotation", 0, 1.2).set_trans(Tween.TRANS_CUBIC)
+	
+	await tween.finished
+	
+	package_delivered.emit()
+
+
+func spawn_ceo() -> void:
+	current_package = ceo_scene.instantiate()
+	ceo_spawn_point.add_child(current_package)
+	current_package.global_position = ceo_spawn_point.global_position
+	current_package.rotation = -0.2
+	Globals.packages_current_count += 1
+	
+	var tween: Tween = get_tree().create_tween()
+	tween.tween_property(current_package, "global_position", ceo_destination_point.global_position, 1.2).set_trans(Tween.TRANS_CUBIC)
 	tween.parallel().tween_property(current_package, "rotation", 0, 1.2).set_trans(Tween.TRANS_CUBIC)
 	
 	await tween.finished
@@ -72,6 +93,7 @@ func _on_destroy_area_area_entered(area):
 	package_destroyed.emit(current_package.is_evil())
 	laser.queue_free()
 	current_package.queue_free()
+
 
 func forward_package() -> void:
 	var tween: Tween = get_tree().create_tween()
