@@ -24,3 +24,7 @@ alien_parts_difficulty_odds = {
 "alien_parts_hard": 1.0,
 "alien_parts_medium": 0.0
 }
+main_title = "ALIEN ATTACKS"
+main_article = "ALIENS HIDE IN THE PACKAGES"
+second_article = "WEATHER IS NICE"
+third_article = "WAR WITH MARS?"

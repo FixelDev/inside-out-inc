@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://ddbur8nrk7v2v"]
+[gd_scene load_steps=12 format=3 uid="uid://ddbur8nrk7v2v"]
 
 [ext_resource type="Script" path="res://scenes/galactic_bulletin/galactic_bulletin.gd" id="1_scx40"]
 [ext_resource type="Script" path="res://scenes/galactic_bulletin/galactic_bulletin_panel.gd" id="2_4qvp5"]
 [ext_resource type="PackedScene" uid="uid://cxkfs2kfxf0sd" path="res://ui/scrolling_stripes/scrolling_stripes.tscn" id="2_80i7w"]
 [ext_resource type="Texture2D" uid="uid://cxg6mm6jc234f" path="res://scenes/galactic_bulletin/stars.png" id="2_ib1uf"]
+[ext_resource type="Texture2D" uid="uid://drqs4k7sh8y31" path="res://scenes/galactic_bulletin/panel.png" id="4_aaphs"]
+[ext_resource type="Texture2D" uid="uid://capyix2w3fn3p" path="res://scenes/galactic_bulletin/text_dummy.png" id="6_ejg10"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_blgrw"]
 bg_color = Color(0.0549306, 0.0561564, 0.0966754, 1)
@@ -13,6 +15,27 @@ texture = ExtResource("2_ib1uf")
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 modulate_color = Color(1, 1, 1, 0.0862745)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kyeok"]
+texture = ExtResource("4_aaphs")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_grkro"]
+texture = ExtResource("4_aaphs")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g301u"]
+texture = ExtResource("4_aaphs")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
 
 [node name="GalacticBulletin" type="Node2D"]
 script = ExtResource("1_scx40")
@@ -25,6 +48,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_blgrw")
 
 [node name="ScrollingStripes" parent="UI/BG" instance=ExtResource("2_80i7w")]
@@ -50,12 +74,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -250.0
+offset_left = -484.0
 offset_top = -260.0
-offset_right = 250.0
+offset_right = 484.0
 offset_bottom = 260.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_kyeok")
 script = ExtResource("2_4qvp5")
 
 [node name="DayPanel" type="Panel" parent="UI/BG/GalacticBulletinPanel"]
@@ -64,10 +90,12 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -189.0
-offset_top = -21.0
+offset_top = -42.0
 offset_right = 189.0
-offset_bottom = 19.0
+offset_bottom = 16.0
 grow_horizontal = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_grkro")
 
 [node name="DayLabel" type="Label" parent="UI/BG/GalacticBulletinPanel/DayPanel"]
 unique_name_in_owner = true
@@ -77,35 +105,228 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Day 1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label" type="Label" parent="UI/BG/GalacticBulletinPanel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/BG/GalacticBulletinPanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 34.0
-offset_top = 56.0
+offset_top = 36.0
 offset_right = -34.0
-offset_bottom = -56.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "BLABLA"
 
-[node name="StartButton" type="Button" parent="UI/BG/GalacticBulletinPanel"]
-layout_mode = 1
+[node name="Title" type="Label" parent="UI/BG/GalacticBulletinPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 26
+text = "GALACTIC BULLETIN"
+
+[node name="Spacer" type="Control" parent="UI/BG/GalacticBulletinPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 6.69)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="UI/BG/GalacticBulletinPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+
+[node name="Spacer2" type="Control" parent="UI/BG/GalacticBulletinPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 14.925)
+layout_mode = 2
+
+[node name="ColorRect2" type="ColorRect" parent="UI/BG/GalacticBulletinPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+
+[node name="Spacer3" type="Control" parent="UI/BG/GalacticBulletinPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 14.925)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/BG/GalacticBulletinPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 19
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/BG/GalacticBulletinPanel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="MainArticleTitle" type="Label" parent="UI/BG/GalacticBulletinPanel/VBoxContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 17
+text = "ALIENS ATTACKS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spacer4" type="Control" parent="UI/BG/GalacticBulletinPanel/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 14.925)
+layout_mode = 2
+
+[node name="MainArticle" type="Label" parent="UI/BG/GalacticBulletinPanel/VBoxContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 14
+text = "dssssssssssssssssssssss sd sd sd s  sd s ds s d sds d s ds  ds ds ds ds dsd sd sds ds d sds ds d s"
+autowrap_mode = 2
+
+[node name="Spacer5" type="Control" parent="UI/BG/GalacticBulletinPanel/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 14.925)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/BG/GalacticBulletinPanel/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+theme_override_constants/separation = 35
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="UI/BG/GalacticBulletinPanel/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+modulate = Color(1, 1, 1, 0.411765)
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("6_ejg10")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="UI/BG/GalacticBulletinPanel/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+modulate = Color(1, 1, 1, 0.411765)
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("6_ejg10")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="UI/BG/GalacticBulletinPanel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect3" type="TextureRect" parent="UI/BG/GalacticBulletinPanel/VBoxContainer/HBoxContainer/VBoxContainer2"]
+modulate = Color(1, 1, 1, 0.411765)
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("6_ejg10")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Spacer6" type="Control" parent="UI/BG/GalacticBulletinPanel/VBoxContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 14.925)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/BG/GalacticBulletinPanel/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="ColorRect" type="ColorRect" parent="UI/BG/GalacticBulletinPanel/VBoxContainer/HBoxContainer/VBoxContainer2/MarginContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+color = Color(1, 1, 1, 0.411765)
+
+[node name="Spacer7" type="Control" parent="UI/BG/GalacticBulletinPanel/VBoxContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 14.925)
+layout_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="UI/BG/GalacticBulletinPanel/VBoxContainer/HBoxContainer/VBoxContainer2"]
+modulate = Color(1, 1, 1, 0.411765)
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("6_ejg10")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Spacer8" type="Control" parent="UI/BG/GalacticBulletinPanel/VBoxContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 14.925)
+layout_mode = 2
+
+[node name="SecondArticle" type="Label" parent="UI/BG/GalacticBulletinPanel/VBoxContainer/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "BLA BLA BL ABLA BLA BL ABLA BLA BL A"
+autowrap_mode = 2
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="UI/BG/GalacticBulletinPanel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect5" type="TextureRect" parent="UI/BG/GalacticBulletinPanel/VBoxContainer/HBoxContainer/VBoxContainer3"]
+modulate = Color(1, 1, 1, 0.411765)
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("6_ejg10")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Spacer4" type="Control" parent="UI/BG/GalacticBulletinPanel/VBoxContainer/HBoxContainer/VBoxContainer3"]
+custom_minimum_size = Vector2(0, 14.925)
+layout_mode = 2
+
+[node name="ThirdArticle" type="Label" parent="UI/BG/GalacticBulletinPanel/VBoxContainer/HBoxContainer/VBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 17
+text = "ALIENS ATTACKS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spacer5" type="Control" parent="UI/BG/GalacticBulletinPanel/VBoxContainer/HBoxContainer/VBoxContainer3"]
+custom_minimum_size = Vector2(0, 14.925)
+layout_mode = 2
+
+[node name="TextureRect6" type="TextureRect" parent="UI/BG/GalacticBulletinPanel/VBoxContainer/HBoxContainer/VBoxContainer3"]
+modulate = Color(1, 1, 1, 0.411765)
+custom_minimum_size = Vector2(0, 130)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("6_ejg10")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Spacer5" type="Control" parent="UI/BG/GalacticBulletinPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 14.925)
+layout_mode = 2
+
+[node name="ColorRect3" type="ColorRect" parent="UI/BG/GalacticBulletinPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+
+[node name="Spacer4" type="Control" parent="UI/BG/GalacticBulletinPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 14.925)
+layout_mode = 2
+
+[node name="ColorRect4" type="ColorRect" parent="UI/BG/GalacticBulletinPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+
+[node name="StartButton" type="Button" parent="UI"]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -4.0
-offset_top = -8.0
-offset_right = 4.0
+offset_left = -78.0
+offset_top = -153.0
+offset_right = 78.0
+offset_bottom = -100.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_g301u")
 text = "Start"
 
-[connection signal="pressed" from="UI/BG/GalacticBulletinPanel/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="UI/StartButton" to="." method="_on_start_button_pressed"]

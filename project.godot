@@ -29,6 +29,10 @@ window/size/viewport_height=720
 window/size/mode=2
 window/stretch/mode="canvas_items"
 
+[gui]
+
+theme/custom="res://ui/main_theme.tres"
+
 [layer_names]
 
 2d_render/layer_1="window"

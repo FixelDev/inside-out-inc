@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bl8q8msvtdykb"]
+
+[ext_resource type="FontFile" uid="uid://dext2mstv4khv" path="res://ui/fonts/PressStart2P-vaV7.ttf" id="1_t8xrr"]
+
+[resource]
+Button/fonts/font = ExtResource("1_t8xrr")
+Label/fonts/font = ExtResource("1_t8xrr")

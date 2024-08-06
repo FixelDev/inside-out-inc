@@ -23,3 +23,8 @@ class_name Day extends Resource
 	Globals.ALIEN_PARTS_MEDIUM: 0.0,
 	Globals.ALIEN_PARTS_HARD: 0.0,
 }
+
+@export var main_title: String
+@export_multiline var main_article: String
+@export_multiline var second_article: String
+@export_multiline var third_article: String
