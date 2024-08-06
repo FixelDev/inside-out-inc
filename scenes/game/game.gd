@@ -39,8 +39,6 @@ func spawn_package() -> void:
 	toggle_buttons(true)
 	package_spawner.spawn_package()
 	
-	time_left_progress_bar.start_timer(DayManager.current_day.normal_time_left, time_left_progress_bar.TimerType.NORMAL)
-	Globals.packages_current_count += 1
 
 
 func _on_emergency_button_pressed():
@@ -70,8 +68,9 @@ func strike() -> void:
 	if Globals.strikes_current_count >= Globals.strikes_count:
 		SceneManager.load_scene(SceneManager.game_over_scene)
 
+
 func destroy_package() -> void:
-	package_spawner.current_package.queue_free()
+	package_spawner.destroy_current_package()
 	
 	timer_to_spawn_package.start()
 

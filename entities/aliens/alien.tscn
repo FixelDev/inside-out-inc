@@ -5,7 +5,6 @@
 [node name="Alien" type="Sprite2D"]
 light_mask = 2
 visibility_layer = 2
-z_index = 1
 region_rect = Rect2(0, 16, 16, 16)
 script = ExtResource("1_0n3s4")
 min_scale = 2.0
