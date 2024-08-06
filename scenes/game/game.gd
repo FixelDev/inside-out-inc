@@ -7,11 +7,13 @@ extends Node2D
 @onready var timer_to_spawn_package: Timer = %TimerToSpawnPackage
 @onready var time_left_progress_bar: TimeLeftProgressBar = %TimeLeftProgressBar
 @onready var package_spawner = %PackageSpawner
+@onready var xray = %Xray
 
 signal emergency_mode_toggled(enabled: bool)
 
 
 func _ready() -> void:
+	toggle_buttons(false)
 	init_stats()
 	#var timer:SceneTreeTimer = get_tree().create_timer(1)
 	#timer.timeout.connect(spawn_package)
@@ -26,17 +28,14 @@ func init_stats() -> void:
 	Globals.strikes_current_count = 0
 
 
-func _process(delta) -> void:
-	pass
-
-
 func spawn_package() -> void:
 	if Globals.packages_current_count >= Globals.packages_count:
 		DayManager.increase_day()
 		SceneManager.load_scene(SceneManager.galactic_bulletin_scene)
 		return
 	
-	toggle_buttons(true)
+	
+	
 	package_spawner.spawn_package()
 	
 
@@ -49,13 +48,8 @@ func _on_emergency_button_pressed():
 
 func _on_accept_button_pressed():
 	toggle_buttons(false)
-	destroy_package()
 	time_left_progress_bar.stop_timer()
-	
-	if package_spawner.current_package.is_evil():
-		strike()
-	else:
-		give_coins(5)
+	package_spawner.forward_package()
 	
 
 func give_coins(amount: int) -> void:
@@ -72,21 +66,17 @@ func strike() -> void:
 func destroy_package() -> void:
 	package_spawner.destroy_current_package()
 	
-	timer_to_spawn_package.start()
-
+	
 
 func _on_emergency_module_emergency_code_checked(is_correct):
 	if not is_correct:
 		return
 	
+	package_spawner.destroy_current_package()
+	
 	time_left_progress_bar.stop_timer()
 	emergency_mode_toggled.emit(false)
-	destroy_package()
 	
-	if package_spawner.current_package.is_evil():
-		give_coins(5)
-	else:
-		strike()
 
 
 func _on_timer_to_spawn_package_timeout():
@@ -95,13 +85,42 @@ func _on_timer_to_spawn_package_timeout():
 
 func _on_timer_extra_time_timeout():
 	toggle_buttons(false)
-	strike()
-	emergency_mode_toggled.emit(false)
-	#ADD CORRECT PACKAGE BEHAVIOUR
 	
-	destroy_package()
+	if package_spawner.current_package.is_evil():
+		package_spawner.forward_package()
+	else:
+		package_spawner.destroy_current_package()
+	
+	
+	emergency_mode_toggled.emit(false)
 
 
 func toggle_buttons(enabled: bool) -> void:
 	accept_button.disabled = !enabled
 	emergency_button.disabled = !enabled
+
+
+func _on_package_spawner_package_delivered():
+	time_left_progress_bar.start_timer(DayManager.current_day.normal_time_left, time_left_progress_bar.TimerType.NORMAL)
+	toggle_buttons(true)
+	xray.visible = true
+
+
+func _on_package_spawner_package_forwarded(is_evil):
+	if is_evil:
+		strike()
+	else:
+		give_coins(5)
+		
+	xray.visible = false
+	timer_to_spawn_package.start()
+
+
+func _on_package_spawner_package_destroyed(is_evil):
+	if is_evil:
+		give_coins(5)
+	else:
+		strike()
+		
+	xray.visible = false
+	timer_to_spawn_package.start()

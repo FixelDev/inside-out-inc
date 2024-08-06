@@ -23,6 +23,7 @@ func _on_emergency_keypad_pressed():
 	emergency_keypad_panel.show()
 	emergency_keypad_panel.clear()
 
+
 func _on_game_emergency_mode_toggled(enabled):
 	emergency_keypad.disabled = !enabled
 	red_light_panel.visible = enabled

@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=3 uid="uid://domuj11pt21e0"]
+[gd_scene load_steps=96 format=3 uid="uid://domuj11pt21e0"]
 
 [ext_resource type="Texture2D" uid="uid://0xu767unbmot" path="res://scenes/game/graphics/wall.png" id="1_jn13p"]
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_w4xhy"]
@@ -53,6 +53,8 @@
 [ext_resource type="PackedScene" uid="uid://djfmjkuiwck6x" path="res://entities/packages/box/box.tscn" id="45_e7rc1"]
 [ext_resource type="PackedScene" uid="uid://bco4ic8i0xaln" path="res://entities/packages/alien_package/alien_package_1.tscn" id="46_fy6wy"]
 [ext_resource type="Script" path="res://scenes/game/package_spawner.gd" id="46_mkleq"]
+[ext_resource type="PackedScene" uid="uid://c0qvln8yg28ys" path="res://entities/laser/laser.tscn" id="54_6k7yb"]
+[ext_resource type="PackedScene" uid="uid://ca22i4rw6fnel" path="res://entities/packages/destroy_particles.tscn" id="55_4wqyy"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h1ktb"]
 texture = ExtResource("6_4fdm3")
@@ -297,6 +299,9 @@ _data = {
 "RESET": SubResource("Animation_f1e78"),
 "toggle": SubResource("Animation_j0ks7")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_skdt4"]
+size = Vector2(146, 78)
 
 [node name="Game" type="Node2D" node_paths=PackedStringArray("emergency_button", "accept_button")]
 script = ExtResource("1_w4xhy")
@@ -851,6 +856,17 @@ position = Vector2(640, -129)
 [node name="PackageDestinationPoint" type="Marker2D" parent="WallWindow"]
 position = Vector2(640, 332)
 
+[node name="PackageForwardPoint" type="Marker2D" parent="WallWindow"]
+position = Vector2(1345, 332)
+
+[node name="LaserGun" type="Marker2D" parent="WallWindow"]
+position = Vector2(36, 8)
+scale = Vector2(1, 1)
+
+[node name="DestroyParticles" parent="WallWindow" instance=ExtResource("55_4wqyy")]
+position = Vector2(641, 334)
+lifetime = 1.0
+
 [node name="EmergencyCrate" type="Node2D" parent="WallWindow"]
 position = Vector2(641, -131)
 scale = Vector2(4.36, 4.36)
@@ -904,6 +920,7 @@ expand_mode = 1
 stretch_mode = 1
 
 [node name="Xray" type="PointLight2D" parent="."]
+unique_name_in_owner = true
 visible = false
 material = ExtResource("3_h6v4r")
 position = Vector2(626, 258)
@@ -926,17 +943,25 @@ one_shot = true
 
 [node name="TimerExtraTime" type="Timer" parent="Timers"]
 unique_name_in_owner = true
-wait_time = 2.0
 one_shot = true
 
-[node name="PackageSpawner" type="Node2D" parent="." node_paths=PackedStringArray("package_spawn_point", "package_destination_point", "xray")]
+[node name="PackageSpawner" type="Node2D" parent="." node_paths=PackedStringArray("package_spawn_point", "package_destination_point", "package_forward_point", "laser_gun", "destroy_particles")]
 unique_name_in_owner = true
 script = ExtResource("46_mkleq")
 packages_scenes = Array[PackedScene]([ExtResource("45_e7rc1")])
 aliens_scenes = Array[PackedScene]([ExtResource("46_fy6wy")])
 package_spawn_point = NodePath("../WallWindow/PackagesSpawnPoint")
 package_destination_point = NodePath("../WallWindow/PackageDestinationPoint")
-xray = NodePath("../Xray")
+package_forward_point = NodePath("../WallWindow/PackageForwardPoint")
+laser_gun = NodePath("../WallWindow/LaserGun")
+laser_scene = ExtResource("54_6k7yb")
+destroy_particles = NodePath("../WallWindow/DestroyParticles")
+
+[node name="DestroyArea" type="Area2D" parent="."]
+position = Vector2(640, 337)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DestroyArea"]
+shape = SubResource("RectangleShape2D_skdt4")
 
 [connection signal="emergency_mode_toggled" from="." to="UI/EmergencyModule" method="_on_game_emergency_mode_toggled"]
 [connection signal="emergency_mode_toggled" from="." to="WallWindow/EmergencyCrate" method="_on_game_emergency_mode_toggled"]
@@ -951,3 +976,7 @@ xray = NodePath("../Xray")
 [connection signal="timeout" from="Timers/TimerToSpawnPackage" to="." method="_on_timer_to_spawn_package_timeout"]
 [connection signal="timeout" from="Timers/TimerTimeToLeft" to="UI/TimeLeftProgressBarContainer/TimeLeftProgressBar" method="_on_timer_time_to_left_timeout"]
 [connection signal="timeout" from="Timers/TimerExtraTime" to="." method="_on_timer_extra_time_timeout"]
+[connection signal="package_delivered" from="PackageSpawner" to="." method="_on_package_spawner_package_delivered"]
+[connection signal="package_destroyed" from="PackageSpawner" to="." method="_on_package_spawner_package_destroyed"]
+[connection signal="package_forwarded" from="PackageSpawner" to="." method="_on_package_spawner_package_forwarded"]
+[connection signal="area_entered" from="DestroyArea" to="PackageSpawner" method="_on_destroy_area_area_entered"]

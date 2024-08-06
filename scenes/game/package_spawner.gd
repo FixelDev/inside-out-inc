@@ -4,11 +4,18 @@ class_name PackageSpawner extends Node2D
 @export var aliens_scenes: Array[PackedScene] = []
 @export var package_spawn_point: Marker2D
 @export var package_destination_point: Marker2D
-@export var xray: Node2D
+@export var package_forward_point: Marker2D
+@export var laser_gun: Marker2D
+@export var laser_scene: PackedScene
+#@export var xray: Node2D
+@export var destroy_particles: CPUParticles2D
 
-@onready var time_left_progress_bar: TimeLeftProgressBar = %TimeLeftProgressBar
+signal package_delivered()
+signal package_destroyed(is_evil: bool)
+signal package_forwarded(is_evil: bool)
 
 var current_package: Package
+var laser: Node2D
 
 
 func spawn_package() -> void:
@@ -33,9 +40,7 @@ func spawn_package() -> void:
 	
 	await tween.finished
 	
-	
-	time_left_progress_bar.start_timer(DayManager.current_day.normal_time_left, time_left_progress_bar.TimerType.NORMAL)
-	xray.visible = true
+	package_delivered.emit()
 
 
 func randomize_package_type() -> String:
@@ -54,5 +59,27 @@ func is_package_normal() -> bool:
 
 
 func destroy_current_package() -> void:
+	laser = laser_scene.instantiate()
+	laser_gun.add_child(laser)
+	laser.global_position = laser_gun.global_position
+	laser.look_at(package_destination_point.global_position)
+	var tween: Tween = get_tree().create_tween()
+	tween.tween_property(laser, "global_position", package_destination_point.global_position, 0.5).set_trans(Tween.TRANS_QUART)
+	
+	
+func _on_destroy_area_area_entered(area):
+	destroy_particles.emitting = true
+	package_destroyed.emit(current_package.is_evil())
+	laser.queue_free()
 	current_package.queue_free()
-	xray.visible = false
+
+func forward_package() -> void:
+	var tween: Tween = get_tree().create_tween()
+	tween.tween_property(current_package, "global_position", package_forward_point.global_position, 1).set_trans(Tween.TRANS_CUBIC)
+	tween.set_parallel().tween_property(current_package, "rotation", -0.2, 0.6).set_trans(Tween.TRANS_CUBIC)
+	#add rotation
+	
+	await tween.finished
+	
+	package_forwarded.emit(current_package.is_evil())
+	current_package.queue_free()
