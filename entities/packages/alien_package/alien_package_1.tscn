@@ -5,10 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://bfuqn1pa271j6" path="res://entities/aliens/alien1/graphics/alien1.png" id="3_8lxyy"]
 
 [node name="AlienPackage" instance=ExtResource("1_8500i")]
-scale = Vector2(12, 12)
+scale = Vector2(5, 5)
 x_ray_sprites = Array[Texture2D]([ExtResource("2_aw60n")])
-window_mask = null
 
 [node name="NormalSprite" parent="." index="0"]
-unique_name_in_owner = false
 texture = ExtResource("3_8lxyy")

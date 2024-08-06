@@ -71,8 +71,8 @@ func show_alien_part(alien_part: Node2D) -> void:
 
 
 func set_random_xray_sprite() -> void:
-	if package_type != Globals.ALIEN_IN_PACKAGE:
-		%XRaySprite.texture = x_ray_sprites.pick_random()
+	#if package_type != Globals.ALIEN_IN_PACKAGE:
+	%XRaySprite.texture = x_ray_sprites.pick_random()
 
 
 func is_evil() -> bool:
