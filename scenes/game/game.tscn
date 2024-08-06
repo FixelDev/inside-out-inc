@@ -1060,7 +1060,7 @@ scale = Vector2(5, 5)
 
 [node name="ceo_spawn_point" type="Marker2D" parent="WallWindow"]
 unique_name_in_owner = true
-position = Vector2(64.0001, 318.895)
+position = Vector2(15, 319)
 scale = Vector2(5, 5)
 
 [node name="PackagesSpawnPoint" type="Marker2D" parent="WallWindow"]

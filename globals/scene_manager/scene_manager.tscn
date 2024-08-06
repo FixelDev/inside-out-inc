@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://be04v30voe4it"]
+[gd_scene load_steps=12 format=3 uid="uid://be04v30voe4it"]
 
 [ext_resource type="Script" path="res://globals/scene_manager/scene_manager.gd" id="1_liu1a"]
 [ext_resource type="PackedScene" uid="uid://domuj11pt21e0" path="res://scenes/game/game.tscn" id="2_amwk1"]
@@ -6,11 +6,35 @@
 [ext_resource type="PackedScene" uid="uid://fuicjracfebf" path="res://scenes/game_over/game_over.tscn" id="4_2omyk"]
 [ext_resource type="PackedScene" uid="uid://ddbur8nrk7v2v" path="res://scenes/galactic_bulletin/galactic_bulletin.tscn" id="4_r7uft"]
 [ext_resource type="PackedScene" uid="uid://dv5637c3672aj" path="res://scenes/ending/ending.tscn" id="6_yybml"]
+[ext_resource type="PackedScene" uid="uid://cxkfs2kfxf0sd" path="res://ui/scrolling_stripes/scrolling_stripes.tscn" id="7_bcvl2"]
+[ext_resource type="Shader" path="res://globals/scene_manager/transition_shader.gdshader" id="8_hac4f"]
+[ext_resource type="Texture2D" uid="uid://c63xgyr4j7ocj" path="res://ui/progress_bar/fill_normal.png" id="8_jrn7v"]
 
-[node name="SceneManager" type="Node2D"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ut2ty"]
+shader = ExtResource("8_hac4f")
+shader_parameter/speed = null
+shader_parameter/color = Vector4(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hh0f5"]
+texture = ExtResource("8_jrn7v")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="SceneManager" type="Node2D" node_paths=PackedStringArray("transition")]
 script = ExtResource("1_liu1a")
+transition = NodePath("UI/ScrollingStripes")
 game_scene = ExtResource("2_amwk1")
 menu_scene = ExtResource("3_1yvtm")
 galactic_bulletin_scene = ExtResource("4_r7uft")
 game_over_scene = ExtResource("4_2omyk")
 ending_scene = ExtResource("6_yybml")
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="ScrollingStripes" parent="UI" instance=ExtResource("7_bcvl2")]
+material = SubResource("ShaderMaterial_ut2ty")
+offset_bottom = -720.0
+scale = Vector2(1, 1)
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_hh0f5")
