@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ddbur8nrk7v2v"]
+[gd_scene load_steps=18 format=3 uid="uid://ddbur8nrk7v2v"]
 
 [ext_resource type="Script" path="res://scenes/galactic_bulletin/galactic_bulletin.gd" id="1_scx40"]
 [ext_resource type="Script" path="res://scenes/galactic_bulletin/galactic_bulletin_panel.gd" id="2_4qvp5"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://cxg6mm6jc234f" path="res://scenes/galactic_bulletin/stars.png" id="2_ib1uf"]
 [ext_resource type="Texture2D" uid="uid://drqs4k7sh8y31" path="res://scenes/galactic_bulletin/panel.png" id="4_aaphs"]
 [ext_resource type="Texture2D" uid="uid://capyix2w3fn3p" path="res://scenes/galactic_bulletin/text_dummy.png" id="6_ejg10"]
+[ext_resource type="PackedScene" uid="uid://kold78v3pbef" path="res://ui/line_divider.tscn" id="6_xaun7"]
+[ext_resource type="Texture2D" uid="uid://xp4xax0eoxfv" path="res://scenes/galactic_bulletin/button_hoverl.png" id="8_j1p4j"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_blgrw"]
 bg_color = Color(0.0549306, 0.0561564, 0.0966754, 1)
@@ -37,6 +39,24 @@ texture_margin_top = 16.0
 texture_margin_right = 16.0
 texture_margin_bottom = 16.0
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1vqrt"]
+texture = ExtResource("8_j1p4j")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d0uq8"]
+texture = ExtResource("4_aaphs")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f36lr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ga5yr"]
+
 [node name="GalacticBulletin" type="Node2D"]
 script = ExtResource("1_scx40")
 
@@ -53,7 +73,6 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_blgrw")
 
 [node name="ScrollingStripes" parent="UI/BG" instance=ExtResource("2_80i7w")]
 layout_mode = 1
-speed = 0.05
 color = Color(0.176471, 0.168627, 0.258824, 0.239216)
 
 [node name="Stars" type="Panel" parent="UI/BG"]
@@ -133,8 +152,7 @@ text = "GALACTIC BULLETIN"
 custom_minimum_size = Vector2(0, 6.69)
 layout_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="UI/BG/GalacticBulletinPanel/VBoxContainer"]
-custom_minimum_size = Vector2(0, 2)
+[node name="LineDivider" parent="UI/BG/GalacticBulletinPanel/VBoxContainer" instance=ExtResource("6_xaun7")]
 layout_mode = 2
 
 [node name="Spacer2" type="Control" parent="UI/BG/GalacticBulletinPanel/VBoxContainer"]
@@ -326,7 +344,12 @@ offset_right = 78.0
 offset_bottom = -100.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_colors/font_hover_color = Color(0.180392, 0.133333, 0.184314, 1)
 theme_override_styles/normal = SubResource("StyleBoxTexture_g301u")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1vqrt")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_d0uq8")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_f36lr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ga5yr")
 text = "Start"
 
 [connection signal="pressed" from="UI/StartButton" to="." method="_on_start_button_pressed"]

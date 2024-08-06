@@ -36,7 +36,7 @@ func generate_number_button(number: String) -> void:
 
 
 func _on_number_button_pressed(number: String) -> void:
-	if entered_code.length() > 6:
+	if entered_code.length() > 4:
 		return
 	
 	entered_code += number

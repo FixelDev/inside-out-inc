@@ -42,7 +42,13 @@ func _process(_delta) -> void:
 	
 	var snapped_value: float = snapped(timer_time_to_left.time_left, 0.1)
 	value = seconds_left - timer_time_to_left.time_left
-	time_left_label.text = str(snapped_value)
+	
+	var additional_zero = ""
+	
+	if snapped_value == floor(snapped_value):
+		additional_zero = ".0"
+	
+	time_left_label.text = str(snapped_value) + additional_zero + "s"
 
 
 func _on_timer_time_to_left_timeout():

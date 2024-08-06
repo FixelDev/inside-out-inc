@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://domuj11pt21e0"]
+[gd_scene load_steps=93 format=3 uid="uid://domuj11pt21e0"]
 
 [ext_resource type="Texture2D" uid="uid://0xu767unbmot" path="res://scenes/game/graphics/wall.png" id="1_jn13p"]
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_w4xhy"]
@@ -39,11 +39,17 @@
 [ext_resource type="Texture2D" uid="uid://vns4u1aw07sq" path="res://entities/emergency_module/keypad_hover.png" id="19_0flgl"]
 [ext_resource type="Texture2D" uid="uid://cb1h8st7s045s" path="res://entities/emergency_module/keypad_disabled.png" id="20_nroji"]
 [ext_resource type="Texture2D" uid="uid://bkgmaajtqp3sh" path="res://entities/emergency_module/emergency_keypad_panel/display.png" id="21_3q47j"]
-[ext_resource type="Texture2D" uid="uid://bynrdy5uuy4eu" path="res://entities/emergency_module/emergency_keypad_panel/button.png" id="22_amina"]
 [ext_resource type="Shader" path="res://ui/scrolling_stripes/scrolling_stripes.gdshader" id="22_ri8qu"]
+[ext_resource type="Texture2D" uid="uid://cnr2b8h2xess5" path="res://entities/emergency_module/emergency_keypad_panel/clear_button.png" id="29_c32ot"]
+[ext_resource type="Texture2D" uid="uid://bv2jlmemiftfw" path="res://entities/emergency_module/emergency_keypad_panel/clear_button_hover.png" id="30_rsqs0"]
+[ext_resource type="Texture2D" uid="uid://bixgnburar536" path="res://entities/emergency_module/emergency_keypad_panel/clear_button_pressed.png" id="31_3ji8w"]
 [ext_resource type="Texture2D" uid="uid://bnsjx4wro4fjc" path="res://scenes/game/graphics/table.png" id="31_lajfo"]
 [ext_resource type="Texture2D" uid="uid://kwkoqtvpnhil" path="res://entities/emergency_crate/graphics/crate_bottom.png" id="32_b2w7x"]
+[ext_resource type="Texture2D" uid="uid://daeh8qjiewwf0" path="res://entities/emergency_module/emergency_keypad_panel/accept_button.png" id="32_cfwd0"]
 [ext_resource type="Texture2D" uid="uid://d4ejv8ag53m6o" path="res://entities/emergency_crate/graphics/crate_decoration.png" id="33_fdnng"]
+[ext_resource type="Texture2D" uid="uid://c4t8nqvyspmif" path="res://entities/emergency_module/emergency_keypad_panel/accept_button_hover.png" id="33_ykf5n"]
+[ext_resource type="Texture2D" uid="uid://cylt3gcsa7vhm" path="res://entities/emergency_module/emergency_keypad_panel/accept_button_pressed.png" id="34_3weag"]
+[ext_resource type="Texture2D" uid="uid://duhabuen6d406" path="res://scenes/game/graphics/emergency_lamp.png" id="44_qa7fk"]
 [ext_resource type="PackedScene" uid="uid://djfmjkuiwck6x" path="res://entities/packages/box/box.tscn" id="45_e7rc1"]
 [ext_resource type="PackedScene" uid="uid://bco4ic8i0xaln" path="res://entities/packages/alien_package/alien_package_1.tscn" id="46_fy6wy"]
 [ext_resource type="Script" path="res://scenes/game/package_spawner.gd" id="46_mkleq"]
@@ -199,20 +205,54 @@ texture_margin_right = 14.0
 texture_margin_bottom = 14.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6tgc2"]
-texture = ExtResource("22_amina")
+texture = ExtResource("29_c32ot")
 texture_margin_left = 14.0
 texture_margin_top = 14.0
 texture_margin_right = 14.0
 texture_margin_bottom = 14.0
-modulate_color = Color(0.701961, 0.219608, 0.192157, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gck6a"]
+texture = ExtResource("30_rsqs0")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_25c3s"]
+texture = ExtResource("31_3ji8w")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ya4gq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t2ncl"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ajktt"]
-texture = ExtResource("22_amina")
+texture = ExtResource("32_cfwd0")
 texture_margin_left = 14.0
 texture_margin_top = 14.0
 texture_margin_right = 14.0
 texture_margin_bottom = 14.0
-modulate_color = Color(0.137255, 0.564706, 0.388235, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1okt5"]
+texture = ExtResource("33_ykf5n")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tsa0e"]
+texture = ExtResource("34_3weag")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_if6sg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jxdjg"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2433e"]
 texture = ExtResource("13_1o150")
@@ -386,12 +426,14 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 7.0
-offset_top = 100.0
-offset_right = 140.0
-offset_bottom = 166.0
+offset_left = 25.0
+offset_top = 88.0
+offset_right = 213.0
+offset_bottom = 172.0
 grow_vertical = 2
+theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxTexture_85yi6")
+text = "2345"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -400,10 +442,10 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 25.0
-offset_top = 174.0
-offset_right = 61.0
-offset_bottom = 223.0
+offset_left = 78.0
+offset_top = 188.0
+offset_right = 114.0
+offset_bottom = 237.0
 grow_vertical = 2
 scale = Vector2(2.36, 2.36)
 theme_override_styles/normal = SubResource("StyleBoxTexture_rreug")
@@ -501,6 +543,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/font_size = 32
 text = "22.3"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -542,7 +587,8 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_mxst1")
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 65.96)
 layout_mode = 2
-theme_override_font_sizes/font_size = 46
+theme_override_colors/font_color = Color(0.631858, 0.994201, 0.714131, 1)
+theme_override_font_sizes/font_size = 32
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -570,6 +616,10 @@ custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/normal = SubResource("StyleBoxTexture_6tgc2")
+theme_override_styles/hover = SubResource("StyleBoxTexture_gck6a")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_25c3s")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ya4gq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_t2ncl")
 text = "X"
 
 [node name="AcceptButton" type="Button" parent="UI/EmergencyKeypadPanel/VBoxContainer/ButtonsContainer"]
@@ -577,6 +627,10 @@ custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/normal = SubResource("StyleBoxTexture_ajktt")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1okt5")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_tsa0e")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_if6sg")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jxdjg")
 text = "O"
 
 [node name="PanelContainer" type="PanelContainer" parent="UI"]
@@ -586,67 +640,77 @@ anchor_right = 1.0
 offset_left = -214.0
 offset_top = 38.0
 offset_right = -70.0
-offset_bottom = 256.0
+offset_bottom = 163.0
 grow_horizontal = 0
 scale = Vector2(1.37857, 1.38881)
 theme_override_styles/panel = SubResource("StyleBoxTexture_2433e")
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/PanelContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
 
 [node name="StatsContainer" type="VBoxContainer" parent="UI/PanelContainer/MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 11
 script = ExtResource("9_f07pv")
 
 [node name="CoinsCounterCointainer" type="HBoxContainer" parent="UI/PanelContainer/MarginContainer/StatsContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_constants/separation = 11
 
 [node name="TextureRect" type="TextureRect" parent="UI/PanelContainer/MarginContainer/StatsContainer/CoinsCounterCointainer"]
+custom_minimum_size = Vector2(28, 0)
 layout_mode = 2
 texture = ExtResource("10_xwoyr")
-expand_mode = 2
+expand_mode = 4
 
 [node name="CoinsCounterLabel" type="Label" parent="UI/PanelContainer/MarginContainer/StatsContainer/CoinsCounterCointainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 31
+theme_override_font_sizes/font_size = 16
 text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Spacer" type="Control" parent="UI/PanelContainer/MarginContainer/StatsContainer"]
+visible = false
 custom_minimum_size = Vector2(0, 26.78)
 layout_mode = 2
 
 [node name="PackagesCounterCotainer" type="HBoxContainer" parent="UI/PanelContainer/MarginContainer/StatsContainer"]
 layout_mode = 2
+theme_override_constants/separation = 11
 
 [node name="TextureRect" type="TextureRect" parent="UI/PanelContainer/MarginContainer/StatsContainer/PackagesCounterCotainer"]
+custom_minimum_size = Vector2(28, 0)
 layout_mode = 2
 texture = ExtResource("9_j1wal")
-expand_mode = 2
+expand_mode = 4
 
 [node name="PackagesCounterLabel" type="Label" parent="UI/PanelContainer/MarginContainer/StatsContainer/PackagesCounterCotainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 31
+theme_override_font_sizes/font_size = 16
 text = "0/2"
 
 [node name="StrikesCounterCotainer" type="HBoxContainer" parent="UI/PanelContainer/MarginContainer/StatsContainer"]
 layout_mode = 2
+theme_override_constants/separation = 11
 
 [node name="TextureRect" type="TextureRect" parent="UI/PanelContainer/MarginContainer/StatsContainer/StrikesCounterCotainer"]
+custom_minimum_size = Vector2(28, 0)
 layout_mode = 2
 texture = ExtResource("12_xb1sl")
-expand_mode = 2
+expand_mode = 4
 
 [node name="StrikesCounterLabel" type="Label" parent="UI/PanelContainer/MarginContainer/StatsContainer/StrikesCounterCotainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 31
+theme_override_font_sizes/font_size = 16
 text = "0/2"
 
 [node name="Wall" type="Sprite2D" parent="."]
@@ -775,6 +839,11 @@ scale = Vector2(3.56, 3.56)
 texture = ExtResource("18_4apnj")
 region_enabled = true
 region_rect = Rect2(-613, -277, 1145, 534)
+
+[node name="EmergencyLamp" type="Sprite2D" parent="WallWindow"]
+position = Vector2(116, 48)
+scale = Vector2(2.5625, 2.5625)
+texture = ExtResource("44_qa7fk")
 
 [node name="Window2" type="Sprite2D" parent="WallWindow"]
 light_mask = 2

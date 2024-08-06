@@ -1,0 +1,38 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://b40we861tw4w7"]
+
+[ext_resource type="Texture2D" uid="uid://d067kofa0m0vs" path="res://scenes/game_over/button_hover.png" id="1_dpmsq"]
+[ext_resource type="Texture2D" uid="uid://b7ucyr08050df" path="res://scenes/game_over/button.png" id="1_qbjjb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w2wa5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_si3bu"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3tu4v"]
+texture = ExtResource("1_dpmsq")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j15nm"]
+texture = ExtResource("1_qbjjb")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_00dkn"]
+texture = ExtResource("1_qbjjb")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
+
+[resource]
+Button/colors/font_color = Color(0.764706, 0.141176, 0.329412, 1)
+Button/styles/disabled = SubResource("StyleBoxEmpty_w2wa5")
+Button/styles/focus = SubResource("StyleBoxEmpty_si3bu")
+Button/styles/hover = SubResource("StyleBoxTexture_3tu4v")
+Button/styles/normal = SubResource("StyleBoxTexture_j15nm")
+Button/styles/pressed = SubResource("StyleBoxTexture_00dkn")
+Label/colors/font_color = Color(0.764706, 0.141176, 0.329412, 1)
