@@ -1,4 +1,4 @@
-[gd_scene load_steps=108 format=3 uid="uid://domuj11pt21e0"]
+[gd_scene load_steps=115 format=3 uid="uid://domuj11pt21e0"]
 
 [ext_resource type="Texture2D" uid="uid://0xu767unbmot" path="res://scenes/game/graphics/wall.png" id="1_jn13p"]
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_w4xhy"]
@@ -61,6 +61,7 @@
 [ext_resource type="PackedScene" uid="uid://c0qvln8yg28ys" path="res://entities/laser/laser.tscn" id="54_6k7yb"]
 [ext_resource type="PackedScene" uid="uid://ca22i4rw6fnel" path="res://entities/packages/destroy_particles.tscn" id="55_4wqyy"]
 [ext_resource type="PackedScene" uid="uid://dwxqwd52lirsk" path="res://entities/ceo/ceo.tscn" id="61_7lq78"]
+[ext_resource type="Script" path="res://scenes/game/pause_manager.gd" id="62_1wd3c"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h1ktb"]
 texture = ExtResource("6_4fdm3")
@@ -300,6 +301,30 @@ texture_margin_bottom = 14.0
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pk5j0"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mixbw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lhihd"]
+bg_color = Color(0.109804, 0.109804, 0.109804, 0.615686)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iw5s5"]
+bg_color = Color(0.169245, 0.169245, 0.169245, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tua74"]
+bg_color = Color(0.129558, 0.129559, 0.129558, 1)
+expand_margin_left = 15.0
+expand_margin_top = 15.0
+expand_margin_right = 15.0
+expand_margin_bottom = 15.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hrtox"]
+bg_color = Color(0.87451, 0.87451, 0.87451, 1)
+expand_margin_left = 15.0
+expand_margin_top = 15.0
+expand_margin_right = 15.0
+expand_margin_bottom = 15.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jcs1c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cy1b4"]
 
 [sub_resource type="Animation" id="Animation_f1e78"]
 length = 0.001
@@ -921,6 +946,91 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_pk5j0")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_mixbw")
 text = "Begin"
 
+[node name="PausePanel" type="Panel" parent="UI"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lhihd")
+
+[node name="PanelContainer" type="PanelContainer" parent="UI/PausePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_iw5s5")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/PausePanel/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/PausePanel/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/PausePanel/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "PAUSE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spacer" type="Control" parent="UI/PausePanel/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
+[node name="LineDivider" parent="UI/PausePanel/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("41_y1et5")]
+layout_mode = 2
+
+[node name="Spacer2" type="Control" parent="UI/PausePanel/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ResumeButton" type="Button" parent="UI/PausePanel/PanelContainer/MarginContainer/VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.129412, 0.129412, 0.129412, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_tua74")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hrtox")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tua74")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_jcs1c")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cy1b4")
+text = "RESUME"
+
+[node name="Spacer3" type="Control" parent="UI/PausePanel/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="MenuButton" type="Button" parent="UI/PausePanel/PanelContainer/MarginContainer/VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.129412, 0.129412, 0.129412, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_tua74")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hrtox")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tua74")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_jcs1c")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cy1b4")
+text = "MENU"
+
+[node name="Spacer4" type="Control" parent="UI/PausePanel/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
 [node name="Wall" type="Sprite2D" parent="."]
 texture_repeat = 2
 position = Vector2(641, 292)
@@ -1079,6 +1189,16 @@ position = Vector2(36, 8)
 position = Vector2(641, 334)
 lifetime = 1.0
 
+[node name="EmergencyCrateStartingPoint" type="Marker2D" parent="WallWindow"]
+unique_name_in_owner = true
+position = Vector2(641, -131)
+scale = Vector2(4.36, 4.36)
+
+[node name="EmergencyCrateEndingPointPoint" type="Marker2D" parent="WallWindow"]
+unique_name_in_owner = true
+position = Vector2(641, 275)
+scale = Vector2(4.36, 4.36)
+
 [node name="EmergencyCrate" type="Node2D" parent="WallWindow"]
 position = Vector2(641, -131)
 scale = Vector2(4.36, 4.36)
@@ -1176,6 +1296,10 @@ position = Vector2(640, 337)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DestroyArea"]
 shape = SubResource("RectangleShape2D_skdt4")
 
+[node name="PauseManager" type="Node2D" parent="."]
+process_mode = 3
+script = ExtResource("62_1wd3c")
+
 [connection signal="emergency_mode_toggled" from="." to="UI/EmergencyModule" method="_on_game_emergency_mode_toggled"]
 [connection signal="emergency_mode_toggled" from="." to="WallWindow/EmergencyCrate" method="_on_game_emergency_mode_toggled"]
 [connection signal="pressed" from="UI/Table/VBoxContainer/HBoxContainer/EmergencyButton" to="." method="_on_emergency_button_pressed"]
@@ -1187,6 +1311,8 @@ shape = SubResource("RectangleShape2D_skdt4")
 [connection signal="pressed" from="UI/EmergencyKeypadPanel/VBoxContainer/ButtonsContainer/ResetButton" to="UI/EmergencyKeypadPanel" method="_on_reset_button_pressed"]
 [connection signal="pressed" from="UI/EmergencyKeypadPanel/VBoxContainer/ButtonsContainer/AcceptButton" to="UI/EmergencyKeypadPanel" method="_on_accept_button_pressed"]
 [connection signal="pressed" from="UI/InfoPaper/MarginContainer/VBoxContainer/BeginButton" to="." method="_on_begin_button_pressed"]
+[connection signal="pressed" from="UI/PausePanel/PanelContainer/MarginContainer/VBoxContainer/ResumeButton" to="PauseManager" method="_on_resume_button_pressed"]
+[connection signal="pressed" from="UI/PausePanel/PanelContainer/MarginContainer/VBoxContainer/MenuButton" to="PauseManager" method="_on_menu_button_pressed"]
 [connection signal="timeout" from="Timers/TimerToSpawnPackage" to="." method="_on_timer_to_spawn_package_timeout"]
 [connection signal="timeout" from="Timers/TimerTimeToLeft" to="UI/TimeLeftProgressBarContainer/TimeLeftProgressBar" method="_on_timer_time_to_left_timeout"]
 [connection signal="timeout" from="Timers/TimerExtraTime" to="." method="_on_timer_extra_time_timeout"]

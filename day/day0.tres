@@ -4,9 +4,9 @@
 
 [resource]
 script = ExtResource("1_7ig46")
-number = 1
+number = 2
 packages_amount = 2
-strikes_amount = 3
+strikes_amount = 1
 normal_time_left = 10.0
 emergency_time_left = 7.0
 package_type_odds = {

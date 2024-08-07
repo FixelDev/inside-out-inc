@@ -137,3 +137,5 @@ func _on_package_spawner_package_destroyed(is_evil):
 func _on_begin_button_pressed():
 	info_paper.visible = false
 	spawn_package()
+	
+
