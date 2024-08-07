@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://14o66vwcpfwb"]
+
+[ext_resource type="Material" uid="uid://4gnfyg7ugi1n" path="res://scenes/game/window_mask.tres" id="1_g3uw6"]
+[ext_resource type="Texture2D" uid="uid://t3ryi2inpjgp" path="res://entities/xray/graphics/xray.png" id="2_ulf1x"]
+[ext_resource type="Script" path="res://entities/xray/xray.gd" id="3_h4evf"]
+
+[node name="Xray" type="PointLight2D"]
+visible = false
+material = ExtResource("1_g3uw6")
+position = Vector2(626, 258)
+scale = Vector2(1.54688, 1.54688)
+energy = 0.0
+range_item_cull_mask = 2
+texture = ExtResource("2_ulf1x")
+script = ExtResource("3_h4evf")

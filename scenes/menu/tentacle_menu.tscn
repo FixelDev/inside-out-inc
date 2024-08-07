@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgwiutw0eieju"]
+
+[ext_resource type="Script" path="res://scenes/menu/tentacle_menu.gd" id="1_c07ya"]
+[ext_resource type="Texture2D" uid="uid://c7d1gguwa4ri6" path="res://scenes/menu/graphics/tentacle.png" id="2_wpth3"]
+
+[node name="TentacleMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -25.18
+offset_top = -93.3379
+offset_right = 14.82
+offset_bottom = -53.3379
+script = ExtResource("1_c07ya")
+rotation_offset = 0.2
+tween_time = 1.0
+
+[node name="Tentacle" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -93.82
+offset_top = -197.662
+offset_right = 40.18
+offset_bottom = 16.3379
+rotation = -0.0766603
+texture = ExtResource("2_wpth3")

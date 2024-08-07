@@ -1,8 +1,79 @@
-[gd_scene load_steps=6 format=3 uid="uid://du7fbmcghrmf4"]
+[gd_scene load_steps=18 format=3 uid="uid://du7fbmcghrmf4"]
 
 [ext_resource type="Script" path="res://scenes/menu/menu.gd" id="1_ph68u"]
 [ext_resource type="Shader" path="res://ui/scrolling_stripes/scrolling_stripes.gdshader" id="2_rorn7"]
 [ext_resource type="Texture2D" uid="uid://ddgpv2dv8osml" path="res://scenes/menu/graphics/bg.png" id="2_v5llf"]
+[ext_resource type="Theme" uid="uid://0v4cqwxpp5k6" path="res://scenes/menu/menu_theme.tres" id="3_i5bdk"]
+[ext_resource type="FontFile" uid="uid://bx5r663ov3dts" path="res://ui/fonts/six-caps.regular.ttf" id="4_plrp7"]
+[ext_resource type="Texture2D" uid="uid://dpgjmrl5uuvo8" path="res://entities/packages/box/graphics/box.png" id="5_uoi1c"]
+[ext_resource type="PackedScene" uid="uid://bgwiutw0eieju" path="res://scenes/menu/tentacle_menu.tscn" id="6_dsm6h"]
+[ext_resource type="Texture2D" uid="uid://bfuqn1pa271j6" path="res://entities/aliens/alien1/graphics/alien1.png" id="7_3k153"]
+[ext_resource type="Material" uid="uid://4gnfyg7ugi1n" path="res://scenes/game/window_mask.tres" id="7_7mkkf"]
+[ext_resource type="Texture2D" uid="uid://epritqypi0ji" path="res://entities/packages/box/graphics/box_xray2.png" id="8_62py7"]
+[ext_resource type="PackedScene" uid="uid://14o66vwcpfwb" path="res://entities/xray/xray.tscn" id="9_mctfu"]
+[ext_resource type="Script" path="res://entities/xray/xray_menu.gd" id="10_fhdpj"]
+
+[sub_resource type="Animation" id="Animation_snfjy"]
+resource_name = "alien1_menu_idle"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:size")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(106, 87), Vector2(125, 70), Vector2(106, 87)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(396, 10), Vector2(384, 25), Vector2(396, 10)]
+}
+
+[sub_resource type="Animation" id="Animation_nu8nk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(106, 87)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(396, 10)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l1dxh"]
+_data = {
+"RESET": SubResource("Animation_nu8nk"),
+"alien1_menu_idle": SubResource("Animation_snfjy")
+}
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i2ik3"]
 shader = ExtResource("2_rorn7")
@@ -18,35 +89,200 @@ axis_stretch_vertical = 1
 script = ExtResource("1_ph68u")
 
 [node name="UI" type="CanvasLayer" parent="."]
+layer = 0
 
-[node name="PlayButton" type="Button" parent="UI"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.5
-offset_top = -15.5
-offset_right = 20.5
-offset_bottom = 15.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "Play"
+[node name="MarginContainer" type="MarginContainer" parent="UI"]
+offset_top = 22.0
+offset_right = 499.0
+offset_bottom = 631.0
+theme = ExtResource("3_i5bdk")
+theme_override_constants/margin_left = 70
+theme_override_constants/margin_top = 20
 
-[node name="Panel" type="Panel" parent="UI"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 18
+theme_override_fonts/font = ExtResource("4_plrp7")
+theme_override_font_sizes/font_size = 150
+text = "Inside Out Inc."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spacer" type="Control" parent="UI/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_right = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="ContinueButton" type="Button" parent="UI/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Continue"
+
+[node name="Spacer2" type="Control" parent="UI/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="NewGameButton" type="Button" parent="UI/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "New Game"
+
+[node name="TextureRect4" type="TextureRect" parent="UI"]
+offset_left = 396.0
+offset_top = 10.0
+offset_right = 502.0
+offset_bottom = 97.0
+rotation = 0.19119
+texture = ExtResource("7_3k153")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/TextureRect4"]
+libraries = {
+"": SubResource("AnimationLibrary_l1dxh")
+}
+autoplay = "alien1_menu_idle"
+
+[node name="Control2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 1
+
+[node name="Panel" type="Panel" parent="Control2"]
 texture_repeat = 2
 material = SubResource("ShaderMaterial_i2ik3")
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -415.0
-offset_top = 42.0
-offset_right = 4025.0
-offset_bottom = 2824.0
+offset_left = -302.0
+offset_top = 45.0
+offset_right = 5114.0
+offset_bottom = 3753.0
 grow_horizontal = 2
 grow_vertical = 2
 rotation = -0.261799
 scale = Vector2(0.32, 0.32)
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_2bki7")
 
-[connection signal="pressed" from="UI/PlayButton" to="." method="_on_play_button_pressed"]
+[node name="TextureRect" type="TextureRect" parent="Control2"]
+offset_left = 892.532
+offset_top = 72.0
+offset_right = 998.532
+offset_bottom = 159.0
+rotation = 0.19119
+texture = ExtResource("5_uoi1c")
+
+[node name="TextureRect2" type="TextureRect" parent="Control2"]
+offset_left = 1107.0
+offset_top = 559.0
+offset_right = 1248.0
+offset_bottom = 674.0
+rotation = -0.622556
+texture = ExtResource("5_uoi1c")
+
+[node name="TextureRect3" type="TextureRect" parent="Control2"]
+offset_left = 655.0
+offset_top = 593.0
+offset_right = 813.0
+offset_bottom = 722.0
+rotation = 0.629129
+texture = ExtResource("5_uoi1c")
+
+[node name="BoxMenu" type="Control" parent="Control2"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 908.0
+offset_top = 368.0
+offset_right = 948.0
+offset_bottom = 408.0
+rotation = -0.419319
+mouse_filter = 2
+
+[node name="Tentacle" parent="Control2/BoxMenu" instance=ExtResource("6_dsm6h")]
+
+[node name="Tentacle2" parent="Control2/BoxMenu" instance=ExtResource("6_dsm6h")]
+offset_left = 155.731
+offset_top = -71.8177
+offset_right = 195.731
+offset_bottom = -31.8177
+rotation = 1.20284
+scale = Vector2(0.717158, 0.717158)
+rotation_offset = 0.3
+tween_time = 1.5
+
+[node name="TentacleMenu" parent="Control2/BoxMenu" instance=ExtResource("6_dsm6h")]
+offset_left = -92.1252
+offset_top = 123.162
+offset_right = -52.1252
+offset_bottom = 163.162
+rotation = -2.21777
+scale = Vector2(0.836946, 0.836946)
+rotation_offset = 0.1
+tween_time = 0.8
+
+[node name="Box" type="TextureRect" parent="Control2/BoxMenu"]
+layout_mode = 0
+offset_left = -127.0
+offset_top = -101.0
+offset_right = 176.0
+offset_bottom = 148.0
+texture = ExtResource("5_uoi1c")
+
+[node name="Box2" type="TextureRect" parent="Control2/BoxMenu"]
+light_mask = 2
+visibility_layer = 2
+material = ExtResource("7_7mkkf")
+layout_mode = 0
+offset_left = -127.0
+offset_top = -101.0
+offset_right = 176.0
+offset_bottom = 148.0
+texture = ExtResource("8_62py7")
+
+[node name="XrayPositions" type="Node2D" parent="Control2/BoxMenu"]
+unique_name_in_owner = true
+
+[node name="Marker2D" type="Marker2D" parent="Control2/BoxMenu/XrayPositions"]
+position = Vector2(129.952, 103.911)
+scale = Vector2(2.59431, 2.59431)
+
+[node name="Marker2D2" type="Marker2D" parent="Control2/BoxMenu/XrayPositions"]
+position = Vector2(-71.2298, 49.2678)
+scale = Vector2(2.59431, 2.59431)
+
+[node name="Marker2D3" type="Marker2D" parent="Control2/BoxMenu/XrayPositions"]
+position = Vector2(23.8229, -58.3563)
+scale = Vector2(2.59431, 2.59431)
+
+[node name="Xray" parent="Control2/BoxMenu" instance=ExtResource("9_mctfu")]
+visible = true
+position = Vector2(129.952, 103.911)
+scale = Vector2(2.59431, 2.59431)
+script = ExtResource("10_fhdpj")
+
+[node name="TentacleMenu" parent="Control2" instance=ExtResource("6_dsm6h")]
+visible = false
+offset_left = -61.0
+offset_top = 770.0
+offset_right = -21.0
+offset_bottom = 810.0
+rotation = 0.96122
+scale = Vector2(1.26859, 1.26859)
+tween_time = 2.0
+
+[connection signal="pressed" from="UI/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="UI/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]

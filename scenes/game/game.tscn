@@ -1,4 +1,4 @@
-[gd_scene load_steps=115 format=3 uid="uid://domuj11pt21e0"]
+[gd_scene load_steps=114 format=3 uid="uid://domuj11pt21e0"]
 
 [ext_resource type="Texture2D" uid="uid://0xu767unbmot" path="res://scenes/game/graphics/wall.png" id="1_jn13p"]
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_w4xhy"]
@@ -8,7 +8,6 @@
 [ext_resource type="StyleBox" uid="uid://bv61dycl0wq5p" path="res://scenes/game/graphics/table_texture.tres" id="4_4t4ae"]
 [ext_resource type="Script" path="res://entities/emergency_module/emergency_module.gd" id="4_jyb38"]
 [ext_resource type="Script" path="res://entities/emergency_module/emergency_keypad.gd" id="5_2847e"]
-[ext_resource type="Script" path="res://entities/xray/xray.gd" id="5_yaqef"]
 [ext_resource type="Texture2D" uid="uid://dbdwgcwke8seb" path="res://scenes/game/graphics/table/table_decoration.png" id="6_4fdm3"]
 [ext_resource type="Script" path="res://entities/emergency_module/emergency_keypad_panel/emergency_keypad_panel.gd" id="6_pw2re"]
 [ext_resource type="Script" path="res://entities/emergency_crate/emergency_crate.gd" id="7_fli0l"]
@@ -34,7 +33,6 @@
 [ext_resource type="Texture2D" uid="uid://73jnfsbs3rjq" path="res://ui/progress_bar/border.png" id="15_kkt2q"]
 [ext_resource type="Texture2D" uid="uid://c63xgyr4j7ocj" path="res://ui/progress_bar/fill_normal.png" id="16_23ip5"]
 [ext_resource type="Texture2D" uid="uid://ewvysmrso6d5" path="res://scenes/game/graphics/wall/wall_decoration.png" id="17_nlatq"]
-[ext_resource type="Texture2D" uid="uid://t3ryi2inpjgp" path="res://entities/xray/graphics/xray.png" id="17_u2lnh"]
 [ext_resource type="Texture2D" uid="uid://u6wcejef6fm1" path="res://scenes/game/graphics/bg.png" id="18_4apnj"]
 [ext_resource type="Texture2D" uid="uid://vns4u1aw07sq" path="res://entities/emergency_module/keypad_hover.png" id="19_0flgl"]
 [ext_resource type="Texture2D" uid="uid://cb1h8st7s045s" path="res://entities/emergency_module/keypad_disabled.png" id="20_nroji"]
@@ -60,6 +58,7 @@
 [ext_resource type="Script" path="res://scenes/game/package_spawner.gd" id="46_mkleq"]
 [ext_resource type="PackedScene" uid="uid://c0qvln8yg28ys" path="res://entities/laser/laser.tscn" id="54_6k7yb"]
 [ext_resource type="PackedScene" uid="uid://ca22i4rw6fnel" path="res://entities/packages/destroy_particles.tscn" id="55_4wqyy"]
+[ext_resource type="PackedScene" uid="uid://14o66vwcpfwb" path="res://entities/xray/xray.tscn" id="55_yg3a8"]
 [ext_resource type="PackedScene" uid="uid://dwxqwd52lirsk" path="res://entities/ceo/ceo.tscn" id="61_7lq78"]
 [ext_resource type="Script" path="res://scenes/game/pause_manager.gd" id="62_1wd3c"]
 
@@ -1251,16 +1250,8 @@ texture = ExtResource("33_fdnng")
 expand_mode = 1
 stretch_mode = 1
 
-[node name="Xray" type="PointLight2D" parent="."]
+[node name="Xray" parent="." instance=ExtResource("55_yg3a8")]
 unique_name_in_owner = true
-visible = false
-material = ExtResource("3_h6v4r")
-position = Vector2(626, 258)
-scale = Vector2(1.54688, 1.54688)
-energy = 0.0
-range_item_cull_mask = 2
-texture = ExtResource("17_u2lnh")
-script = ExtResource("5_yaqef")
 
 [node name="Timers" type="Node" parent="."]
 
