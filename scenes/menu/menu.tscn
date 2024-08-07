@@ -1,6 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://du7fbmcghrmf4"]
+[gd_scene load_steps=6 format=3 uid="uid://du7fbmcghrmf4"]
 
 [ext_resource type="Script" path="res://scenes/menu/menu.gd" id="1_ph68u"]
+[ext_resource type="Shader" path="res://ui/scrolling_stripes/scrolling_stripes.gdshader" id="2_rorn7"]
+[ext_resource type="Texture2D" uid="uid://ddgpv2dv8osml" path="res://scenes/menu/graphics/bg.png" id="2_v5llf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i2ik3"]
+shader = ExtResource("2_rorn7")
+shader_parameter/speed = 0.1
+shader_parameter/color = Vector4(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2bki7"]
+texture = ExtResource("2_v5llf")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
 
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_ph68u")
@@ -20,5 +32,21 @@ offset_bottom = 15.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "Play"
+
+[node name="Panel" type="Panel" parent="UI"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_i2ik3")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -415.0
+offset_top = 42.0
+offset_right = 4025.0
+offset_bottom = 2824.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.261799
+scale = Vector2(0.32, 0.32)
+theme_override_styles/panel = SubResource("StyleBoxTexture_2bki7")
 
 [connection signal="pressed" from="UI/PlayButton" to="." method="_on_play_button_pressed"]
