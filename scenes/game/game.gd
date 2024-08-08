@@ -20,7 +20,7 @@ func _ready() -> void:
 	#timer.timeout.connect(spawn_package)
 	
 	if DayManager.current_day.number > 1:
-		spawn_package()
+		timer_to_spawn_package.start()
 	else:
 		info_paper.visible = true
 
@@ -110,6 +110,7 @@ func toggle_buttons(enabled: bool) -> void:
 
 func _on_package_spawner_package_delivered():
 	time_left_progress_bar.start_timer(DayManager.current_day.normal_time_left, time_left_progress_bar.TimerType.NORMAL)
+	print(DayManager.current_day.normal_time_left)
 	toggle_buttons(true)
 	xray.visible = true
 

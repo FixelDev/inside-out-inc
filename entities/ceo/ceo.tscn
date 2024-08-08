@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bqi5n1nfuk6t8" path="res://entities/ceo/ceo_xray.png" id="3_u3hx4"]
 
 [node name="Ceo" instance=ExtResource("1_8p45j")]
+scale = Vector2(1, 1)
 
 [node name="NormalSprite" parent="." index="0"]
 texture = ExtResource("2_ghyje")

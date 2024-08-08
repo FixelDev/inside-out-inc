@@ -47,7 +47,7 @@ func spawn_alien_parts_inside(with_timer: bool) -> void:
 			parts_holder = %Hard
 	
 	var available_spawn_points: Array[Node] = parts_holder.get_children()
-	var parts_amount = randi_range(3, available_spawn_points.size())
+	var parts_amount = randi_range(2, available_spawn_points.size())
 	var random_alien_part_index = AlienDatabase.get_random_alien_part_index()
 	var random_alien_part_scene = AlienDatabase.get_alien_part_scene(random_alien_part_index)
 	
@@ -64,13 +64,15 @@ func spawn_alien_parts_inside(with_timer: bool) -> void:
 		
 		if with_timer:
 			alien_part.visible = false
-			var time_to_show: float = randf_range(DayManager.current_day.normal_time_left * 0.25, DayManager.current_day.normal_time_left * 0.7)
+			var time_to_show: float = randf_range(DayManager.current_day.normal_time_left * 0.75, DayManager.current_day.normal_time_left * 0.85)
 			var timer: SceneTreeTimer = get_tree().create_timer(time_to_show)
 			timer.timeout.connect(show_alien_part.bind(alien_part))
 			
 func show_alien_part(alien_part: Node2D) -> void:
 	alien_part.visible = true
-
+	
+	var tween: Tween = get_tree().create_tween()
+	tween.tween_property(alien_part, "modulate:a", 1, 0.9).from(0)
 
 func set_random_xray_sprite() -> void:
 	#if package_type != Globals.ALIEN_IN_PACKAGE:

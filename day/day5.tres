@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="Day" load_steps=2 format=3 uid="uid://dyd7mf3ktwwvt"]
+
+[ext_resource type="Script" path="res://day/day.gd" id="1_sv3nb"]
+
+[resource]
+script = ExtResource("1_sv3nb")
+number = 5
+packages_amount = 12
+strikes_amount = 2
+normal_time_left = 7.0
+emergency_time_left = 6.0
+package_type_odds = {
+"evil_package": 0.85,
+"normal_package": 0.15
+}
+evil_package_odds = {
+"alien_in_package": 0.1,
+"alien_package": 0.0,
+"alien_parts_in_package": 0.4,
+"alien_parts_in_package_timer": 0.5
+}
+alien_parts_difficulty_odds = {
+"alien_parts_easy": 0.0,
+"alien_parts_hard": 0.7,
+"alien_parts_medium": 0.3
+}
+main_title = ""
+main_article = ""
+second_article = ""
+third_article = ""

@@ -30,9 +30,9 @@
      fit-margin-bottom="0"
      inkscape:showpageshadow="false"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="2.6044007"
-     inkscape:cx="107.70232"
-     inkscape:cy="166.44904"
+     inkscape:zoom="1.8759973"
+     inkscape:cx="75.426547"
+     inkscape:cy="207.6229"
      inkscape:window-width="2560"
      inkscape:window-height="1377"
      inkscape:window-x="1912"
@@ -63,7 +63,7 @@
        fy="33.072918"
        r="28.777531"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1.1492618,0,0,1.1492618,-4.9365218,-4.9365247)" />
+       gradientTransform="matrix(0.99720868,0.00756393,-0.00756548,0.99741326,0.34252977,-0.16461161)" />
   </defs>
   <g
      inkscape:groupmode="layer"
@@ -76,11 +76,5 @@
        cx="33.072918"
        cy="33.072918"
        r="28.777531" />
-    <circle
-       style="fill:#ffffff;fill-rule:evenodd;stroke-width:15.6504;stroke-linecap:round;paint-order:stroke fill markers"
-       id="path1"
-       cx="33.072918"
-       cy="33.072918"
-       r="16.349972" />
   </g>
 </svg>

@@ -11,8 +11,7 @@ signal emergency_code_checked(is_correct: bool)
 var emergency_code: int
 
 func _ready() -> void:
-	emergency_code = randi_range(1000, 9999)
-	emergency_code_label.text = str(emergency_code)
+	randomize_code()
 
 
 func _on_emergency_keypad_panel_code_submited(code):
@@ -30,3 +29,13 @@ func _on_game_emergency_mode_toggled(enabled):
 	
 	if enabled == false:
 		emergency_keypad_panel.hide()
+
+
+func randomize_code() -> void:
+	emergency_code = randi_range(1000, 9999)
+	emergency_code_label.text = str(emergency_code)
+
+
+func _on_emergency_code_checked(is_correct):
+	if is_correct:
+		randomize_code()

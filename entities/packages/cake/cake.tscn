@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmq4tf7jue1cd"]
+
+[ext_resource type="PackedScene" uid="uid://3a33oceaqq6d" path="res://entities/packages/package.tscn" id="1_j6adr"]
+[ext_resource type="Texture2D" uid="uid://bwcjc7xvhlc7r" path="res://entities/packages/cake/cake_xray.png" id="2_50mo6"]
+[ext_resource type="Texture2D" uid="uid://dp8ve1u5blwaf" path="res://entities/packages/cake/cake.png" id="3_i8mb0"]
+
+[node name="Cake" instance=ExtResource("1_j6adr")]
+scale = Vector2(5, 5)
+x_ray_sprites = Array[Texture2D]([ExtResource("2_50mo6")])
+
+[node name="NormalSprite" parent="." index="0"]
+position = Vector2(0, -13.6)
+texture = ExtResource("3_i8mb0")
+
+[node name="XRaySprite" parent="." index="1"]
+position = Vector2(0, -13.6)
+
+[node name="AlienPartsHolder" parent="." index="2"]
+position = Vector2(0, -13.6)
+
+[node name="Marker2D" type="Marker2D" parent="AlienPartsHolder/Easy" index="0"]
+position = Vector2(0, 11)
+
+[node name="Marker2D2" type="Marker2D" parent="AlienPartsHolder/Easy" index="1"]
+position = Vector2(0, -12)
+
+[node name="Marker2D3" type="Marker2D" parent="AlienPartsHolder/Easy" index="2"]
+position = Vector2(0, 24)
+
+[node name="Marker2D4" type="Marker2D" parent="AlienPartsHolder/Easy" index="3"]
+position = Vector2(-5, 6)
+
+[node name="Marker2D5" type="Marker2D" parent="AlienPartsHolder/Easy" index="4"]
+position = Vector2(4, 13)
+
+[node name="Marker2D6" type="Marker2D" parent="AlienPartsHolder/Medium" index="0"]
+position = Vector2(11, 26)
+
+[node name="Marker2D7" type="Marker2D" parent="AlienPartsHolder/Medium" index="1"]
+position = Vector2(-8, 25)
+
+[node name="Marker2D8" type="Marker2D" parent="AlienPartsHolder/Medium" index="2"]
+position = Vector2(-4, -8)
+
+[node name="Marker2D10" type="Marker2D" parent="AlienPartsHolder/Hard" index="0"]
+position = Vector2(-5, -29)
+
+[node name="Marker2D11" type="Marker2D" parent="AlienPartsHolder/Hard" index="1"]
+position = Vector2(-0.800001, 29.6)

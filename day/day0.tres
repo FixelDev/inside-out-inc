@@ -15,9 +15,9 @@ package_type_odds = {
 }
 evil_package_odds = {
 "alien_in_package": 0.0,
-"alien_package": 1.0,
+"alien_package": 0.0,
 "alien_parts_in_package": 0.0,
-"alien_parts_in_package_timer": 0.0
+"alien_parts_in_package_timer": 1.0
 }
 alien_parts_difficulty_odds = {
 "alien_parts_easy": 0.5,

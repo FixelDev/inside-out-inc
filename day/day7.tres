@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="Day" load_steps=2 format=3 uid="uid://cb6e3bmofuoj8"]
+
+[ext_resource type="Script" path="res://day/day.gd" id="1_rtitg"]
+
+[resource]
+script = ExtResource("1_rtitg")
+number = 7
+packages_amount = 16
+strikes_amount = 2
+normal_time_left = 5.0
+emergency_time_left = 4.0
+package_type_odds = {
+"evil_package": 0.55,
+"normal_package": 0.45
+}
+evil_package_odds = {
+"alien_in_package": 0.0,
+"alien_package": 0.0,
+"alien_parts_in_package": 0.1,
+"alien_parts_in_package_timer": 0.9
+}
+alien_parts_difficulty_odds = {
+"alien_parts_easy": 0.0,
+"alien_parts_hard": 0.9,
+"alien_parts_medium": 0.1
+}
+main_title = ""
+main_article = ""
+second_article = ""
+third_article = ""

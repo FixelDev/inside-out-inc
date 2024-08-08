@@ -1,4 +1,4 @@
-[gd_scene load_steps=122 format=3 uid="uid://domuj11pt21e0"]
+[gd_scene load_steps=127 format=3 uid="uid://domuj11pt21e0"]
 
 [ext_resource type="Texture2D" uid="uid://0xu767unbmot" path="res://scenes/game/graphics/wall.png" id="1_jn13p"]
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_w4xhy"]
@@ -58,13 +58,18 @@
 [ext_resource type="PackedScene" uid="uid://c0qvln8yg28ys" path="res://entities/laser/laser.tscn" id="54_6k7yb"]
 [ext_resource type="PackedScene" uid="uid://ca22i4rw6fnel" path="res://entities/packages/destroy_particles.tscn" id="55_4wqyy"]
 [ext_resource type="PackedScene" uid="uid://14o66vwcpfwb" path="res://entities/xray/xray.tscn" id="55_yg3a8"]
+[ext_resource type="Texture2D" uid="uid://0clfuq4fhboy" path="res://entities/xray/graphics/xray2.png" id="56_yrohw"]
 [ext_resource type="PackedScene" uid="uid://bxll06o2sf1vx" path="res://entities/packages/flower/flower.tscn" id="58_sqtdw"]
 [ext_resource type="PackedScene" uid="uid://lpc7gokf7djf" path="res://entities/packages/question_block/question_block.tscn" id="59_3xmqr"]
+[ext_resource type="PackedScene" uid="uid://cmq4tf7jue1cd" path="res://entities/packages/cake/cake.tscn" id="60_0gkwa"]
 [ext_resource type="PackedScene" uid="uid://bco4ic8i0xaln" path="res://entities/packages/alien_package/alien_1/alien_package_1.tscn" id="60_56vie"]
 [ext_resource type="PackedScene" uid="uid://dwxqwd52lirsk" path="res://entities/ceo/ceo.tscn" id="61_7lq78"]
+[ext_resource type="PackedScene" uid="uid://enscgvpi5rkx" path="res://entities/packages/coffin/coffin.tscn" id="61_gb2w0"]
 [ext_resource type="PackedScene" uid="uid://c77ln8gwy36o0" path="res://entities/packages/alien_package/alien_package_2/alien_package_2.tscn" id="61_i0o2x"]
 [ext_resource type="Script" path="res://scenes/game/pause_manager.gd" id="62_1wd3c"]
+[ext_resource type="PackedScene" uid="uid://dm0ol0pficm5w" path="res://entities/packages/package1/package_1.tscn" id="62_ec0rw"]
 [ext_resource type="PackedScene" uid="uid://c5dxdr3xsv4n0" path="res://entities/packages/alien_package/alien_package_3/alien_package_3.tscn" id="62_wpisq"]
+[ext_resource type="PackedScene" uid="uid://ch76nquowly8" path="res://entities/packages/packages_stack/package_stack.tscn" id="63_0tuwt"]
 [ext_resource type="PackedScene" uid="uid://bagq0ulc4ga7b" path="res://entities/packages/alien_package/alien_package_4/alien_package_4.tscn" id="63_ufwdc"]
 [ext_resource type="PackedScene" uid="uid://bmyq1kwhv0hab" path="res://entities/packages/alien_package/alien_package_5/alien_package_5.tscn" id="64_jdmae"]
 [ext_resource type="PackedScene" uid="uid://wgi7oe0xmbet" path="res://entities/packages/alien_package/slime_package/slime_package.tscn" id="65_aod0q"]
@@ -1260,12 +1265,14 @@ stretch_mode = 1
 
 [node name="Xray" parent="." instance=ExtResource("55_yg3a8")]
 unique_name_in_owner = true
+scale = Vector2(0.568808, 0.568808)
+texture = ExtResource("56_yrohw")
 
 [node name="Timers" type="Node" parent="."]
 
 [node name="TimerToSpawnPackage" type="Timer" parent="Timers"]
 unique_name_in_owner = true
-wait_time = 2.0
+wait_time = 1.5
 one_shot = true
 
 [node name="TimerTimeToLeft" type="Timer" parent="Timers"]
@@ -1274,12 +1281,13 @@ one_shot = true
 
 [node name="TimerExtraTime" type="Timer" parent="Timers"]
 unique_name_in_owner = true
+wait_time = 0.1
 one_shot = true
 
 [node name="PackageSpawner" type="Node2D" parent="." node_paths=PackedStringArray("package_spawn_point", "package_destination_point", "package_forward_point", "laser_gun", "destroy_particles")]
 unique_name_in_owner = true
 script = ExtResource("46_mkleq")
-packages_scenes = Array[PackedScene]([ExtResource("45_e7rc1"), ExtResource("58_sqtdw"), ExtResource("59_3xmqr")])
+packages_scenes = Array[PackedScene]([ExtResource("45_e7rc1"), ExtResource("58_sqtdw"), ExtResource("59_3xmqr"), ExtResource("60_0gkwa"), ExtResource("61_gb2w0"), ExtResource("62_ec0rw"), ExtResource("63_0tuwt")])
 aliens_scenes = Array[PackedScene]([ExtResource("60_56vie"), ExtResource("61_i0o2x"), ExtResource("62_wpisq"), ExtResource("63_ufwdc"), ExtResource("64_jdmae"), ExtResource("65_aod0q"), ExtResource("66_445ud")])
 package_spawn_point = NodePath("../WallWindow/PackagesSpawnPoint")
 package_destination_point = NodePath("../WallWindow/PackageDestinationPoint")
@@ -1304,6 +1312,7 @@ script = ExtResource("62_1wd3c")
 [connection signal="pressed" from="UI/Table/VBoxContainer/HBoxContainer/EmergencyButton" to="." method="_on_emergency_button_pressed"]
 [connection signal="pressed" from="UI/Table/VBoxContainer/HBoxContainer/AcceptButton" to="." method="_on_accept_button_pressed"]
 [connection signal="emergency_code_checked" from="UI/EmergencyModule" to="." method="_on_emergency_module_emergency_code_checked"]
+[connection signal="emergency_code_checked" from="UI/EmergencyModule" to="UI/EmergencyModule" method="_on_emergency_code_checked"]
 [connection signal="emergency_code_checked" from="UI/EmergencyModule" to="UI/EmergencyKeypadPanel" method="_on_emergency_module_emergency_code_checked"]
 [connection signal="pressed" from="UI/EmergencyModule/EmergencyKeypad" to="UI/EmergencyModule" method="_on_emergency_keypad_pressed"]
 [connection signal="code_submited" from="UI/EmergencyKeypadPanel" to="UI/EmergencyModule" method="_on_emergency_keypad_panel_code_submited"]
