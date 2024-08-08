@@ -7,11 +7,11 @@ script = ExtResource("1_1gmsj")
 number = 3
 packages_amount = 8
 strikes_amount = 3
-normal_time_left = 8.0
-emergency_time_left = 7.0
+normal_time_left = 9.0
+emergency_time_left = 8.0
 package_type_odds = {
-"evil_package": 0.7,
-"normal_package": 0.3
+"evil_package": 0.6,
+"normal_package": 0.4
 }
 evil_package_odds = {
 "alien_in_package": 0.3,
@@ -20,9 +20,9 @@ evil_package_odds = {
 "alien_parts_in_package_timer": 0.1
 }
 alien_parts_difficulty_odds = {
-"alien_parts_easy": 1.0,
+"alien_parts_easy": 0.55,
 "alien_parts_hard": 0.0,
-"alien_parts_medium": 0.0
+"alien_parts_medium": 0.45
 }
 main_title = ""
 main_article = ""
