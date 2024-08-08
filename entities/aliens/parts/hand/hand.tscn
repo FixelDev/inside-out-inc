@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkbbumma7fqla"]
+
+[ext_resource type="PackedScene" uid="uid://dc1tebyjumw4a" path="res://entities/aliens/parts/alien_part.tscn" id="1_epske"]
+[ext_resource type="Texture2D" uid="uid://b7p3sidsftype" path="res://entities/aliens/parts/hand/hand.png" id="2_8pn2s"]
+
+[node name="Hand" instance=ExtResource("1_epske")]
+texture = ExtResource("2_8pn2s")

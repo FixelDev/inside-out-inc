@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://cw4ldk3irpb8v"]
+
+[ext_resource type="PackedScene" uid="uid://dc1tebyjumw4a" path="res://entities/aliens/parts/alien_part.tscn" id="1_p0eva"]
+[ext_resource type="Texture2D" uid="uid://cb1j4oiyfvktj" path="res://entities/aliens/parts/slime_part/slime_part.png" id="2_xfjbn"]
+
+[node name="SlimePart" instance=ExtResource("1_p0eva")]
+texture = ExtResource("2_xfjbn")

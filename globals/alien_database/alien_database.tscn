@@ -1,10 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://lmf2ghp18sxu"]
+[gd_scene load_steps=16 format=3 uid="uid://lmf2ghp18sxu"]
 
 [ext_resource type="Script" path="res://globals/alien_database/alien_database.gd" id="1_5mmha"]
 [ext_resource type="PackedScene" uid="uid://5dmyy8poi2g" path="res://entities/aliens/alien1/alien_1.tscn" id="2_mmmpp"]
 [ext_resource type="PackedScene" uid="uid://ev03s8g2l1s8" path="res://entities/aliens/parts/alien_eye/alien_eye.tscn" id="3_eksvc"]
+[ext_resource type="PackedScene" uid="uid://bjqamsnxawlke" path="res://entities/aliens/alien_2/alien_2.tscn" id="3_hp1q6"]
+[ext_resource type="PackedScene" uid="uid://dius872t5mc5j" path="res://entities/aliens/alien_3/alien_3.tscn" id="4_k7qlv"]
+[ext_resource type="PackedScene" uid="uid://bpslk40ngagwe" path="res://entities/aliens/alien_4/alien_4.tscn" id="5_rymbd"]
+[ext_resource type="PackedScene" uid="uid://ceh2t6cgulmvg" path="res://entities/aliens/alien_5/alien_5.tscn" id="6_4fqmw"]
+[ext_resource type="PackedScene" uid="uid://4y4yn0fibuey" path="res://entities/aliens/slime/slime.tscn" id="7_qg40a"]
+[ext_resource type="PackedScene" uid="uid://dyy38ae2a3bw4" path="res://entities/aliens/spider/spider.tscn" id="8_uq7nb"]
+[ext_resource type="PackedScene" uid="uid://dkbbumma7fqla" path="res://entities/aliens/parts/hand/hand.tscn" id="10_ewq51"]
+[ext_resource type="PackedScene" uid="uid://4705ut16jai3" path="res://entities/aliens/parts/mouth/mouth.tscn" id="11_u2auk"]
+[ext_resource type="PackedScene" uid="uid://cw4ldk3irpb8v" path="res://entities/aliens/parts/slime_part/slime_part.tscn" id="12_crcbw"]
+[ext_resource type="PackedScene" uid="uid://djbwyturooxcr" path="res://entities/aliens/parts/tentacle/tentacle.tscn" id="13_y02se"]
+[ext_resource type="PackedScene" uid="uid://chxaqwgvvv5s8" path="res://entities/aliens/parts/tongue/tongue.tscn" id="14_bc8tf"]
+[ext_resource type="PackedScene" uid="uid://vn05lup6vwro" path="res://entities/aliens/parts/tooth/tooth.tscn" id="15_0xbju"]
 
 [node name="AlienDatabase" type="Node"]
 script = ExtResource("1_5mmha")
-aliens_scenes = Array[PackedScene]([ExtResource("2_mmmpp")])
-alien_parts_scenes = Array[PackedScene]([ExtResource("3_eksvc")])
+aliens_scenes = Array[PackedScene]([ExtResource("2_mmmpp"), ExtResource("3_hp1q6"), ExtResource("4_k7qlv"), ExtResource("5_rymbd"), ExtResource("6_4fqmw"), ExtResource("7_qg40a"), ExtResource("8_uq7nb")])
+alien_parts_scenes = Array[PackedScene]([ExtResource("3_eksvc"), ExtResource("10_ewq51"), ExtResource("11_u2auk"), ExtResource("12_crcbw"), ExtResource("13_y02se"), ExtResource("14_bc8tf"), ExtResource("15_0xbju")])

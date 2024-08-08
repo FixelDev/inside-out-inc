@@ -6,3 +6,5 @@
 light_mask = 2
 visibility_layer = 2
 script = ExtResource("1_x42up")
+min_scale = 0.2
+max_scale = 0.4

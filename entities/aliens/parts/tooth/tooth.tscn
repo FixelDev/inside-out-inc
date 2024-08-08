@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://vn05lup6vwro"]
+
+[ext_resource type="PackedScene" uid="uid://dc1tebyjumw4a" path="res://entities/aliens/parts/alien_part.tscn" id="1_pf5mq"]
+[ext_resource type="Texture2D" uid="uid://cn54usvk7u08e" path="res://entities/aliens/parts/tooth/tooth.png" id="2_sohdn"]
+
+[node name="Tooth" instance=ExtResource("1_pf5mq")]
+texture = ExtResource("2_sohdn")

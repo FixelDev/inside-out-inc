@@ -1,4 +1,4 @@
-[gd_scene load_steps=114 format=3 uid="uid://domuj11pt21e0"]
+[gd_scene load_steps=122 format=3 uid="uid://domuj11pt21e0"]
 
 [ext_resource type="Texture2D" uid="uid://0xu767unbmot" path="res://scenes/game/graphics/wall.png" id="1_jn13p"]
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_w4xhy"]
@@ -54,13 +54,21 @@
 [ext_resource type="Texture2D" uid="uid://dgerfodrjvj10" path="res://scenes/game/graphics/paper_button.png" id="42_uukyc"]
 [ext_resource type="Texture2D" uid="uid://duhabuen6d406" path="res://scenes/game/graphics/emergency_lamp.png" id="44_qa7fk"]
 [ext_resource type="PackedScene" uid="uid://djfmjkuiwck6x" path="res://entities/packages/box/box.tscn" id="45_e7rc1"]
-[ext_resource type="PackedScene" uid="uid://bco4ic8i0xaln" path="res://entities/packages/alien_package/alien_package_1.tscn" id="46_fy6wy"]
 [ext_resource type="Script" path="res://scenes/game/package_spawner.gd" id="46_mkleq"]
 [ext_resource type="PackedScene" uid="uid://c0qvln8yg28ys" path="res://entities/laser/laser.tscn" id="54_6k7yb"]
 [ext_resource type="PackedScene" uid="uid://ca22i4rw6fnel" path="res://entities/packages/destroy_particles.tscn" id="55_4wqyy"]
 [ext_resource type="PackedScene" uid="uid://14o66vwcpfwb" path="res://entities/xray/xray.tscn" id="55_yg3a8"]
+[ext_resource type="PackedScene" uid="uid://bxll06o2sf1vx" path="res://entities/packages/flower/flower.tscn" id="58_sqtdw"]
+[ext_resource type="PackedScene" uid="uid://lpc7gokf7djf" path="res://entities/packages/question_block/question_block.tscn" id="59_3xmqr"]
+[ext_resource type="PackedScene" uid="uid://bco4ic8i0xaln" path="res://entities/packages/alien_package/alien_1/alien_package_1.tscn" id="60_56vie"]
 [ext_resource type="PackedScene" uid="uid://dwxqwd52lirsk" path="res://entities/ceo/ceo.tscn" id="61_7lq78"]
+[ext_resource type="PackedScene" uid="uid://c77ln8gwy36o0" path="res://entities/packages/alien_package/alien_package_2/alien_package_2.tscn" id="61_i0o2x"]
 [ext_resource type="Script" path="res://scenes/game/pause_manager.gd" id="62_1wd3c"]
+[ext_resource type="PackedScene" uid="uid://c5dxdr3xsv4n0" path="res://entities/packages/alien_package/alien_package_3/alien_package_3.tscn" id="62_wpisq"]
+[ext_resource type="PackedScene" uid="uid://bagq0ulc4ga7b" path="res://entities/packages/alien_package/alien_package_4/alien_package_4.tscn" id="63_ufwdc"]
+[ext_resource type="PackedScene" uid="uid://bmyq1kwhv0hab" path="res://entities/packages/alien_package/alien_package_5/alien_package_5.tscn" id="64_jdmae"]
+[ext_resource type="PackedScene" uid="uid://wgi7oe0xmbet" path="res://entities/packages/alien_package/slime_package/slime_package.tscn" id="65_aod0q"]
+[ext_resource type="PackedScene" uid="uid://ch2lrm20lvjw1" path="res://entities/packages/alien_package/spider_package/spider_package.tscn" id="66_445ud"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h1ktb"]
 texture = ExtResource("6_4fdm3")
@@ -1271,8 +1279,8 @@ one_shot = true
 [node name="PackageSpawner" type="Node2D" parent="." node_paths=PackedStringArray("package_spawn_point", "package_destination_point", "package_forward_point", "laser_gun", "destroy_particles")]
 unique_name_in_owner = true
 script = ExtResource("46_mkleq")
-packages_scenes = Array[PackedScene]([ExtResource("45_e7rc1")])
-aliens_scenes = Array[PackedScene]([ExtResource("46_fy6wy")])
+packages_scenes = Array[PackedScene]([ExtResource("45_e7rc1"), ExtResource("58_sqtdw"), ExtResource("59_3xmqr")])
+aliens_scenes = Array[PackedScene]([ExtResource("60_56vie"), ExtResource("61_i0o2x"), ExtResource("62_wpisq"), ExtResource("63_ufwdc"), ExtResource("64_jdmae"), ExtResource("65_aod0q"), ExtResource("66_445ud")])
 package_spawn_point = NodePath("../WallWindow/PackagesSpawnPoint")
 package_destination_point = NodePath("../WallWindow/PackageDestinationPoint")
 package_forward_point = NodePath("../WallWindow/PackageForwardPoint")

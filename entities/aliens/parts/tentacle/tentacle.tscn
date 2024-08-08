@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://djbwyturooxcr"]
+
+[ext_resource type="PackedScene" uid="uid://dc1tebyjumw4a" path="res://entities/aliens/parts/alien_part.tscn" id="1_earp8"]
+[ext_resource type="Texture2D" uid="uid://vrgr2x05hk4g" path="res://entities/aliens/parts/tentacle/tentacle.png" id="2_jps0y"]
+
+[node name="Tentacle" instance=ExtResource("1_earp8")]
+texture = ExtResource("2_jps0y")

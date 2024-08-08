@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://ch2lrm20lvjw1"]
+
+[ext_resource type="PackedScene" uid="uid://cf55jit22rshh" path="res://entities/packages/alien_package/alien_package.tscn" id="1_tar54"]
+[ext_resource type="Texture2D" uid="uid://bl4tpgh2o56t" path="res://entities/aliens/spider/spider_xray.png" id="2_a0rar"]
+[ext_resource type="Texture2D" uid="uid://bjkhkpx8stt87" path="res://entities/aliens/spider/spider.png" id="3_tw82x"]
+
+[node name="SpiderPackage" instance=ExtResource("1_tar54")]
+x_ray_sprites = Array[Texture2D]([ExtResource("2_a0rar")])
+
+[node name="NormalSprite" parent="." index="0"]
+texture = ExtResource("3_tw82x")

@@ -59,6 +59,7 @@ func spawn_alien_parts_inside(with_timer: bool) -> void:
 		add_child(alien_part)
 		alien_part.material = window_mask
 		alien_part.global_position = spawn_point.global_position
+		alien_part.rotation = randf_range(-6.2, 6.2)
 		
 		if with_timer:
 			alien_part.visible = false

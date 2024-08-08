@@ -4,4 +4,5 @@
 [ext_resource type="Script" path="res://entities/packages/alien_package/alien_package.gd" id="2_58w13"]
 
 [node name="AlienPackage" instance=ExtResource("1_r4a85")]
+scale = Vector2(4, 4)
 script = ExtResource("2_58w13")
