@@ -13,6 +13,33 @@
 [ext_resource type="PackedScene" uid="uid://14o66vwcpfwb" path="res://entities/xray/xray.tscn" id="9_mctfu"]
 [ext_resource type="Script" path="res://entities/xray/xray_menu.gd" id="10_fhdpj"]
 
+[sub_resource type="Animation" id="Animation_nu8nk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(106, 87)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(396, 10)]
+}
+
 [sub_resource type="Animation" id="Animation_snfjy"]
 resource_name = "alien1_menu_idle"
 length = 1.5
@@ -40,33 +67,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(396, 10), Vector2(384, 25), Vector2(396, 10)]
-}
-
-[sub_resource type="Animation" id="Animation_nu8nk"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:size")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(106, 87)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(396, 10)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_l1dxh"]
@@ -179,6 +179,7 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_2bki7")
 
 [node name="TextureRect" type="TextureRect" parent="Control2"]
+layout_mode = 0
 offset_left = 892.532
 offset_top = 72.0
 offset_right = 998.532
@@ -187,6 +188,7 @@ rotation = 0.19119
 texture = ExtResource("5_uoi1c")
 
 [node name="TextureRect2" type="TextureRect" parent="Control2"]
+layout_mode = 0
 offset_left = 1107.0
 offset_top = 559.0
 offset_right = 1248.0
@@ -195,6 +197,7 @@ rotation = -0.622556
 texture = ExtResource("5_uoi1c")
 
 [node name="TextureRect3" type="TextureRect" parent="Control2"]
+layout_mode = 0
 offset_left = 655.0
 offset_top = 593.0
 offset_right = 813.0

@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpslk40ngagwe"]
+
+[ext_resource type="PackedScene" uid="uid://cd05ohtnknfib" path="res://entities/aliens/alien.tscn" id="1_4pfcy"]
+[ext_resource type="Texture2D" uid="uid://cvnxrcuhqwsx3" path="res://entities/aliens/alien_4/alien_4.png" id="2_f7kki"]
+
+[node name="Alien4" instance=ExtResource("1_4pfcy")]
+texture = ExtResource("2_f7kki")
