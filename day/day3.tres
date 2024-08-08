@@ -16,15 +16,15 @@ package_type_odds = {
 evil_package_odds = {
 "alien_in_package": 0.3,
 "alien_package": 0.2,
-"alien_parts_in_package": 0.4,
-"alien_parts_in_package_timer": 0.1
+"alien_parts_in_package": 0.5,
+"alien_parts_in_package_timer": 0.0
 }
 alien_parts_difficulty_odds = {
 "alien_parts_easy": 0.55,
 "alien_parts_hard": 0.0,
 "alien_parts_medium": 0.45
 }
-main_title = ""
-main_article = ""
-second_article = ""
-third_article = ""
+main_title = "NEW ALIEN CAMOUFLAGE?"
+main_article = "Aliens are reportedly more difficult to detect in packages - sometimes only certain parts of them are visible."
+second_article = "NEW CULINARY HIT - GALACTIC MILK WITH MANGOS"
+third_article = "RISING TENSION BETWEEN EARTH AND MARS"

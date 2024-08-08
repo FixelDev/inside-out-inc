@@ -29,7 +29,7 @@ func init_stats() -> void:
 	Globals.packages_current_count = 0
 	Globals.strikes_count = DayManager.current_day.strikes_amount
 	Globals.strikes_current_count = 0
-
+	Globals.successful_checks_count = 0
 
 func spawn_package() -> void:
 	if Globals.packages_current_count >= Globals.packages_count:
@@ -69,6 +69,10 @@ func strike() -> void:
 	
 	if Globals.strikes_current_count >= Globals.strikes_count:
 		SceneManager.load_scene(SceneManager.game_over_scene)
+
+
+func successful_check() -> void:
+	Globals.successful_checks_count += 1
 
 
 func destroy_package() -> void:
@@ -120,6 +124,7 @@ func _on_package_spawner_package_forwarded(is_evil):
 		strike()
 	else:
 		give_coins(5)
+		successful_check()
 		
 	xray.visible = false
 	timer_to_spawn_package.start()
@@ -128,6 +133,7 @@ func _on_package_spawner_package_forwarded(is_evil):
 func _on_package_spawner_package_destroyed(is_evil):
 	if is_evil:
 		give_coins(5)
+		successful_check()
 	else:
 		strike()
 		

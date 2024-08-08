@@ -1,4 +1,4 @@
-[gd_scene load_steps=127 format=3 uid="uid://domuj11pt21e0"]
+[gd_scene load_steps=130 format=3 uid="uid://domuj11pt21e0"]
 
 [ext_resource type="Texture2D" uid="uid://0xu767unbmot" path="res://scenes/game/graphics/wall.png" id="1_jn13p"]
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_w4xhy"]
@@ -47,6 +47,7 @@
 [ext_resource type="Texture2D" uid="uid://d4ejv8ag53m6o" path="res://entities/emergency_crate/graphics/crate_decoration.png" id="33_fdnng"]
 [ext_resource type="Texture2D" uid="uid://c4t8nqvyspmif" path="res://entities/emergency_module/emergency_keypad_panel/accept_button_hover.png" id="33_ykf5n"]
 [ext_resource type="Texture2D" uid="uid://cylt3gcsa7vhm" path="res://entities/emergency_module/emergency_keypad_panel/accept_button_pressed.png" id="34_3weag"]
+[ext_resource type="Texture2D" uid="uid://dwldndr7w7rkd" path="res://ui/check.png" id="38_jvguw"]
 [ext_resource type="Theme" uid="uid://dkvqiimbpsekt" path="res://scenes/game/info_paper_theme.tres" id="39_ds15h"]
 [ext_resource type="Texture2D" uid="uid://darfsxriegxbq" path="res://scenes/game/graphics/paper.png" id="40_elg3j"]
 [ext_resource type="PackedScene" uid="uid://kold78v3pbef" path="res://ui/line_divider.tscn" id="41_y1et5"]
@@ -73,7 +74,9 @@
 [ext_resource type="PackedScene" uid="uid://bagq0ulc4ga7b" path="res://entities/packages/alien_package/alien_package_4/alien_package_4.tscn" id="63_ufwdc"]
 [ext_resource type="PackedScene" uid="uid://bmyq1kwhv0hab" path="res://entities/packages/alien_package/alien_package_5/alien_package_5.tscn" id="64_jdmae"]
 [ext_resource type="PackedScene" uid="uid://wgi7oe0xmbet" path="res://entities/packages/alien_package/slime_package/slime_package.tscn" id="65_aod0q"]
+[ext_resource type="PackedScene" uid="uid://bm08psjqqf6rc" path="res://entities/packages/pedestal/pedestal.tscn" id="66_2ifts"]
 [ext_resource type="PackedScene" uid="uid://ch2lrm20lvjw1" path="res://entities/packages/alien_package/spider_package/spider_package.tscn" id="66_445ud"]
+[ext_resource type="PackedScene" uid="uid://bu82moksnlmnl" path="res://entities/packages/pipes/pipes.tscn" id="67_a448j"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h1ktb"]
 texture = ExtResource("6_4fdm3")
@@ -154,24 +157,24 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 0.329412)]
+"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_l25tp"]
 resource_name = "show"
-length = 0.8
 loop_mode = 1
+step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.5, 0.770015),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.45, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0.329412), Color(1, 1, 1, 0.329412), Color(1, 1, 1, 0.529412), Color(1, 1, 1, 0.529412)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.490196), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_en8rw"]
@@ -474,9 +477,7 @@ patch_margin_right = 5
 patch_margin_bottom = 4
 
 [node name="RedLightPanel" type="Panel" parent="UI"]
-unique_name_in_owner = true
-visible = false
-modulate = Color(1, 1, 1, 0.329412)
+modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -485,11 +486,11 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_n3ixk")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/RedLightPanel"]
+[node name="RedLightPanelAnimator" type="AnimationPlayer" parent="UI/RedLightPanel"]
+unique_name_in_owner = true
 libraries = {
 "": SubResource("AnimationLibrary_en8rw")
 }
-autoplay = "show"
 
 [node name="EmergencyModule" type="Control" parent="UI" node_paths=PackedStringArray("emergency_code_label", "emergency_keypad", "emergency_keypad_panel")]
 layout_mode = 3
@@ -719,8 +720,8 @@ anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -214.0
 offset_top = 38.0
-offset_right = -70.0
-offset_bottom = 163.0
+offset_right = -59.0
+offset_bottom = 210.0
 grow_horizontal = 0
 scale = Vector2(1.37857, 1.38881)
 theme_override_styles/panel = SubResource("StyleBoxTexture_2433e")
@@ -739,6 +740,7 @@ script = ExtResource("9_f07pv")
 
 [node name="CoinsCounterCointainer" type="HBoxContainer" parent="UI/PanelContainer/MarginContainer/StatsContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 11
 
@@ -756,14 +758,9 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Spacer" type="Control" parent="UI/PanelContainer/MarginContainer/StatsContainer"]
-visible = false
-custom_minimum_size = Vector2(0, 26.78)
-layout_mode = 2
-
 [node name="PackagesCounterCotainer" type="HBoxContainer" parent="UI/PanelContainer/MarginContainer/StatsContainer"]
 layout_mode = 2
-theme_override_constants/separation = 11
+theme_override_constants/separation = 6
 
 [node name="TextureRect" type="TextureRect" parent="UI/PanelContainer/MarginContainer/StatsContainer/PackagesCounterCotainer"]
 custom_minimum_size = Vector2(28, 0)
@@ -775,11 +772,31 @@ expand_mode = 4
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
-text = "0/2"
+text = "10/12"
+
+[node name="SuccessfulChecksContainer" type="HBoxContainer" parent="UI/PanelContainer/MarginContainer/StatsContainer"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="TextureRect" type="TextureRect" parent="UI/PanelContainer/MarginContainer/StatsContainer/SuccessfulChecksContainer"]
+custom_minimum_size = Vector2(28, 0)
+layout_mode = 2
+texture = ExtResource("38_jvguw")
+expand_mode = 4
+
+[node name="SuccessfulChecksCounterLabel" type="Label" parent="UI/PanelContainer/MarginContainer/StatsContainer/SuccessfulChecksContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "0"
+
+[node name="Spacer" type="Control" parent="UI/PanelContainer/MarginContainer/StatsContainer"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
 
 [node name="StrikesCounterCotainer" type="HBoxContainer" parent="UI/PanelContainer/MarginContainer/StatsContainer"]
 layout_mode = 2
-theme_override_constants/separation = 11
+theme_override_constants/separation = 6
 
 [node name="TextureRect" type="TextureRect" parent="UI/PanelContainer/MarginContainer/StatsContainer/StrikesCounterCotainer"]
 custom_minimum_size = Vector2(28, 0)
@@ -1287,7 +1304,7 @@ one_shot = true
 [node name="PackageSpawner" type="Node2D" parent="." node_paths=PackedStringArray("package_spawn_point", "package_destination_point", "package_forward_point", "laser_gun", "destroy_particles")]
 unique_name_in_owner = true
 script = ExtResource("46_mkleq")
-packages_scenes = Array[PackedScene]([ExtResource("45_e7rc1"), ExtResource("58_sqtdw"), ExtResource("59_3xmqr"), ExtResource("60_0gkwa"), ExtResource("61_gb2w0"), ExtResource("62_ec0rw"), ExtResource("63_0tuwt")])
+packages_scenes = Array[PackedScene]([ExtResource("45_e7rc1"), ExtResource("58_sqtdw"), ExtResource("59_3xmqr"), ExtResource("60_0gkwa"), ExtResource("61_gb2w0"), ExtResource("62_ec0rw"), ExtResource("63_0tuwt"), ExtResource("66_2ifts"), ExtResource("67_a448j")])
 aliens_scenes = Array[PackedScene]([ExtResource("60_56vie"), ExtResource("61_i0o2x"), ExtResource("62_wpisq"), ExtResource("63_ufwdc"), ExtResource("64_jdmae"), ExtResource("65_aod0q"), ExtResource("66_445ud")])
 package_spawn_point = NodePath("../WallWindow/PackagesSpawnPoint")
 package_destination_point = NodePath("../WallWindow/PackageDestinationPoint")

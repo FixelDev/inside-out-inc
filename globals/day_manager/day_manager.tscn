@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://kw172ydjrdqv"]
+[gd_scene load_steps=10 format=3 uid="uid://kw172ydjrdqv"]
 
 [ext_resource type="Script" path="res://globals/day_manager/day_manager.gd" id="1_uhfh6"]
 [ext_resource type="Resource" uid="uid://c83cqmqx7tjty" path="res://day/day1.tres" id="2_omlf3"]
@@ -8,7 +8,8 @@
 [ext_resource type="Resource" uid="uid://dyd7mf3ktwwvt" path="res://day/day5.tres" id="6_agetx"]
 [ext_resource type="Resource" uid="uid://b0mbi3akwk20u" path="res://day/day6.tres" id="7_dy8dt"]
 [ext_resource type="Resource" uid="uid://cb6e3bmofuoj8" path="res://day/day7.tres" id="8_4urst"]
+[ext_resource type="Resource" uid="uid://c3ethutb8csw" path="res://day/day0.tres" id="9_mus4m"]
 
 [node name="DayManager" type="Node2D"]
 script = ExtResource("1_uhfh6")
-days = Array[Resource("res://day/day.gd")]([ExtResource("2_omlf3"), ExtResource("3_7rcxq"), ExtResource("4_0gti1"), ExtResource("5_g8b5b"), ExtResource("6_agetx"), ExtResource("7_dy8dt"), ExtResource("8_4urst")])
+days = Array[Resource("res://day/day.gd")]([ExtResource("2_omlf3"), ExtResource("3_7rcxq"), ExtResource("4_0gti1"), ExtResource("5_g8b5b"), ExtResource("6_agetx"), ExtResource("7_dy8dt"), ExtResource("8_4urst"), ExtResource("9_mus4m")])

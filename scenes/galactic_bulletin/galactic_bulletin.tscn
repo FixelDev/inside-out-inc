@@ -94,9 +94,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -484.0
-offset_top = -260.0
+offset_top = -306.0
 offset_right = 484.0
-offset_bottom = 260.0
+offset_bottom = 306.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -184,6 +184,7 @@ theme_override_font_sizes/font_size = 17
 text = "ALIENS ATTACKS"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="Spacer4" type="Control" parent="UI/BG/GalacticBulletinPanel/VBoxContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 14.925)
@@ -193,7 +194,7 @@ layout_mode = 2
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_vertical = 2
 theme_override_font_sizes/font_size = 14
 text = "dssssssssssssssssssssss sd sd sd s  sd s ds s d sds d s ds  ds ds ds ds dsd sd sds ds d sds ds d s"
 autowrap_mode = 2
@@ -274,8 +275,11 @@ layout_mode = 2
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
+theme_override_constants/line_spacing = 4
 theme_override_font_sizes/font_size = 14
 text = "BLA BLA BL ABLA BLA BL ABLA BLA BL A"
+horizontal_alignment = 1
+vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="UI/BG/GalacticBulletinPanel/VBoxContainer/HBoxContainer"]
@@ -297,11 +301,18 @@ layout_mode = 2
 
 [node name="ThirdArticle" type="Label" parent="UI/BG/GalacticBulletinPanel/VBoxContainer/HBoxContainer/VBoxContainer3"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
+theme_override_constants/line_spacing = 4
 theme_override_font_sizes/font_size = 17
-text = "ALIENS ATTACKS"
+text = "ALIENS ATTACKS
+s
+s
+s
+"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="Spacer5" type="Control" parent="UI/BG/GalacticBulletinPanel/VBoxContainer/HBoxContainer/VBoxContainer3"]
 custom_minimum_size = Vector2(0, 14.925)
@@ -339,9 +350,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -78.0
-offset_top = -153.0
+offset_top = -88.0
 offset_right = 78.0
-offset_bottom = -100.0
+offset_bottom = -35.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_hover_color = Color(0.180392, 0.133333, 0.184314, 1)

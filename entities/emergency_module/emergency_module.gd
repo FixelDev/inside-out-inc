@@ -1,10 +1,12 @@
 class_name EmergencyModule extends Control
 
-@onready var red_light_panel = %RedLightPanel
+
 
 @export var emergency_code_label: Label
 @export var emergency_keypad: EmergencyKeypad
 @export var emergency_keypad_panel: EmergencyKeypadPanel
+
+@onready var red_light_panel_animator = %RedLightPanelAnimator
 
 signal emergency_code_checked(is_correct: bool)
 
@@ -25,10 +27,13 @@ func _on_emergency_keypad_pressed():
 
 func _on_game_emergency_mode_toggled(enabled):
 	emergency_keypad.disabled = !enabled
-	red_light_panel.visible = enabled
 	
-	if enabled == false:
+	
+	if enabled:
+		red_light_panel_animator.play("show")
+	else:
 		emergency_keypad_panel.hide()
+		red_light_panel_animator.stop()
 
 
 func randomize_code() -> void:

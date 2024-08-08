@@ -49,6 +49,12 @@ var coins: int = 0:
 	get:
 		return coins
 
+var successful_checks_count: int:
+	set(value):
+		successful_checks_count = value
+		stats_changed.emit()
+	get:
+		return successful_checks_count
 
 func get_dictionary_key_based_on_odds(dictionary_odds: Dictionary) -> String:
 	var successful_keys_dict: Dictionary

@@ -6,7 +6,7 @@
 script = ExtResource("1_fg17b")
 number = 4
 packages_amount = 9
-strikes_amount = 2
+strikes_amount = 3
 normal_time_left = 8.0
 emergency_time_left = 7.0
 package_type_odds = {
@@ -24,7 +24,7 @@ alien_parts_difficulty_odds = {
 "alien_parts_hard": 0.3,
 "alien_parts_medium": 0.5
 }
-main_title = ""
-main_article = ""
-second_article = ""
-third_article = ""
+main_title = "ALIENS EVEN MORE DANGEROUS?"
+main_article = "It 	turns out that alien parts can sometimes show up even after a few seconds!"
+second_article = "NEW PERSONAL QUANTUM COMPUTER"
+third_article = "EARTH'S AMBASSADOR EXPELLED FROM MARS"

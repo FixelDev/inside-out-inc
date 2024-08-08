@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=3 uid="uid://bm08psjqqf6rc"]
+
+[ext_resource type="PackedScene" uid="uid://3a33oceaqq6d" path="res://entities/packages/package.tscn" id="1_n1153"]
+[ext_resource type="Texture2D" uid="uid://cgfjyskejnu1m" path="res://entities/packages/pedestal/pedestal_xray.png" id="2_bre82"]
+[ext_resource type="Texture2D" uid="uid://cuoyo0miqcjwj" path="res://entities/packages/pedestal/pedestal.png" id="3_132w8"]
+
+[node name="Pedestal" instance=ExtResource("1_n1153")]
+scale = Vector2(5, 5)
+x_ray_sprites = Array[Texture2D]([ExtResource("2_bre82")])
+
+[node name="NormalSprite" parent="." index="0"]
+position = Vector2(0, -13.2)
+texture = ExtResource("3_132w8")
+
+[node name="XRaySprite" parent="." index="1"]
+position = Vector2(0, -13.2)
+
+[node name="AlienPartsHolder" parent="." index="2"]
+position = Vector2(0, -13.2)
+
+[node name="Marker2D" type="Marker2D" parent="AlienPartsHolder/Easy" index="0"]
+position = Vector2(0, -4)
+
+[node name="Marker2D2" type="Marker2D" parent="AlienPartsHolder/Easy" index="1"]
+position = Vector2(-37, 12)
+
+[node name="Marker2D3" type="Marker2D" parent="AlienPartsHolder/Easy" index="2"]
+position = Vector2(-35, -4)
+
+[node name="Marker2D4" type="Marker2D" parent="AlienPartsHolder/Easy" index="3"]
+position = Vector2(35, 17)
+
+[node name="Marker2D5" type="Marker2D" parent="AlienPartsHolder/Easy" index="4"]
+position = Vector2(35, 1)
+
+[node name="Marker2D6" type="Marker2D" parent="AlienPartsHolder/Easy" index="5"]
+position = Vector2(0, 12)
+
+[node name="Marker2D7" type="Marker2D" parent="AlienPartsHolder/Easy" index="6"]
+position = Vector2(-16, 25)
+
+[node name="Marker2D8" type="Marker2D" parent="AlienPartsHolder/Easy" index="7"]
+position = Vector2(18, 26)
+
+[node name="Marker2D9" type="Marker2D" parent="AlienPartsHolder/Medium" index="0"]
+position = Vector2(41, -14)
+
+[node name="Marker2D10" type="Marker2D" parent="AlienPartsHolder/Medium" index="1"]
+position = Vector2(31, -11)
+
+[node name="Marker2D11" type="Marker2D" parent="AlienPartsHolder/Medium" index="2"]
+position = Vector2(0, -12)
+
+[node name="Marker2D12" type="Marker2D" parent="AlienPartsHolder/Medium" index="3"]
+position = Vector2(-36, -12)
+
+[node name="Marker2D13" type="Marker2D" parent="AlienPartsHolder/Medium" index="4"]
+position = Vector2(-34, 25)
+
+[node name="Marker2D14" type="Marker2D" parent="AlienPartsHolder/Hard" index="0"]
+position = Vector2(-46, -18)
+
+[node name="Marker2D15" type="Marker2D" parent="AlienPartsHolder/Hard" index="1"]
+position = Vector2(46, 31)
+
+[node name="Marker2D16" type="Marker2D" parent="AlienPartsHolder/Hard" index="2"]
+position = Vector2(3, -32)
