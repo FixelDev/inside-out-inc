@@ -5,3 +5,4 @@
 
 [node name="Slime" instance=ExtResource("1_wy60r")]
 texture = ExtResource("2_ey33q")
+is_bounce_animation = true

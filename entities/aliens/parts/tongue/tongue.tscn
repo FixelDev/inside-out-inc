@@ -4,4 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://bmn5ijqu6g40s" path="res://entities/aliens/parts/tongue/tongue.png" id="2_n4bg2"]
 
 [node name="Tongue" instance=ExtResource("1_ad6lx")]
+is_swing_animation = true
+
+[node name="AlienPart" parent="." index="0"]
+position = Vector2(0, 20)
 texture = ExtResource("2_n4bg2")

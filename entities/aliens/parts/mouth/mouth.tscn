@@ -4,4 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://nu6a80jymxdu" path="res://entities/aliens/parts/mouth/mouth.png" id="2_78b8s"]
 
 [node name="Mouth" instance=ExtResource("1_ukdd1")]
+is_bounce_animation = true
+
+[node name="AlienPart" parent="." index="0"]
 texture = ExtResource("2_78b8s")

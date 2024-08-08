@@ -4,4 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://vrgr2x05hk4g" path="res://entities/aliens/parts/tentacle/tentacle.png" id="2_jps0y"]
 
 [node name="Tentacle" instance=ExtResource("1_earp8")]
+is_swing_animation = true
+
+[node name="AlienPart" parent="." index="0"]
+position = Vector2(0, -31)
 texture = ExtResource("2_jps0y")

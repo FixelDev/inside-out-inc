@@ -4,4 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://b7p3sidsftype" path="res://entities/aliens/parts/hand/hand.png" id="2_8pn2s"]
 
 [node name="Hand" instance=ExtResource("1_epske")]
+is_swing_animation = true
+
+[node name="AlienPart" parent="." index="0"]
+position = Vector2(0, -33)
 texture = ExtResource("2_8pn2s")

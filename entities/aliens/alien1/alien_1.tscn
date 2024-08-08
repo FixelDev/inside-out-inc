@@ -5,5 +5,4 @@
 
 [node name="Alien1" instance=ExtResource("1_e6rra")]
 texture = ExtResource("2_sg2ka")
-min_scale = 0.5
-max_scale = 1.0
+is_bounce_animation = true

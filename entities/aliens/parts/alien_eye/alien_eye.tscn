@@ -5,6 +5,7 @@
 
 [node name="AlienEye" instance=ExtResource("1_r1igf")]
 scale = Vector2(0.3, 0.3)
+is_bounce_animation = true
+
+[node name="AlienPart" parent="." index="0"]
 texture = ExtResource("2_rf3y6")
-min_scale = 0.2
-max_scale = 0.4

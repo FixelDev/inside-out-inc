@@ -32,7 +32,7 @@ func spawn_alien_inside() -> void:
 	add_child(alien)
 	alien.material = window_mask
 	alien.global_position = global_position
-
+	alien.start_animations()
 
 func spawn_alien_parts_inside(with_timer: bool) -> void:
 	var parts_holder: Node2D
@@ -55,11 +55,12 @@ func spawn_alien_parts_inside(with_timer: bool) -> void:
 		var spawn_point: Marker2D = available_spawn_points.pick_random()
 		available_spawn_points.erase(spawn_point)
 		
-		var alien_part = random_alien_part_scene.instantiate()
+		var alien_part: Alien = random_alien_part_scene.instantiate()
 		add_child(alien_part)
-		alien_part.material = window_mask
+		alien_part.get_child(0).material = window_mask
 		alien_part.global_position = spawn_point.global_position
 		alien_part.rotation = randf_range(-6.2, 6.2)
+		alien_part.start_animations()
 		
 		if with_timer:
 			alien_part.visible = false

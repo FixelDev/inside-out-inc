@@ -2,9 +2,11 @@
 
 [ext_resource type="Script" path="res://entities/aliens/alien.gd" id="1_x42up"]
 
-[node name="AlienPart" type="Sprite2D"]
-light_mask = 2
-visibility_layer = 2
+[node name="Node2D" type="Node2D"]
 script = ExtResource("1_x42up")
 min_scale = 0.2
 max_scale = 0.4
+
+[node name="AlienPart" type="Sprite2D" parent="."]
+light_mask = 2
+visibility_layer = 2

@@ -5,3 +5,4 @@
 
 [node name="Alien5" instance=ExtResource("1_yn2b6")]
 texture = ExtResource("2_ckri2")
+is_bounce_animation = true

@@ -5,3 +5,4 @@
 
 [node name="Spider" instance=ExtResource("1_odi8x")]
 texture = ExtResource("2_if5fp")
+is_bounce_animation = true
