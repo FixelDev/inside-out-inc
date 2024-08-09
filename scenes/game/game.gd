@@ -9,6 +9,9 @@ extends Node2D
 @onready var package_spawner = %PackageSpawner
 @onready var xray = %Xray
 @onready var info_paper = %InfoPaper
+@onready var game_button_audio_stream = %GameButtonAudioStream
+@onready var evil_package_forwarded_stream_player = %EvilPackageForwardedStreamPlayer
+@onready var normal_package_forwarded_stream_player = %NormalPackageForwardedStreamPlayer
 
 signal emergency_mode_toggled(enabled: bool)
 
@@ -31,6 +34,7 @@ func init_stats() -> void:
 	Globals.strikes_current_count = 0
 	Globals.successful_checks_count = 0
 
+
 func spawn_package() -> void:
 	if Globals.packages_current_count >= Globals.packages_count:
 		if DayManager.is_last_day():
@@ -49,12 +53,14 @@ func spawn_package() -> void:
 
 
 func _on_emergency_button_pressed():
+	game_button_audio_stream.play()
 	toggle_buttons(false)
 	emergency_mode_toggled.emit(true)
 	time_left_progress_bar.start_timer(DayManager.current_day.emergency_time_left, time_left_progress_bar.TimerType.EMERGENCY)
 
 
 func _on_accept_button_pressed():
+	game_button_audio_stream.play()
 	toggle_buttons(false)
 	time_left_progress_bar.stop_timer()
 	package_spawner.forward_package()
@@ -122,7 +128,9 @@ func _on_package_spawner_package_delivered():
 func _on_package_spawner_package_forwarded(is_evil):
 	if is_evil:
 		strike()
+		evil_package_forwarded_stream_player.play()
 	else:
+		normal_package_forwarded_stream_player.play()
 		give_coins(5)
 		successful_check()
 		

@@ -13,6 +13,7 @@ class_name PackageSpawner extends Node2D
 
 @onready var ceo_destination_point = %ceo_destination_point
 @onready var ceo_spawn_point = %ceo_spawn_point
+@onready var package_spawned_stream_player = %PackageSpawnedStreamPlayer
 
 
 signal package_delivered()
@@ -24,6 +25,7 @@ var laser: Node2D
 
 
 func spawn_package() -> void:
+	package_spawned_stream_player.play()
 	var package_type: String = randomize_package_type()
 	var package_scene: PackedScene
 	

@@ -7,6 +7,7 @@ class_name EmergencyModule extends Control
 @export var emergency_keypad_panel: EmergencyKeypadPanel
 
 @onready var red_light_panel_animator = %RedLightPanelAnimator
+@onready var emergency_keypad_pressed_audio_stream = %EmergencyKeypadPressedAudioStream
 
 signal emergency_code_checked(is_correct: bool)
 
@@ -21,6 +22,7 @@ func _on_emergency_keypad_panel_code_submited(code):
 
 
 func _on_emergency_keypad_pressed():
+	emergency_keypad_pressed_audio_stream.play()
 	emergency_keypad_panel.show()
 	emergency_keypad_panel.clear()
 

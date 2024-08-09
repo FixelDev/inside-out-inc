@@ -1,4 +1,4 @@
-[gd_scene load_steps=130 format=3 uid="uid://domuj11pt21e0"]
+[gd_scene load_steps=143 format=3 uid="uid://domuj11pt21e0"]
 
 [ext_resource type="Texture2D" uid="uid://0xu767unbmot" path="res://scenes/game/graphics/wall.png" id="1_jn13p"]
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_w4xhy"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://dpgjmrl5uuvo8" path="res://entities/packages/box/graphics/box.png" id="9_j1wal"]
 [ext_resource type="Texture2D" uid="uid://cbi2nbpih7ev7" path="res://ui/buttons/emergency_button_pressed.png" id="9_n70hm"]
 [ext_resource type="Texture2D" uid="uid://dfits2j68rm2u" path="res://ui/buttons/emergency_disabled.png" id="10_7v0cx"]
+[ext_resource type="AudioStream" uid="uid://dyebg4y70d1xt" path="res://scenes/game/sounds/game_button_pressed.mp3" id="10_n4nq0"]
 [ext_resource type="Texture2D" uid="uid://bvyndehskgl1f" path="res://ui/stats_container/graphics/coin.png" id="10_xwoyr"]
 [ext_resource type="Texture2D" uid="uid://c1fuuqwtbkkds" path="res://entities/emergency_module/keypad.png" id="11_ebbve"]
 [ext_resource type="Texture2D" uid="uid://dcb6ydq8taaol" path="res://ui/buttons/accept_button_hover.png" id="12_60dsw"]
@@ -29,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://bl7aj2dmlhpoh" path="res://ui/buttons/accept_button_disabled.png" id="14_gduhh"]
 [ext_resource type="Texture2D" uid="uid://dvtq3nlhda6lo" path="res://scenes/game/graphics/border.png" id="14_o33iu"]
 [ext_resource type="Texture2D" uid="uid://ce7v5hjbfm5ei" path="res://ui/progress_bar/under.png" id="14_ogtul"]
+[ext_resource type="AudioStream" uid="uid://cgxa11if1etix" path="res://scenes/game/sounds/emergency.mp3" id="14_xs2fp"]
 [ext_resource type="Texture2D" uid="uid://c6j6os1rfv4j2" path="res://ui/progress_bar/fill_emergency.png" id="15_dsmix"]
 [ext_resource type="Texture2D" uid="uid://73jnfsbs3rjq" path="res://ui/progress_bar/border.png" id="15_kkt2q"]
 [ext_resource type="Texture2D" uid="uid://c63xgyr4j7ocj" path="res://ui/progress_bar/fill_normal.png" id="16_23ip5"]
@@ -36,6 +38,7 @@
 [ext_resource type="Texture2D" uid="uid://u6wcejef6fm1" path="res://scenes/game/graphics/bg.png" id="18_4apnj"]
 [ext_resource type="Texture2D" uid="uid://vns4u1aw07sq" path="res://entities/emergency_module/keypad_hover.png" id="19_0flgl"]
 [ext_resource type="Texture2D" uid="uid://cb1h8st7s045s" path="res://entities/emergency_module/keypad_disabled.png" id="20_nroji"]
+[ext_resource type="AudioStream" uid="uid://cipwkq5x8uqnl" path="res://scenes/game/sounds/emergency_keypad_clicked.mp3" id="20_wxci5"]
 [ext_resource type="Texture2D" uid="uid://bkgmaajtqp3sh" path="res://entities/emergency_module/emergency_keypad_panel/display.png" id="21_3q47j"]
 [ext_resource type="Shader" path="res://ui/scrolling_stripes/scrolling_stripes.gdshader" id="22_ri8qu"]
 [ext_resource type="Texture2D" uid="uid://cnr2b8h2xess5" path="res://entities/emergency_module/emergency_keypad_panel/clear_button.png" id="29_c32ot"]
@@ -47,8 +50,12 @@
 [ext_resource type="Texture2D" uid="uid://d4ejv8ag53m6o" path="res://entities/emergency_crate/graphics/crate_decoration.png" id="33_fdnng"]
 [ext_resource type="Texture2D" uid="uid://c4t8nqvyspmif" path="res://entities/emergency_module/emergency_keypad_panel/accept_button_hover.png" id="33_ykf5n"]
 [ext_resource type="Texture2D" uid="uid://cylt3gcsa7vhm" path="res://entities/emergency_module/emergency_keypad_panel/accept_button_pressed.png" id="34_3weag"]
+[ext_resource type="AudioStream" uid="uid://drytcjbi7327d" path="res://scenes/game/sounds/keypad_button.mp3" id="36_3buos"]
 [ext_resource type="Texture2D" uid="uid://dwldndr7w7rkd" path="res://ui/check.png" id="38_jvguw"]
+[ext_resource type="AudioStream" uid="uid://rspj2v8y0x4g" path="res://scenes/game/sounds/keypad_clear_button.mp3" id="38_swrf2"]
 [ext_resource type="Theme" uid="uid://dkvqiimbpsekt" path="res://scenes/game/info_paper_theme.tres" id="39_ds15h"]
+[ext_resource type="AudioStream" uid="uid://divk5icharpl6" path="res://scenes/game/sounds/correct_code.mp3" id="39_g6j7p"]
+[ext_resource type="AudioStream" uid="uid://5vk3dhow0hft" path="res://scenes/game/sounds/wrong_code.mp3" id="40_225y7"]
 [ext_resource type="Texture2D" uid="uid://darfsxriegxbq" path="res://scenes/game/graphics/paper.png" id="40_elg3j"]
 [ext_resource type="PackedScene" uid="uid://kold78v3pbef" path="res://ui/line_divider.tscn" id="41_y1et5"]
 [ext_resource type="Texture2D" uid="uid://ir6p6ko5xehv" path="res://scenes/game/graphics/paper_button_hover.png" id="42_681lv"]
@@ -59,6 +66,7 @@
 [ext_resource type="PackedScene" uid="uid://c0qvln8yg28ys" path="res://entities/laser/laser.tscn" id="54_6k7yb"]
 [ext_resource type="PackedScene" uid="uid://ca22i4rw6fnel" path="res://entities/packages/destroy_particles.tscn" id="55_4wqyy"]
 [ext_resource type="PackedScene" uid="uid://14o66vwcpfwb" path="res://entities/xray/xray.tscn" id="55_yg3a8"]
+[ext_resource type="AudioStream" uid="uid://bth7g6rfklh7q" path="res://scenes/game/sounds/emergency_crate_close_2.mp3" id="56_ilrll"]
 [ext_resource type="Texture2D" uid="uid://0clfuq4fhboy" path="res://entities/xray/graphics/xray2.png" id="56_yrohw"]
 [ext_resource type="PackedScene" uid="uid://bxll06o2sf1vx" path="res://entities/packages/flower/flower.tscn" id="58_sqtdw"]
 [ext_resource type="PackedScene" uid="uid://lpc7gokf7djf" path="res://entities/packages/question_block/question_block.tscn" id="59_3xmqr"]
@@ -71,12 +79,16 @@
 [ext_resource type="PackedScene" uid="uid://dm0ol0pficm5w" path="res://entities/packages/package1/package_1.tscn" id="62_ec0rw"]
 [ext_resource type="PackedScene" uid="uid://c5dxdr3xsv4n0" path="res://entities/packages/alien_package/alien_package_3/alien_package_3.tscn" id="62_wpisq"]
 [ext_resource type="PackedScene" uid="uid://ch76nquowly8" path="res://entities/packages/packages_stack/package_stack.tscn" id="63_0tuwt"]
+[ext_resource type="AudioStream" uid="uid://dt5pxf5fvl1e1" path="res://scenes/game/sounds/emergency_crate_open.mp3" id="63_4ovnc"]
 [ext_resource type="PackedScene" uid="uid://bagq0ulc4ga7b" path="res://entities/packages/alien_package/alien_package_4/alien_package_4.tscn" id="63_ufwdc"]
 [ext_resource type="PackedScene" uid="uid://bmyq1kwhv0hab" path="res://entities/packages/alien_package/alien_package_5/alien_package_5.tscn" id="64_jdmae"]
 [ext_resource type="PackedScene" uid="uid://wgi7oe0xmbet" path="res://entities/packages/alien_package/slime_package/slime_package.tscn" id="65_aod0q"]
 [ext_resource type="PackedScene" uid="uid://bm08psjqqf6rc" path="res://entities/packages/pedestal/pedestal.tscn" id="66_2ifts"]
 [ext_resource type="PackedScene" uid="uid://ch2lrm20lvjw1" path="res://entities/packages/alien_package/spider_package/spider_package.tscn" id="66_445ud"]
 [ext_resource type="PackedScene" uid="uid://bu82moksnlmnl" path="res://entities/packages/pipes/pipes.tscn" id="67_a448j"]
+[ext_resource type="AudioStream" uid="uid://c782nui3lvun6" path="res://scenes/game/sounds/package_delivered.mp3" id="78_nxybw"]
+[ext_resource type="AudioStream" uid="uid://cexed8d73vgyg" path="res://scenes/game/sounds/original/evil_package.mp3" id="88_er7or"]
+[ext_resource type="AudioStream" uid="uid://bxhfb4i40divq" path="res://scenes/game/sounds/normal_package.mp3" id="89_w78xf"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h1ktb"]
 texture = ExtResource("6_4fdm3")
@@ -162,8 +174,8 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_l25tp"]
 resource_name = "show"
+length = 1.5
 loop_mode = 1
-step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -171,11 +183,26 @@ tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.45, 1),
+"times": PackedFloat32Array(0, 0.7, 1.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.490196), Color(1, 1, 1, 0)]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("14_xs2fp")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_en8rw"]
 _data = {
@@ -378,6 +405,9 @@ _data = {
 "toggle": SubResource("Animation_j0ks7")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_57ja3"]
+size = Vector2(850, 394)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_skdt4"]
 size = Vector2(146, 78)
 
@@ -492,6 +522,8 @@ libraries = {
 "": SubResource("AnimationLibrary_en8rw")
 }
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="UI/RedLightPanel"]
+
 [node name="EmergencyModule" type="Control" parent="UI" node_paths=PackedStringArray("emergency_code_label", "emergency_keypad", "emergency_keypad_panel")]
 layout_mode = 3
 anchors_preset = 0
@@ -538,6 +570,11 @@ disabled = true
 text = "
 "
 script = ExtResource("5_2847e")
+
+[node name="EmergencyKeypadPressedAudioStream" type="AudioStreamPlayer2D" parent="UI/EmergencyModule"]
+unique_name_in_owner = true
+stream = ExtResource("20_wxci5")
+volume_db = 5.0
 
 [node name="TimeLeftProgressBarContainer" type="Control" parent="UI"]
 layout_mode = 3
@@ -713,6 +750,23 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_tsa0e")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_if6sg")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_jxdjg")
 text = "O"
+
+[node name="KeypadButtonPressedAudioStream" type="AudioStreamPlayer2D" parent="UI/EmergencyKeypadPanel"]
+unique_name_in_owner = true
+stream = ExtResource("36_3buos")
+volume_db = 5.0
+
+[node name="KeypadClearButtonPressedAutioStream" type="AudioStreamPlayer2D" parent="UI/EmergencyKeypadPanel"]
+unique_name_in_owner = true
+stream = ExtResource("38_swrf2")
+
+[node name="CorrectCodeAudioStream" type="AudioStreamPlayer2D" parent="UI/EmergencyKeypadPanel"]
+unique_name_in_owner = true
+stream = ExtResource("39_g6j7p")
+
+[node name="WrongCodeAudioStream" type="AudioStreamPlayer2D" parent="UI/EmergencyKeypadPanel"]
+unique_name_in_owner = true
+stream = ExtResource("40_225y7")
 
 [node name="PanelContainer" type="PanelContainer" parent="UI"]
 anchors_preset = 1
@@ -1280,6 +1334,21 @@ texture = ExtResource("33_fdnng")
 expand_mode = 1
 stretch_mode = 1
 
+[node name="EmergencyCrateCloseStreamPlayer" type="AudioStreamPlayer2D" parent="WallWindow/EmergencyCrate"]
+unique_name_in_owner = true
+stream = ExtResource("56_ilrll")
+
+[node name="EmergencyCrateOpenStreamPlayer" type="AudioStreamPlayer2D" parent="WallWindow/EmergencyCrate"]
+unique_name_in_owner = true
+stream = ExtResource("63_4ovnc")
+
+[node name="Area2D" type="Area2D" parent="WallWindow"]
+position = Vector2(640, 285)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallWindow/Area2D"]
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_57ja3")
+
 [node name="Xray" parent="." instance=ExtResource("55_yg3a8")]
 unique_name_in_owner = true
 scale = Vector2(0.568808, 0.568808)
@@ -1314,6 +1383,10 @@ laser_scene = ExtResource("54_6k7yb")
 destroy_particles = NodePath("../WallWindow/DestroyParticles")
 ceo_scene = ExtResource("61_7lq78")
 
+[node name="PackageSpawnedStreamPlayer" type="AudioStreamPlayer2D" parent="PackageSpawner"]
+unique_name_in_owner = true
+stream = ExtResource("78_nxybw")
+
 [node name="DestroyArea" type="Area2D" parent="."]
 position = Vector2(640, 337)
 
@@ -1323,6 +1396,21 @@ shape = SubResource("RectangleShape2D_skdt4")
 [node name="PauseManager" type="Node2D" parent="."]
 process_mode = 3
 script = ExtResource("62_1wd3c")
+
+[node name="AudioStreams" type="Node2D" parent="."]
+
+[node name="GameButtonAudioStream" type="AudioStreamPlayer2D" parent="AudioStreams"]
+unique_name_in_owner = true
+position = Vector2(375, 532)
+stream = ExtResource("10_n4nq0")
+
+[node name="EvilPackageForwardedStreamPlayer" type="AudioStreamPlayer2D" parent="AudioStreams"]
+unique_name_in_owner = true
+stream = ExtResource("88_er7or")
+
+[node name="NormalPackageForwardedStreamPlayer" type="AudioStreamPlayer2D" parent="AudioStreams"]
+unique_name_in_owner = true
+stream = ExtResource("89_w78xf")
 
 [connection signal="emergency_mode_toggled" from="." to="UI/EmergencyModule" method="_on_game_emergency_mode_toggled"]
 [connection signal="emergency_mode_toggled" from="." to="WallWindow/EmergencyCrate" method="_on_game_emergency_mode_toggled"]
