@@ -1,4 +1,4 @@
-[gd_scene load_steps=143 format=3 uid="uid://domuj11pt21e0"]
+[gd_scene load_steps=156 format=3 uid="uid://domuj11pt21e0"]
 
 [ext_resource type="Texture2D" uid="uid://0xu767unbmot" path="res://scenes/game/graphics/wall.png" id="1_jn13p"]
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_w4xhy"]
@@ -82,13 +82,24 @@
 [ext_resource type="AudioStream" uid="uid://dt5pxf5fvl1e1" path="res://scenes/game/sounds/emergency_crate_open.mp3" id="63_4ovnc"]
 [ext_resource type="PackedScene" uid="uid://bagq0ulc4ga7b" path="res://entities/packages/alien_package/alien_package_4/alien_package_4.tscn" id="63_ufwdc"]
 [ext_resource type="PackedScene" uid="uid://bmyq1kwhv0hab" path="res://entities/packages/alien_package/alien_package_5/alien_package_5.tscn" id="64_jdmae"]
+[ext_resource type="Script" path="res://scenes/game/xray_buzzing_area.gd" id="64_leyj2"]
 [ext_resource type="PackedScene" uid="uid://wgi7oe0xmbet" path="res://entities/packages/alien_package/slime_package/slime_package.tscn" id="65_aod0q"]
+[ext_resource type="AudioStream" uid="uid://ddt5arjodd1tj" path="res://scenes/game/sounds/xray.mp3" id="65_qgm1t"]
 [ext_resource type="PackedScene" uid="uid://bm08psjqqf6rc" path="res://entities/packages/pedestal/pedestal.tscn" id="66_2ifts"]
 [ext_resource type="PackedScene" uid="uid://ch2lrm20lvjw1" path="res://entities/packages/alien_package/spider_package/spider_package.tscn" id="66_445ud"]
 [ext_resource type="PackedScene" uid="uid://bu82moksnlmnl" path="res://entities/packages/pipes/pipes.tscn" id="67_a448j"]
 [ext_resource type="AudioStream" uid="uid://c782nui3lvun6" path="res://scenes/game/sounds/package_delivered.mp3" id="78_nxybw"]
+[ext_resource type="AudioStream" uid="uid://bb0ebifey5isa" path="res://scenes/game/sounds/package_destroyed.mp3" id="87_6yjol"]
 [ext_resource type="AudioStream" uid="uid://cexed8d73vgyg" path="res://scenes/game/sounds/original/evil_package.mp3" id="88_er7or"]
 [ext_resource type="AudioStream" uid="uid://bxhfb4i40divq" path="res://scenes/game/sounds/normal_package.mp3" id="89_w78xf"]
+[ext_resource type="AudioStream" uid="uid://cglpefkkcds01" path="res://scenes/game/sounds/laser.mp3" id="90_5j7jw"]
+[ext_resource type="AudioStream" uid="uid://wgcgf8e2by03" path="res://scenes/game/sounds/game_button_2.mp3" id="91_7hvh1"]
+[ext_resource type="AudioStream" uid="uid://323t8pfsry16" path="res://scenes/game/sounds/original/successful.mp3" id="92_xldvv"]
+[ext_resource type="AudioStream" uid="uid://rl0kb8vn72h0" path="res://scenes/game/sounds/strike.mp3" id="93_yb2vo"]
+[ext_resource type="AudioStream" uid="uid://c0e168bhd0sn1" path="res://scenes/game/sounds/music1.mp3" id="97_lgp2r"]
+[ext_resource type="AudioStream" uid="uid://bqsn35h0nxymp" path="res://scenes/game/sounds/music2.mp3" id="98_r667d"]
+[ext_resource type="AudioStream" uid="uid://bj2vg738dlwub" path="res://scenes/game/sounds/emergency3.mp3" id="99_p5y8f"]
+[ext_resource type="AudioStream" uid="uid://b5gnhs6hox6aq" path="res://scenes/game/sounds/emergency4.mp3" id="100_lt0mo"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h1ktb"]
 texture = ExtResource("6_4fdm3")
@@ -368,6 +379,9 @@ expand_margin_bottom = 15.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cy1b4"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_57ja3"]
+size = Vector2(850, 394)
+
 [sub_resource type="Animation" id="Animation_f1e78"]
 length = 0.001
 tracks/0/type = "value"
@@ -405,11 +419,23 @@ _data = {
 "toggle": SubResource("Animation_j0ks7")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_57ja3"]
-size = Vector2(850, 394)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_skdt4"]
 size = Vector2(146, 78)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_l26oi"]
+streams_count = 2
+stream_0/stream = ExtResource("97_lgp2r")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("98_r667d")
+stream_1/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_qvwwc"]
+playback_mode = 1
+streams_count = 2
+stream_0/stream = ExtResource("99_p5y8f")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("100_lt0mo")
+stream_1/weight = 1.0
 
 [node name="Game" type="Node2D" node_paths=PackedStringArray("emergency_button", "accept_button")]
 script = ExtResource("1_w4xhy")
@@ -439,6 +465,7 @@ offset_top = -261.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 3
+mouse_filter = 2
 theme_override_styles/panel = ExtResource("4_4t4ae")
 
 [node name="Decoration1" type="Panel" parent="UI/Table"]
@@ -738,7 +765,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_gck6a")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_25c3s")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_ya4gq")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_t2ncl")
-text = "X"
+text = "Clear"
 
 [node name="AcceptButton" type="Button" parent="UI/EmergencyKeypadPanel/VBoxContainer/ButtonsContainer"]
 custom_minimum_size = Vector2(0, 40)
@@ -1114,6 +1141,21 @@ text = "MENU"
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 
+[node name="XrayBuzzingArea" type="Area2D" parent="UI"]
+z_index = 2
+position = Vector2(640, 285)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("64_leyj2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UI/XrayBuzzingArea"]
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_57ja3")
+
+[node name="XrayAudioStream" type="AudioStreamPlayer2D" parent="UI/XrayBuzzingArea"]
+unique_name_in_owner = true
+stream = ExtResource("65_qgm1t")
+
 [node name="Wall" type="Sprite2D" parent="."]
 texture_repeat = 2
 position = Vector2(641, 292)
@@ -1241,6 +1283,14 @@ texture = ExtResource("18_4apnj")
 region_enabled = true
 region_rect = Rect2(-613, -277, 1145, 534)
 
+[node name="ColorRect" type="ColorRect" parent="WallWindow"]
+modulate = Color(0.0973698, 0.244086, 0.198459, 1)
+light_mask = 2
+visibility_layer = 2
+material = ExtResource("3_h6v4r")
+offset_right = 1280.0
+offset_bottom = 485.0
+
 [node name="EmergencyLamp" type="Sprite2D" parent="WallWindow"]
 position = Vector2(116, 48)
 scale = Vector2(2.5625, 2.5625)
@@ -1342,13 +1392,6 @@ stream = ExtResource("56_ilrll")
 unique_name_in_owner = true
 stream = ExtResource("63_4ovnc")
 
-[node name="Area2D" type="Area2D" parent="WallWindow"]
-position = Vector2(640, 285)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WallWindow/Area2D"]
-position = Vector2(0, -32)
-shape = SubResource("RectangleShape2D_57ja3")
-
 [node name="Xray" parent="." instance=ExtResource("55_yg3a8")]
 unique_name_in_owner = true
 scale = Vector2(0.568808, 0.568808)
@@ -1358,7 +1401,7 @@ texture = ExtResource("56_yrohw")
 
 [node name="TimerToSpawnPackage" type="Timer" parent="Timers"]
 unique_name_in_owner = true
-wait_time = 1.5
+wait_time = 2.0
 one_shot = true
 
 [node name="TimerTimeToLeft" type="Timer" parent="Timers"]
@@ -1387,6 +1430,14 @@ ceo_scene = ExtResource("61_7lq78")
 unique_name_in_owner = true
 stream = ExtResource("78_nxybw")
 
+[node name="LaserAudioStream" type="AudioStreamPlayer2D" parent="PackageSpawner"]
+unique_name_in_owner = true
+stream = ExtResource("90_5j7jw")
+
+[node name="PackageDestroyedAudioStream" type="AudioStreamPlayer2D" parent="PackageSpawner"]
+unique_name_in_owner = true
+stream = ExtResource("87_6yjol")
+
 [node name="DestroyArea" type="Area2D" parent="."]
 position = Vector2(640, 337)
 
@@ -1397,12 +1448,16 @@ shape = SubResource("RectangleShape2D_skdt4")
 process_mode = 3
 script = ExtResource("62_1wd3c")
 
+[node name="ButtonPressedAudioStream" type="AudioStreamPlayer2D" parent="PauseManager"]
+unique_name_in_owner = true
+stream = ExtResource("10_n4nq0")
+
 [node name="AudioStreams" type="Node2D" parent="."]
 
 [node name="GameButtonAudioStream" type="AudioStreamPlayer2D" parent="AudioStreams"]
 unique_name_in_owner = true
 position = Vector2(375, 532)
-stream = ExtResource("10_n4nq0")
+stream = ExtResource("91_7hvh1")
 
 [node name="EvilPackageForwardedStreamPlayer" type="AudioStreamPlayer2D" parent="AudioStreams"]
 unique_name_in_owner = true
@@ -1411,6 +1466,24 @@ stream = ExtResource("88_er7or")
 [node name="NormalPackageForwardedStreamPlayer" type="AudioStreamPlayer2D" parent="AudioStreams"]
 unique_name_in_owner = true
 stream = ExtResource("89_w78xf")
+
+[node name="SuccessfulCheckAudioStream" type="AudioStreamPlayer2D" parent="AudioStreams"]
+unique_name_in_owner = true
+stream = ExtResource("92_xldvv")
+
+[node name="StrikeAudioStream" type="AudioStreamPlayer2D" parent="AudioStreams"]
+unique_name_in_owner = true
+stream = ExtResource("93_yb2vo")
+
+[node name="MusicAudioStream" type="AudioStreamPlayer2D" parent="AudioStreams"]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_l26oi")
+volume_db = -10.0
+autoplay = true
+
+[node name="EmergencyMusicAudioStream" type="AudioStreamPlayer2D" parent="AudioStreams"]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_qvwwc")
 
 [connection signal="emergency_mode_toggled" from="." to="UI/EmergencyModule" method="_on_game_emergency_mode_toggled"]
 [connection signal="emergency_mode_toggled" from="." to="WallWindow/EmergencyCrate" method="_on_game_emergency_mode_toggled"]
@@ -1426,6 +1499,8 @@ stream = ExtResource("89_w78xf")
 [connection signal="pressed" from="UI/InfoPaper/MarginContainer/VBoxContainer/BeginButton" to="." method="_on_begin_button_pressed"]
 [connection signal="pressed" from="UI/PausePanel/PanelContainer/MarginContainer/VBoxContainer/ResumeButton" to="PauseManager" method="_on_resume_button_pressed"]
 [connection signal="pressed" from="UI/PausePanel/PanelContainer/MarginContainer/VBoxContainer/MenuButton" to="PauseManager" method="_on_menu_button_pressed"]
+[connection signal="mouse_entered" from="UI/XrayBuzzingArea" to="UI/XrayBuzzingArea" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="UI/XrayBuzzingArea" to="UI/XrayBuzzingArea" method="_on_mouse_exited"]
 [connection signal="timeout" from="Timers/TimerToSpawnPackage" to="." method="_on_timer_to_spawn_package_timeout"]
 [connection signal="timeout" from="Timers/TimerTimeToLeft" to="UI/TimeLeftProgressBarContainer/TimeLeftProgressBar" method="_on_timer_time_to_left_timeout"]
 [connection signal="timeout" from="Timers/TimerExtraTime" to="." method="_on_timer_extra_time_timeout"]

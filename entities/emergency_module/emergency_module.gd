@@ -8,6 +8,8 @@ class_name EmergencyModule extends Control
 
 @onready var red_light_panel_animator = %RedLightPanelAnimator
 @onready var emergency_keypad_pressed_audio_stream = %EmergencyKeypadPressedAudioStream
+@onready var music_audio_stream = %MusicAudioStream
+@onready var emergency_music_audio_stream = %EmergencyMusicAudioStream
 
 signal emergency_code_checked(is_correct: bool)
 
@@ -33,9 +35,19 @@ func _on_game_emergency_mode_toggled(enabled):
 	
 	if enabled:
 		red_light_panel_animator.play("show")
+		emergency_music_audio_stream.volume_db = 0
+		emergency_music_audio_stream.play()
+		music_audio_stream.volume_db = -20
 	else:
 		emergency_keypad_panel.hide()
 		red_light_panel_animator.stop()
+		var tween: Tween = get_tree().create_tween()
+		tween.tween_property(emergency_music_audio_stream, "volume_db", -30, 1.5)
+		tween.set_parallel(true)
+		tween.tween_property(music_audio_stream, "volume_db", -10, 1.5)
+		await tween.finished
+		
+		emergency_music_audio_stream.stop()
 
 
 func randomize_code() -> void:

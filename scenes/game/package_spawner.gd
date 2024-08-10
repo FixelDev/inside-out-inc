@@ -14,6 +14,8 @@ class_name PackageSpawner extends Node2D
 @onready var ceo_destination_point = %ceo_destination_point
 @onready var ceo_spawn_point = %ceo_spawn_point
 @onready var package_spawned_stream_player = %PackageSpawnedStreamPlayer
+@onready var laser_audio_stream = %LaserAudioStream
+@onready var package_destroyed_audio_stream = %PackageDestroyedAudioStream
 
 
 signal package_delivered()
@@ -88,20 +90,21 @@ func destroy_current_package() -> void:
 	laser.look_at(package_destination_point.global_position)
 	var tween: Tween = get_tree().create_tween()
 	tween.tween_property(laser, "global_position", package_destination_point.global_position, 0.5).set_trans(Tween.TRANS_QUART)
-	
-	
+	laser_audio_stream.play()
+
+
 func _on_destroy_area_area_entered(area):
 	destroy_particles.emitting = true
 	package_destroyed.emit(current_package.is_evil())
 	laser.queue_free()
 	current_package.queue_free()
+	package_destroyed_audio_stream.play()
 
 
 func forward_package() -> void:
 	var tween: Tween = get_tree().create_tween()
 	tween.tween_property(current_package, "global_position", package_forward_point.global_position, 1).set_trans(Tween.TRANS_CUBIC)
 	tween.set_parallel().tween_property(current_package, "rotation", -0.2, 0.6).set_trans(Tween.TRANS_CUBIC)
-	#add rotation
 	
 	await tween.finished
 	

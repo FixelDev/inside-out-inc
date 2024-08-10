@@ -12,6 +12,8 @@ extends Node2D
 @onready var game_button_audio_stream = %GameButtonAudioStream
 @onready var evil_package_forwarded_stream_player = %EvilPackageForwardedStreamPlayer
 @onready var normal_package_forwarded_stream_player = %NormalPackageForwardedStreamPlayer
+@onready var successful_check_audio_stream = %SuccessfulCheckAudioStream
+@onready var strike_audio_stream = %StrikeAudioStream
 
 signal emergency_mode_toggled(enabled: bool)
 
@@ -53,13 +55,14 @@ func spawn_package() -> void:
 
 
 func _on_emergency_button_pressed():
-	game_button_audio_stream.play()
+	xray.visible = false
 	toggle_buttons(false)
 	emergency_mode_toggled.emit(true)
 	time_left_progress_bar.start_timer(DayManager.current_day.emergency_time_left, time_left_progress_bar.TimerType.EMERGENCY)
 
 
 func _on_accept_button_pressed():
+	xray.visible = false
 	game_button_audio_stream.play()
 	toggle_buttons(false)
 	time_left_progress_bar.stop_timer()
@@ -90,25 +93,34 @@ func _on_emergency_module_emergency_code_checked(is_correct):
 	if not is_correct:
 		return
 	
-	package_spawner.destroy_current_package()
-	
+	timer_to_spawn_package.wait_time = 4.0
 	time_left_progress_bar.stop_timer()
+	
+	await get_tree().create_timer(0.8).timeout	
+	package_spawner.destroy_current_package()	
+	
+	await get_tree().create_timer(1.5).timeout	
+	
+	
 	emergency_mode_toggled.emit(false)
 	
 
 
 func _on_timer_to_spawn_package_timeout():
 	spawn_package()
+	timer_to_spawn_package.wait_time = 2
 
 
 func _on_timer_extra_time_timeout():
 	toggle_buttons(false)
-	
+	xray.visible = false
+		
 	if package_spawner.current_package.is_evil():
 		package_spawner.forward_package()
 	else:
 		package_spawner.destroy_current_package()
 	
+	await get_tree().create_timer(0.7).timeout
 	
 	emergency_mode_toggled.emit(false)
 
@@ -134,18 +146,20 @@ func _on_package_spawner_package_forwarded(is_evil):
 		give_coins(5)
 		successful_check()
 		
-	xray.visible = false
 	timer_to_spawn_package.start()
 
 
 func _on_package_spawner_package_destroyed(is_evil):
+	await get_tree().create_timer(2.5).timeout
+	
 	if is_evil:
 		give_coins(5)
 		successful_check()
+		successful_check_audio_stream.play()
 	else:
 		strike()
-		
-	xray.visible = false
+		strike_audio_stream.play()
+	
 	timer_to_spawn_package.start()
 
 
@@ -153,4 +167,3 @@ func _on_begin_button_pressed():
 	info_paper.visible = false
 	spawn_package()
 	
-

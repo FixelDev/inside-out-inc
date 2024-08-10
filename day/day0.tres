@@ -5,19 +5,19 @@
 [resource]
 script = ExtResource("1_7ig46")
 number = 2
-packages_amount = 20
-strikes_amount = 40
-normal_time_left = 20.0
-emergency_time_left = 20.0
+packages_amount = 30
+strikes_amount = 10
+normal_time_left = 7.0
+emergency_time_left = 7.0
 package_type_odds = {
-"evil_package": 0.55,
-"normal_package": 0.45
+"evil_package": 0.4,
+"normal_package": 0.6
 }
 evil_package_odds = {
-"alien_in_package": 0.0,
+"alien_in_package": 0.6,
 "alien_package": 0.0,
 "alien_parts_in_package": 0.0,
-"alien_parts_in_package_timer": 1.0
+"alien_parts_in_package_timer": 0.4
 }
 alien_parts_difficulty_odds = {
 "alien_parts_easy": 0.5,

@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var pause_panel = %PausePanel
+@onready var button_pressed_audio_stream = %ButtonPressedAudioStream
 
 
 func _input(event) -> void:
@@ -13,8 +14,9 @@ func _input(event) -> void:
 func _on_resume_button_pressed():
 	pause_panel.hide()
 	get_tree().paused = false
-
+	button_pressed_audio_stream.play()
 
 func _on_menu_button_pressed():
 	SceneManager.load_scene(SceneManager.menu_scene)
 	get_tree().paused = false
+	button_pressed_audio_stream.play()

@@ -1,4 +1,4 @@
-extends Panel
+extends PanelContainer
 
 @onready var day_label = %DayLabel
 @onready var main_article_title = %MainArticleTitle

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ddbur8nrk7v2v"]
+[gd_scene load_steps=20 format=3 uid="uid://ddbur8nrk7v2v"]
 
 [ext_resource type="Script" path="res://scenes/galactic_bulletin/galactic_bulletin.gd" id="1_scx40"]
 [ext_resource type="Script" path="res://scenes/galactic_bulletin/galactic_bulletin_panel.gd" id="2_4qvp5"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://capyix2w3fn3p" path="res://scenes/galactic_bulletin/text_dummy.png" id="6_ejg10"]
 [ext_resource type="PackedScene" uid="uid://kold78v3pbef" path="res://ui/line_divider.tscn" id="6_xaun7"]
 [ext_resource type="Texture2D" uid="uid://xp4xax0eoxfv" path="res://scenes/galactic_bulletin/button_hoverl.png" id="8_j1p4j"]
+[ext_resource type="AudioStream" uid="uid://dyebg4y70d1xt" path="res://scenes/game/sounds/game_button_pressed.mp3" id="9_2408p"]
+[ext_resource type="AudioStream" uid="uid://ba3vmi5p02xt0" path="res://scenes/galactic_bulletin/sounds/music_galactic_bulletin.mp3" id="10_7iggp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_blgrw"]
 bg_color = Color(0.0549306, 0.0561564, 0.0966754, 1)
@@ -86,7 +88,7 @@ grow_vertical = 2
 scale = Vector2(3.16, 3.16)
 theme_override_styles/panel = SubResource("StyleBoxTexture_bc16x")
 
-[node name="GalacticBulletinPanel" type="Panel" parent="UI/BG"]
+[node name="GalacticBulletinPanel" type="PanelContainer" parent="UI/BG"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -103,42 +105,23 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_kyeok")
 script = ExtResource("2_4qvp5")
 
-[node name="DayPanel" type="Panel" parent="UI/BG/GalacticBulletinPanel"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -189.0
-offset_top = -42.0
-offset_right = 189.0
-offset_bottom = 16.0
-grow_horizontal = 2
+[node name="DayPanel" type="PanelContainer" parent="UI/BG/GalacticBulletinPanel"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_grkro")
 
 [node name="DayLabel" type="Label" parent="UI/BG/GalacticBulletinPanel/DayPanel"]
 unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Day 1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/BG/GalacticBulletinPanel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 34.0
-offset_top = 36.0
-offset_right = -34.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 
 [node name="Title" type="Label" parent="UI/BG/GalacticBulletinPanel/VBoxContainer"]
 layout_mode = 2
@@ -362,5 +345,13 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_d0uq8")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_f36lr")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ga5yr")
 text = "Start"
+
+[node name="ButtonAudioStream" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("9_2408p")
+
+[node name="MusicAudioStream" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_7iggp")
+autoplay = true
 
 [connection signal="pressed" from="UI/StartButton" to="." method="_on_start_button_pressed"]

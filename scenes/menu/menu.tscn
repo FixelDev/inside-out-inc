@@ -1,17 +1,78 @@
-[gd_scene load_steps=18 format=3 uid="uid://du7fbmcghrmf4"]
+[gd_scene load_steps=37 format=3 uid="uid://du7fbmcghrmf4"]
 
 [ext_resource type="Script" path="res://scenes/menu/menu.gd" id="1_ph68u"]
 [ext_resource type="Shader" path="res://ui/scrolling_stripes/scrolling_stripes.gdshader" id="2_rorn7"]
 [ext_resource type="Texture2D" uid="uid://ddgpv2dv8osml" path="res://scenes/menu/graphics/bg.png" id="2_v5llf"]
-[ext_resource type="Theme" uid="uid://0v4cqwxpp5k6" path="res://scenes/menu/menu_theme.tres" id="3_i5bdk"]
+[ext_resource type="Texture2D" uid="uid://tked2hc22srt" path="res://scenes/menu/graphics/continue_button.png" id="3_fe3dc"]
 [ext_resource type="FontFile" uid="uid://bx5r663ov3dts" path="res://ui/fonts/six-caps.regular.ttf" id="4_plrp7"]
+[ext_resource type="Texture2D" uid="uid://dcb6ydq8taaol" path="res://ui/buttons/accept_button_hover.png" id="5_gt607"]
 [ext_resource type="Texture2D" uid="uid://dpgjmrl5uuvo8" path="res://entities/packages/box/graphics/box.png" id="5_uoi1c"]
+[ext_resource type="Texture2D" uid="uid://b4kbms1dpxp51" path="res://ui/buttons/accept_button_pressed.png" id="6_3kdjh"]
 [ext_resource type="PackedScene" uid="uid://bgwiutw0eieju" path="res://scenes/menu/tentacle_menu.tscn" id="6_dsm6h"]
 [ext_resource type="Texture2D" uid="uid://bfuqn1pa271j6" path="res://entities/aliens/alien1/graphics/alien1.png" id="7_3k153"]
 [ext_resource type="Material" uid="uid://4gnfyg7ugi1n" path="res://scenes/game/window_mask.tres" id="7_7mkkf"]
+[ext_resource type="Texture2D" uid="uid://mx0xh02esobb" path="res://ui/buttons/emergency_button.png" id="7_b4w3m"]
+[ext_resource type="Texture2D" uid="uid://b8tej2evewbu3" path="res://ui/buttons/emergency_button_hover.png" id="8_26y7o"]
 [ext_resource type="Texture2D" uid="uid://epritqypi0ji" path="res://entities/packages/box/graphics/box_xray2.png" id="8_62py7"]
 [ext_resource type="PackedScene" uid="uid://14o66vwcpfwb" path="res://entities/xray/xray.tscn" id="9_mctfu"]
+[ext_resource type="Texture2D" uid="uid://cbi2nbpih7ev7" path="res://ui/buttons/emergency_button_pressed.png" id="9_qefus"]
 [ext_resource type="Script" path="res://entities/xray/xray_menu.gd" id="10_fhdpj"]
+[ext_resource type="AudioStream" uid="uid://wgcgf8e2by03" path="res://scenes/game/sounds/game_button_2.mp3" id="18_vpmjl"]
+[ext_resource type="AudioStream" uid="uid://c0e168bhd0sn1" path="res://scenes/game/sounds/music1.mp3" id="19_7pu3r"]
+[ext_resource type="AudioStream" uid="uid://bqsn35h0nxymp" path="res://scenes/game/sounds/music2.mp3" id="20_uel1y"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bes62"]
+texture = ExtResource("3_fe3dc")
+texture_margin_left = 43.0
+texture_margin_top = 35.0
+texture_margin_right = 54.0
+texture_margin_bottom = 62.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2u4s4"]
+texture = ExtResource("5_gt607")
+texture_margin_left = 14.0
+texture_margin_top = 35.0
+texture_margin_right = 100.0
+texture_margin_bottom = 62.0
+expand_margin_left = 21.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m8hum"]
+texture = ExtResource("6_3kdjh")
+texture_margin_left = 14.0
+texture_margin_top = 51.0
+texture_margin_right = 100.0
+texture_margin_bottom = 40.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4vthr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3fcnx"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h0hqk"]
+texture = ExtResource("7_b4w3m")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 42.0
+expand_margin_top = 15.0
+expand_margin_bottom = 15.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a12q3"]
+texture = ExtResource("8_26y7o")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 42.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7b43u"]
+texture = ExtResource("9_qefus")
+texture_margin_left = 14.0
+texture_margin_top = 30.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u5dmx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2tf36"]
 
 [sub_resource type="Animation" id="Animation_nu8nk"]
 length = 0.001
@@ -85,6 +146,13 @@ texture = ExtResource("2_v5llf")
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_hi08l"]
+streams_count = 2
+stream_0/stream = ExtResource("19_7pu3r")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("20_uel1y")
+stream_1/weight = 1.0
+
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_ph68u")
 
@@ -95,7 +163,6 @@ layer = 0
 offset_top = 22.0
 offset_right = 499.0
 offset_bottom = 631.0
-theme = ExtResource("3_i5bdk")
 theme_override_constants/margin_left = 70
 theme_override_constants/margin_top = 20
 
@@ -128,6 +195,11 @@ layout_mode = 2
 [node name="ContinueButton" type="Button" parent="UI/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_bes62")
+theme_override_styles/hover = SubResource("StyleBoxTexture_2u4s4")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_m8hum")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_4vthr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3fcnx")
 text = "Continue"
 
 [node name="Spacer2" type="Control" parent="UI/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
@@ -137,6 +209,11 @@ layout_mode = 2
 [node name="NewGameButton" type="Button" parent="UI/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_h0hqk")
+theme_override_styles/hover = SubResource("StyleBoxTexture_a12q3")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_7b43u")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_u5dmx")
+theme_override_styles/focus = SubResource("StyleBoxFlat_2tf36")
 text = "New Game"
 
 [node name="TextureRect4" type="TextureRect" parent="UI"]
@@ -286,6 +363,14 @@ offset_bottom = 810.0
 rotation = 0.96122
 scale = Vector2(1.26859, 1.26859)
 tween_time = 2.0
+
+[node name="ButtonPressedAudioStream" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("18_vpmjl")
+
+[node name="MusicAudioStream" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_hi08l")
+autoplay = true
 
 [connection signal="pressed" from="UI/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="UI/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]

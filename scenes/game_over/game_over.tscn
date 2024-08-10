@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://fuicjracfebf"]
+[gd_scene load_steps=12 format=3 uid="uid://fuicjracfebf"]
 
 [ext_resource type="Script" path="res://scenes/game_over/game_over.gd" id="1_e1f0a"]
 [ext_resource type="PackedScene" uid="uid://cxkfs2kfxf0sd" path="res://ui/scrolling_stripes/scrolling_stripes.tscn" id="2_0hw41"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://bjobtmqtj06ms" path="res://ui/fill_universa_lightl.png" id="3_mqjrb"]
 [ext_resource type="Theme" uid="uid://b40we861tw4w7" path="res://ui/pink_slip.tres" id="5_xuw5p"]
 [ext_resource type="PackedScene" uid="uid://kold78v3pbef" path="res://ui/line_divider.tscn" id="6_l7oja"]
+[ext_resource type="AudioStream" uid="uid://dyebg4y70d1xt" path="res://scenes/game/sounds/game_button_pressed.mp3" id="7_l30lc"]
+[ext_resource type="AudioStream" uid="uid://d05yjr2qyojyf" path="res://scenes/game_over/sounds/game_over_music.mp3" id="8_ykexo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lkd5d"]
 bg_color = Color(0.966601, 0.525679, 0.690988, 1)
@@ -122,6 +124,14 @@ text = "Menu"
 custom_minimum_size = Vector2(207.45, 0)
 layout_mode = 2
 text = "Restart Day"
+
+[node name="ButtonPressedAutioStream" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("7_l30lc")
+
+[node name="MusicAudioStream" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_ykexo")
+autoplay = true
 
 [connection signal="pressed" from="CanvasLayer/PinkSlip/VBoxContainer/HBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/PinkSlip/VBoxContainer/HBoxContainer/ResetDayButton" to="." method="_on_reset_day_button_pressed"]
