@@ -65,3 +65,6 @@ position = Vector2(46, 31)
 
 [node name="Marker2D16" type="Marker2D" parent="AlienPartsHolder/Hard" index="2"]
 position = Vector2(3, -32)
+
+[node name="Marker2D17" type="Marker2D" parent="AlienPartsHolder/Hard" index="3"]
+position = Vector2(25.2, -26)

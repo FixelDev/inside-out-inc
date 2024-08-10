@@ -13,6 +13,7 @@ config_version=5
 config/name="Inside Out Inc"
 run/main_scene="res://scenes/menu/menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
+boot_splash/show_image=false
 config/icon="res://icon.svg"
 
 [autoload]

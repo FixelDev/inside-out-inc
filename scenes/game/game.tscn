@@ -1,4 +1,4 @@
-[gd_scene load_steps=157 format=3 uid="uid://domuj11pt21e0"]
+[gd_scene load_steps=158 format=3 uid="uid://domuj11pt21e0"]
 
 [ext_resource type="Texture2D" uid="uid://0xu767unbmot" path="res://scenes/game/graphics/wall.png" id="1_jn13p"]
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_w4xhy"]
@@ -88,6 +88,7 @@
 [ext_resource type="PackedScene" uid="uid://bm08psjqqf6rc" path="res://entities/packages/pedestal/pedestal.tscn" id="66_2ifts"]
 [ext_resource type="PackedScene" uid="uid://ch2lrm20lvjw1" path="res://entities/packages/alien_package/spider_package/spider_package.tscn" id="66_445ud"]
 [ext_resource type="PackedScene" uid="uid://bu82moksnlmnl" path="res://entities/packages/pipes/pipes.tscn" id="67_a448j"]
+[ext_resource type="PackedScene" uid="uid://cyontuags1mkv" path="res://entities/packages/fridge/fridge.tscn" id="78_c8agc"]
 [ext_resource type="AudioStream" uid="uid://c782nui3lvun6" path="res://scenes/game/sounds/package_delivered.mp3" id="78_nxybw"]
 [ext_resource type="AudioStream" uid="uid://bb0ebifey5isa" path="res://scenes/game/sounds/package_destroyed.mp3" id="87_6yjol"]
 [ext_resource type="AudioStream" uid="uid://cexed8d73vgyg" path="res://scenes/game/sounds/original/evil_package.mp3" id="88_er7or"]
@@ -1576,7 +1577,7 @@ one_shot = true
 [node name="PackageSpawner" type="Node2D" parent="." node_paths=PackedStringArray("package_spawn_point", "package_destination_point", "package_forward_point", "laser_gun", "destroy_particles")]
 unique_name_in_owner = true
 script = ExtResource("46_mkleq")
-packages_scenes = Array[PackedScene]([ExtResource("45_e7rc1"), ExtResource("58_sqtdw"), ExtResource("59_3xmqr"), ExtResource("60_0gkwa"), ExtResource("61_gb2w0"), ExtResource("62_ec0rw"), ExtResource("63_0tuwt"), ExtResource("66_2ifts"), ExtResource("67_a448j")])
+packages_scenes = Array[PackedScene]([ExtResource("45_e7rc1"), ExtResource("58_sqtdw"), ExtResource("59_3xmqr"), ExtResource("60_0gkwa"), ExtResource("61_gb2w0"), ExtResource("62_ec0rw"), ExtResource("63_0tuwt"), ExtResource("66_2ifts"), ExtResource("67_a448j"), ExtResource("78_c8agc")])
 aliens_scenes = Array[PackedScene]([ExtResource("60_56vie"), ExtResource("61_i0o2x"), ExtResource("62_wpisq"), ExtResource("63_ufwdc"), ExtResource("64_jdmae"), ExtResource("65_aod0q"), ExtResource("66_445ud")])
 package_spawn_point = NodePath("../WallWindow/PackagesSpawnPoint")
 package_destination_point = NodePath("../WallWindow/PackageDestinationPoint")

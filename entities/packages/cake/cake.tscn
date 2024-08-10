@@ -42,8 +42,14 @@ position = Vector2(-8, 25)
 [node name="Marker2D8" type="Marker2D" parent="AlienPartsHolder/Medium" index="2"]
 position = Vector2(-4, -8)
 
+[node name="Marker2D9" type="Marker2D" parent="AlienPartsHolder/Medium" index="3"]
+position = Vector2(-10.4, 16.6)
+
 [node name="Marker2D10" type="Marker2D" parent="AlienPartsHolder/Hard" index="0"]
 position = Vector2(-5, -29)
 
 [node name="Marker2D11" type="Marker2D" parent="AlienPartsHolder/Hard" index="1"]
 position = Vector2(-0.800001, 29.6)
+
+[node name="Marker2D12" type="Marker2D" parent="AlienPartsHolder/Hard" index="2"]
+position = Vector2(-11.8, -1.2)

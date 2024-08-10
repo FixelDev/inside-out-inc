@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgodv0cm2trt4"]
+
+[ext_resource type="PackedScene" uid="uid://dc1tebyjumw4a" path="res://entities/aliens/parts/alien_part.tscn" id="1_wxj5y"]
+[ext_resource type="Texture2D" uid="uid://bybkajuofaeni" path="res://entities/aliens/parts/vampire_mouth/vampire_mouth.png" id="2_6y2vf"]
+
+[node name="VampireMouth" instance=ExtResource("1_wxj5y")]
+is_bounce_animation = true
+
+[node name="AlienPart" parent="." index="0"]
+texture = ExtResource("2_6y2vf")

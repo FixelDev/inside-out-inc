@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://lmf2ghp18sxu"]
+[gd_scene load_steps=17 format=3 uid="uid://lmf2ghp18sxu"]
 
 [ext_resource type="Script" path="res://globals/alien_database/alien_database.gd" id="1_5mmha"]
 [ext_resource type="PackedScene" uid="uid://5dmyy8poi2g" path="res://entities/aliens/alien1/alien_1.tscn" id="2_mmmpp"]
@@ -15,8 +15,9 @@
 [ext_resource type="PackedScene" uid="uid://djbwyturooxcr" path="res://entities/aliens/parts/tentacle/tentacle.tscn" id="13_y02se"]
 [ext_resource type="PackedScene" uid="uid://chxaqwgvvv5s8" path="res://entities/aliens/parts/tongue/tongue.tscn" id="14_bc8tf"]
 [ext_resource type="PackedScene" uid="uid://vn05lup6vwro" path="res://entities/aliens/parts/tooth/tooth.tscn" id="15_0xbju"]
+[ext_resource type="PackedScene" uid="uid://dgodv0cm2trt4" path="res://entities/aliens/parts/vampire_mouth/vampire_mouth.tscn" id="16_jepvl"]
 
 [node name="AlienDatabase" type="Node"]
 script = ExtResource("1_5mmha")
 aliens_scenes = Array[PackedScene]([ExtResource("2_mmmpp"), ExtResource("3_hp1q6"), ExtResource("4_k7qlv"), ExtResource("5_rymbd"), ExtResource("6_4fqmw"), ExtResource("7_qg40a"), ExtResource("8_uq7nb")])
-alien_parts_scenes = Array[PackedScene]([ExtResource("3_eksvc"), ExtResource("10_ewq51"), ExtResource("11_u2auk"), ExtResource("12_crcbw"), ExtResource("13_y02se"), ExtResource("14_bc8tf"), ExtResource("15_0xbju")])
+alien_parts_scenes = Array[PackedScene]([ExtResource("3_eksvc"), ExtResource("10_ewq51"), ExtResource("11_u2auk"), ExtResource("12_crcbw"), ExtResource("13_y02se"), ExtResource("14_bc8tf"), ExtResource("15_0xbju"), ExtResource("16_jepvl")])

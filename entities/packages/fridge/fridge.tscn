@@ -1,0 +1,66 @@
+[gd_scene load_steps=4 format=3 uid="uid://cyontuags1mkv"]
+
+[ext_resource type="PackedScene" uid="uid://3a33oceaqq6d" path="res://entities/packages/package.tscn" id="1_s0wnd"]
+[ext_resource type="Texture2D" uid="uid://djpt4qs04cpc4" path="res://entities/packages/fridge/fridge_xray.png" id="2_dal16"]
+[ext_resource type="Texture2D" uid="uid://kdvmq4xn7bns" path="res://entities/packages/fridge/fridge.png" id="3_cc1vu"]
+
+[node name="Fridge" instance=ExtResource("1_s0wnd")]
+x_ray_sprites = Array[Texture2D]([ExtResource("2_dal16")])
+
+[node name="NormalSprite" parent="." index="0"]
+position = Vector2(0, -15)
+texture = ExtResource("3_cc1vu")
+
+[node name="XRaySprite" parent="." index="1"]
+position = Vector2(0, -15)
+
+[node name="AlienPartsHolder" parent="." index="2"]
+position = Vector2(0, -15)
+
+[node name="Marker2D" type="Marker2D" parent="AlienPartsHolder/Easy" index="0"]
+position = Vector2(-12, 24)
+
+[node name="Marker2D2" type="Marker2D" parent="AlienPartsHolder/Easy" index="1"]
+position = Vector2(7, 17)
+
+[node name="Marker2D3" type="Marker2D" parent="AlienPartsHolder/Easy" index="2"]
+position = Vector2(-13, 5)
+
+[node name="Marker2D4" type="Marker2D" parent="AlienPartsHolder/Easy" index="3"]
+position = Vector2(8, 0)
+
+[node name="Marker2D5" type="Marker2D" parent="AlienPartsHolder/Easy" index="4"]
+position = Vector2(-13, -26)
+
+[node name="Marker2D6" type="Marker2D" parent="AlienPartsHolder/Easy" index="5"]
+position = Vector2(3, -25)
+
+[node name="Marker2D7" type="Marker2D" parent="AlienPartsHolder/Easy" index="6"]
+position = Vector2(13, -30)
+
+[node name="Marker2D8" type="Marker2D" parent="AlienPartsHolder/Medium" index="0"]
+position = Vector2(20, 34)
+
+[node name="Marker2D9" type="Marker2D" parent="AlienPartsHolder/Medium" index="1"]
+position = Vector2(21, -9)
+
+[node name="Marker2D10" type="Marker2D" parent="AlienPartsHolder/Medium" index="2"]
+position = Vector2(-21, -5)
+
+[node name="Marker2D11" type="Marker2D" parent="AlienPartsHolder/Medium" index="3"]
+position = Vector2(-22, 35)
+
+[node name="Marker2D12" type="Marker2D" parent="AlienPartsHolder/Medium" index="4"]
+position = Vector2(-20, -35)
+
+[node name="Marker2D14" type="Marker2D" parent="AlienPartsHolder/Hard" index="0"]
+position = Vector2(27, -43)
+
+[node name="Marker2D15" type="Marker2D" parent="AlienPartsHolder/Hard" index="1"]
+position = Vector2(-28, -46)
+
+[node name="Marker2D16" type="Marker2D" parent="AlienPartsHolder/Hard" index="2"]
+position = Vector2(14, 45)
+
+[node name="Marker2D17" type="Marker2D" parent="AlienPartsHolder/Hard" index="3"]
+position = Vector2(-31, 40)
