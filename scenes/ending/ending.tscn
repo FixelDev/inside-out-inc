@@ -1,12 +1,23 @@
-[gd_scene load_steps=6 format=3 uid="uid://dv5637c3672aj"]
+[gd_scene load_steps=15 format=3 uid="uid://dv5637c3672aj"]
 
 [ext_resource type="Script" path="res://scenes/ending/ending.gd" id="1_1nwhp"]
 [ext_resource type="PackedScene" uid="uid://cxkfs2kfxf0sd" path="res://ui/scrolling_stripes/scrolling_stripes.tscn" id="1_mqwbs"]
 [ext_resource type="Theme" uid="uid://dkvqiimbpsekt" path="res://scenes/game/info_paper_theme.tres" id="2_ccmw1"]
 [ext_resource type="PackedScene" uid="uid://kold78v3pbef" path="res://ui/line_divider.tscn" id="3_bt0ws"]
+[ext_resource type="FontFile" uid="uid://bx5r663ov3dts" path="res://ui/fonts/six-caps.regular.ttf" id="5_7gq63"]
+[ext_resource type="AudioStream" uid="uid://du7pt0xy0ayu5" path="res://scenes/ending/sounds/ending_music.mp3" id="5_35t0q"]
+[ext_resource type="Texture2D" uid="uid://bfuqn1pa271j6" path="res://entities/aliens/alien1/graphics/alien1.png" id="6_eg18f"]
+[ext_resource type="AudioStream" uid="uid://dyebg4y70d1xt" path="res://scenes/game/sounds/game_button_pressed.mp3" id="6_n7es3"]
+[ext_resource type="PackedScene" uid="uid://bgwiutw0eieju" path="res://scenes/menu/tentacle_menu.tscn" id="7_mabke"]
+[ext_resource type="Texture2D" uid="uid://dpgjmrl5uuvo8" path="res://entities/packages/box/graphics/box.png" id="8_esb4x"]
+[ext_resource type="Texture2D" uid="uid://t3ryi2inpjgp" path="res://entities/xray/graphics/xray.png" id="9_ke4sa"]
+[ext_resource type="Texture2D" uid="uid://epritqypi0ji" path="res://entities/packages/box/graphics/box_xray2.png" id="10_nqbg7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lletf"]
 bg_color = Color(0.612306, 0.802791, 0.974824, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5x2wc"]
+bg_color = Color(0.0705882, 0.0823529, 0.133333, 1)
 
 [node name="Ending" type="Node2D"]
 script = ExtResource("1_1nwhp")
@@ -113,5 +124,154 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Main Menu"
+
+[node name="LogoPanel" type="Panel" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5x2wc")
+
+[node name="Label" type="Label" parent="CanvasLayer/LogoPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -359.0
+offset_top = -170.0
+offset_right = 212.0
+offset_bottom = 94.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_7gq63")
+theme_override_font_sizes/font_size = 200
+text = "Inside Out Inc."
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/LogoPanel/Label"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -104.5
+offset_top = 0.999996
+offset_right = -14.5
+offset_bottom = 91.0
+grow_horizontal = 0
+rotation = 0.104971
+texture = ExtResource("6_eg18f")
+
+[node name="Label2" type="Label" parent="CanvasLayer/LogoPanel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -288.0
+offset_right = 128.0
+offset_bottom = -155.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "By Fixel"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BoxMenu" type="Control" parent="CanvasLayer/LogoPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 294.0
+offset_top = -42.0
+offset_right = 334.0
+offset_bottom = -1.99997
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.419319
+scale = Vector2(0.3173, 0.3173)
+mouse_filter = 2
+
+[node name="Tentacle" parent="CanvasLayer/LogoPanel/BoxMenu" instance=ExtResource("7_mabke")]
+script = null
+
+[node name="Tentacle2" parent="CanvasLayer/LogoPanel/BoxMenu" instance=ExtResource("7_mabke")]
+offset_left = 155.731
+offset_top = -71.8177
+offset_right = 195.731
+offset_bottom = -31.8177
+rotation = 1.20284
+scale = Vector2(0.717158, 0.717158)
+script = null
+
+[node name="TentacleMenu" parent="CanvasLayer/LogoPanel/BoxMenu" instance=ExtResource("7_mabke")]
+offset_left = -92.1252
+offset_top = 123.162
+offset_right = -52.1252
+offset_bottom = 163.162
+rotation = -2.21777
+scale = Vector2(0.836946, 0.836946)
+script = null
+
+[node name="Box" type="TextureRect" parent="CanvasLayer/LogoPanel/BoxMenu"]
+layout_mode = 0
+offset_left = -127.0
+offset_top = -101.0
+offset_right = 176.0
+offset_bottom = 148.0
+texture = ExtResource("8_esb4x")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/LogoPanel/BoxMenu"]
+clip_children = 1
+layout_mode = 0
+offset_left = 28.8728
+offset_top = 15.0953
+offset_right = 185.873
+offset_bottom = 172.095
+texture = ExtResource("9_ke4sa")
+
+[node name="Box2" type="TextureRect" parent="CanvasLayer/LogoPanel/BoxMenu/TextureRect"]
+layout_mode = 0
+offset_left = -155.873
+offset_top = -116.095
+offset_right = 147.127
+offset_bottom = 132.905
+texture = ExtResource("10_nqbg7")
+
+[node name="PointLight2D" type="PointLight2D" parent="CanvasLayer/LogoPanel/BoxMenu"]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(191.934, 163.434)
+scale = Vector2(3.21101, 3.21101)
+energy = 0.0
+texture = ExtResource("9_ke4sa")
+
+[node name="DarkPanel" type="Panel" parent="CanvasLayer"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5x2wc")
+
+[node name="MusicStreamPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_35t0q")
+autoplay = true
+
+[node name="ButtonPressedStreamPlayer" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("6_n7es3")
 
 [connection signal="pressed" from="CanvasLayer/InfoPaper/MarginContainer/VBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]

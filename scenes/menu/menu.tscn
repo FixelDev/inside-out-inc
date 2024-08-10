@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://epritqypi0ji" path="res://entities/packages/box/graphics/box_xray2.png" id="8_62py7"]
 [ext_resource type="PackedScene" uid="uid://14o66vwcpfwb" path="res://entities/xray/xray.tscn" id="9_mctfu"]
 [ext_resource type="Script" path="res://entities/xray/xray_menu.gd" id="10_fhdpj"]
-[ext_resource type="AudioStream" uid="uid://wgcgf8e2by03" path="res://scenes/game/sounds/game_button_2.mp3" id="18_vpmjl"]
+[ext_resource type="AudioStream" uid="uid://dyebg4y70d1xt" path="res://scenes/game/sounds/game_button_pressed.mp3" id="14_fix6i"]
 [ext_resource type="AudioStream" uid="uid://c0e168bhd0sn1" path="res://scenes/game/sounds/music1.mp3" id="19_7pu3r"]
 [ext_resource type="AudioStream" uid="uid://bqsn35h0nxymp" path="res://scenes/game/sounds/music2.mp3" id="20_uel1y"]
 
@@ -360,7 +360,7 @@ tween_time = 2.0
 
 [node name="ButtonPressedAudioStream" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
-stream = ExtResource("18_vpmjl")
+stream = ExtResource("14_fix6i")
 
 [node name="MusicAudioStream" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_hi08l")

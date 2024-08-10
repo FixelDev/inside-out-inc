@@ -3,7 +3,7 @@ extends Node2D
 @export var days: Array[Day] = []
 
 var current_day: Day
-var current_day_index = 6
+var current_day_index = 7
 
 func _ready() -> void:
 	current_day = days[current_day_index]
