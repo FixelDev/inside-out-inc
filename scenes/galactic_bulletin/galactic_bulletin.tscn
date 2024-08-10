@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://ddbur8nrk7v2v"]
+[gd_scene load_steps=23 format=3 uid="uid://ddbur8nrk7v2v"]
 
 [ext_resource type="Script" path="res://scenes/galactic_bulletin/galactic_bulletin.gd" id="1_scx40"]
 [ext_resource type="Script" path="res://scenes/galactic_bulletin/galactic_bulletin_panel.gd" id="2_4qvp5"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://kold78v3pbef" path="res://ui/line_divider.tscn" id="6_xaun7"]
 [ext_resource type="Texture2D" uid="uid://xp4xax0eoxfv" path="res://scenes/galactic_bulletin/button_hoverl.png" id="8_j1p4j"]
 [ext_resource type="AudioStream" uid="uid://dyebg4y70d1xt" path="res://scenes/game/sounds/game_button_pressed.mp3" id="9_2408p"]
+[ext_resource type="Texture2D" uid="uid://cbip87bfyuk2n" path="res://scenes/galactic_bulletin/image_dummy.png" id="9_htb3x"]
 [ext_resource type="AudioStream" uid="uid://ba3vmi5p02xt0" path="res://scenes/galactic_bulletin/sounds/music_galactic_bulletin.mp3" id="10_7iggp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_blgrw"]
@@ -28,6 +29,20 @@ texture_margin_right = 16.0
 texture_margin_bottom = 16.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_grkro"]
+texture = ExtResource("4_aaphs")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vahxs"]
+texture = ExtResource("4_aaphs")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rcl4m"]
 texture = ExtResource("4_aaphs")
 texture_margin_left = 16.0
 texture_margin_top = 16.0
@@ -88,7 +103,8 @@ grow_vertical = 2
 scale = Vector2(3.16, 3.16)
 theme_override_styles/panel = SubResource("StyleBoxTexture_bc16x")
 
-[node name="GalacticBulletinPanel" type="PanelContainer" parent="UI/BG"]
+[node name="GalacticBulletinPanel2" type="PanelContainer" parent="UI/BG"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -103,27 +119,25 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_kyeok")
-script = ExtResource("2_4qvp5")
 
-[node name="DayPanel" type="PanelContainer" parent="UI/BG/GalacticBulletinPanel"]
+[node name="DayPanel" type="PanelContainer" parent="UI/BG/GalacticBulletinPanel2"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_grkro")
 
-[node name="DayLabel" type="Label" parent="UI/BG/GalacticBulletinPanel/DayPanel"]
-unique_name_in_owner = true
+[node name="DayLabel2" type="Label" parent="UI/BG/GalacticBulletinPanel2/DayPanel"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Day 1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/BG/GalacticBulletinPanel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/BG/GalacticBulletinPanel2"]
 layout_mode = 2
 
-[node name="Title" type="Label" parent="UI/BG/GalacticBulletinPanel/VBoxContainer"]
+[node name="Title" type="Label" parent="UI/BG/GalacticBulletinPanel2/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
@@ -131,37 +145,36 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 26
 text = "GALACTIC BULLETIN"
 
-[node name="Spacer" type="Control" parent="UI/BG/GalacticBulletinPanel/VBoxContainer"]
+[node name="Spacer" type="Control" parent="UI/BG/GalacticBulletinPanel2/VBoxContainer"]
 custom_minimum_size = Vector2(0, 6.69)
 layout_mode = 2
 
-[node name="LineDivider" parent="UI/BG/GalacticBulletinPanel/VBoxContainer" instance=ExtResource("6_xaun7")]
+[node name="LineDivider" parent="UI/BG/GalacticBulletinPanel2/VBoxContainer" instance=ExtResource("6_xaun7")]
 layout_mode = 2
 
-[node name="Spacer2" type="Control" parent="UI/BG/GalacticBulletinPanel/VBoxContainer"]
+[node name="Spacer2" type="Control" parent="UI/BG/GalacticBulletinPanel2/VBoxContainer"]
 custom_minimum_size = Vector2(0, 14.925)
 layout_mode = 2
 
-[node name="ColorRect2" type="ColorRect" parent="UI/BG/GalacticBulletinPanel/VBoxContainer"]
+[node name="ColorRect2" type="ColorRect" parent="UI/BG/GalacticBulletinPanel2/VBoxContainer"]
 custom_minimum_size = Vector2(0, 2)
 layout_mode = 2
 
-[node name="Spacer3" type="Control" parent="UI/BG/GalacticBulletinPanel/VBoxContainer"]
+[node name="Spacer3" type="Control" parent="UI/BG/GalacticBulletinPanel2/VBoxContainer"]
 custom_minimum_size = Vector2(0, 14.925)
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/BG/GalacticBulletinPanel/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/BG/GalacticBulletinPanel2/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 19
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/BG/GalacticBulletinPanel/VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/BG/GalacticBulletinPanel2/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 
-[node name="MainArticleTitle" type="Label" parent="UI/BG/GalacticBulletinPanel/VBoxContainer/HBoxContainer/VBoxContainer"]
-unique_name_in_owner = true
+[node name="MainArticleTitle2" type="Label" parent="UI/BG/GalacticBulletinPanel2/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 17
 text = "ALIENS ATTACKS"
@@ -169,12 +182,11 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="Spacer4" type="Control" parent="UI/BG/GalacticBulletinPanel/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Spacer4" type="Control" parent="UI/BG/GalacticBulletinPanel2/VBoxContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 14.925)
 layout_mode = 2
 
-[node name="MainArticle" type="Label" parent="UI/BG/GalacticBulletinPanel/VBoxContainer/HBoxContainer/VBoxContainer"]
-unique_name_in_owner = true
+[node name="MainArticle2" type="Label" parent="UI/BG/GalacticBulletinPanel2/VBoxContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 size_flags_vertical = 2
@@ -182,17 +194,17 @@ theme_override_font_sizes/font_size = 14
 text = "dssssssssssssssssssssss sd sd sd s  sd s ds s d sds d s ds  ds ds ds ds dsd sd sds ds d sds ds d s"
 autowrap_mode = 2
 
-[node name="Spacer5" type="Control" parent="UI/BG/GalacticBulletinPanel/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Spacer5" type="Control" parent="UI/BG/GalacticBulletinPanel2/VBoxContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 14.925)
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/BG/GalacticBulletinPanel/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/BG/GalacticBulletinPanel2/VBoxContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 theme_override_constants/separation = 35
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="UI/BG/GalacticBulletinPanel/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="UI/BG/GalacticBulletinPanel2/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
 modulate = Color(1, 1, 1, 0.411765)
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
@@ -201,7 +213,7 @@ texture = ExtResource("6_ejg10")
 expand_mode = 1
 stretch_mode = 1
 
-[node name="TextureRect2" type="TextureRect" parent="UI/BG/GalacticBulletinPanel/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="TextureRect2" type="TextureRect" parent="UI/BG/GalacticBulletinPanel2/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
 modulate = Color(1, 1, 1, 0.411765)
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
@@ -210,11 +222,11 @@ texture = ExtResource("6_ejg10")
 expand_mode = 1
 stretch_mode = 1
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="UI/BG/GalacticBulletinPanel/VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="UI/BG/GalacticBulletinPanel2/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TextureRect3" type="TextureRect" parent="UI/BG/GalacticBulletinPanel/VBoxContainer/HBoxContainer/VBoxContainer2"]
+[node name="TextureRect3" type="TextureRect" parent="UI/BG/GalacticBulletinPanel2/VBoxContainer/HBoxContainer/VBoxContainer2"]
 modulate = Color(1, 1, 1, 0.411765)
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
@@ -223,25 +235,25 @@ texture = ExtResource("6_ejg10")
 expand_mode = 1
 stretch_mode = 1
 
-[node name="Spacer6" type="Control" parent="UI/BG/GalacticBulletinPanel/VBoxContainer/HBoxContainer/VBoxContainer2"]
+[node name="Spacer6" type="Control" parent="UI/BG/GalacticBulletinPanel2/VBoxContainer/HBoxContainer/VBoxContainer2"]
 custom_minimum_size = Vector2(0, 14.925)
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/BG/GalacticBulletinPanel/VBoxContainer/HBoxContainer/VBoxContainer2"]
+[node name="MarginContainer" type="MarginContainer" parent="UI/BG/GalacticBulletinPanel2/VBoxContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_right = 10
 
-[node name="ColorRect" type="ColorRect" parent="UI/BG/GalacticBulletinPanel/VBoxContainer/HBoxContainer/VBoxContainer2/MarginContainer"]
+[node name="ColorRect" type="ColorRect" parent="UI/BG/GalacticBulletinPanel2/VBoxContainer/HBoxContainer/VBoxContainer2/MarginContainer"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 color = Color(1, 1, 1, 0.411765)
 
-[node name="Spacer7" type="Control" parent="UI/BG/GalacticBulletinPanel/VBoxContainer/HBoxContainer/VBoxContainer2"]
+[node name="Spacer7" type="Control" parent="UI/BG/GalacticBulletinPanel2/VBoxContainer/HBoxContainer/VBoxContainer2"]
 custom_minimum_size = Vector2(0, 14.925)
 layout_mode = 2
 
-[node name="TextureRect4" type="TextureRect" parent="UI/BG/GalacticBulletinPanel/VBoxContainer/HBoxContainer/VBoxContainer2"]
+[node name="TextureRect4" type="TextureRect" parent="UI/BG/GalacticBulletinPanel2/VBoxContainer/HBoxContainer/VBoxContainer2"]
 modulate = Color(1, 1, 1, 0.411765)
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
@@ -250,12 +262,11 @@ texture = ExtResource("6_ejg10")
 expand_mode = 1
 stretch_mode = 1
 
-[node name="Spacer8" type="Control" parent="UI/BG/GalacticBulletinPanel/VBoxContainer/HBoxContainer/VBoxContainer2"]
+[node name="Spacer8" type="Control" parent="UI/BG/GalacticBulletinPanel2/VBoxContainer/HBoxContainer/VBoxContainer2"]
 custom_minimum_size = Vector2(0, 14.925)
 layout_mode = 2
 
-[node name="SecondArticle" type="Label" parent="UI/BG/GalacticBulletinPanel/VBoxContainer/HBoxContainer/VBoxContainer2"]
-unique_name_in_owner = true
+[node name="SecondArticle2" type="Label" parent="UI/BG/GalacticBulletinPanel2/VBoxContainer/HBoxContainer/VBoxContainer2"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 theme_override_constants/line_spacing = 4
@@ -265,11 +276,11 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="UI/BG/GalacticBulletinPanel/VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="UI/BG/GalacticBulletinPanel2/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TextureRect5" type="TextureRect" parent="UI/BG/GalacticBulletinPanel/VBoxContainer/HBoxContainer/VBoxContainer3"]
+[node name="TextureRect5" type="TextureRect" parent="UI/BG/GalacticBulletinPanel2/VBoxContainer/HBoxContainer/VBoxContainer3"]
 modulate = Color(1, 1, 1, 0.411765)
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
@@ -278,12 +289,11 @@ texture = ExtResource("6_ejg10")
 expand_mode = 1
 stretch_mode = 1
 
-[node name="Spacer4" type="Control" parent="UI/BG/GalacticBulletinPanel/VBoxContainer/HBoxContainer/VBoxContainer3"]
+[node name="Spacer4" type="Control" parent="UI/BG/GalacticBulletinPanel2/VBoxContainer/HBoxContainer/VBoxContainer3"]
 custom_minimum_size = Vector2(0, 14.925)
 layout_mode = 2
 
-[node name="ThirdArticle" type="Label" parent="UI/BG/GalacticBulletinPanel/VBoxContainer/HBoxContainer/VBoxContainer3"]
-unique_name_in_owner = true
+[node name="ThirdArticle2" type="Label" parent="UI/BG/GalacticBulletinPanel2/VBoxContainer/HBoxContainer/VBoxContainer3"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 theme_override_constants/line_spacing = 4
@@ -297,11 +307,11 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="Spacer5" type="Control" parent="UI/BG/GalacticBulletinPanel/VBoxContainer/HBoxContainer/VBoxContainer3"]
+[node name="Spacer5" type="Control" parent="UI/BG/GalacticBulletinPanel2/VBoxContainer/HBoxContainer/VBoxContainer3"]
 custom_minimum_size = Vector2(0, 14.925)
 layout_mode = 2
 
-[node name="TextureRect6" type="TextureRect" parent="UI/BG/GalacticBulletinPanel/VBoxContainer/HBoxContainer/VBoxContainer3"]
+[node name="TextureRect6" type="TextureRect" parent="UI/BG/GalacticBulletinPanel2/VBoxContainer/HBoxContainer/VBoxContainer3"]
 modulate = Color(1, 1, 1, 0.411765)
 custom_minimum_size = Vector2(0, 130)
 layout_mode = 2
@@ -310,34 +320,270 @@ texture = ExtResource("6_ejg10")
 expand_mode = 1
 stretch_mode = 1
 
-[node name="Spacer5" type="Control" parent="UI/BG/GalacticBulletinPanel/VBoxContainer"]
+[node name="Spacer5" type="Control" parent="UI/BG/GalacticBulletinPanel2/VBoxContainer"]
 custom_minimum_size = Vector2(0, 14.925)
 layout_mode = 2
 
-[node name="ColorRect3" type="ColorRect" parent="UI/BG/GalacticBulletinPanel/VBoxContainer"]
+[node name="ColorRect3" type="ColorRect" parent="UI/BG/GalacticBulletinPanel2/VBoxContainer"]
 custom_minimum_size = Vector2(0, 2)
 layout_mode = 2
 
-[node name="Spacer4" type="Control" parent="UI/BG/GalacticBulletinPanel/VBoxContainer"]
+[node name="Spacer4" type="Control" parent="UI/BG/GalacticBulletinPanel2/VBoxContainer"]
 custom_minimum_size = Vector2(0, 14.925)
 layout_mode = 2
 
-[node name="ColorRect4" type="ColorRect" parent="UI/BG/GalacticBulletinPanel/VBoxContainer"]
+[node name="ColorRect4" type="ColorRect" parent="UI/BG/GalacticBulletinPanel2/VBoxContainer"]
 custom_minimum_size = Vector2(0, 2)
 layout_mode = 2
 
-[node name="StartButton" type="Button" parent="UI"]
-anchors_preset = 7
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/BG"]
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -78.0
-offset_top = -88.0
-offset_right = 78.0
-offset_bottom = -35.0
+anchor_bottom = 0.5
+offset_left = -391.0
+offset_top = -305.5
+offset_right = 391.0
+offset_bottom = 305.5
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
+theme_override_constants/separation = -14
+
+[node name="DayPanel" type="PanelContainer" parent="UI/BG/VBoxContainer"]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_vahxs")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/BG/VBoxContainer/DayPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="DayLabel" type="Label" parent="UI/BG/VBoxContainer/DayPanel/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Day 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GalacticBulletinPanel" type="PanelContainer" parent="UI/BG/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_rcl4m")
+script = ExtResource("2_4qvp5")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/BG/VBoxContainer/GalacticBulletinPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/BG/VBoxContainer/GalacticBulletinPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="UI/BG/VBoxContainer/GalacticBulletinPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "GALACTIC BULLETIN"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Divider" type="VBoxContainer" parent="UI/BG/VBoxContainer/GalacticBulletinPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="UI/BG/VBoxContainer/GalacticBulletinPanel/MarginContainer/VBoxContainer/Divider"]
+custom_minimum_size = Vector2(0, 6.69)
+layout_mode = 2
+
+[node name="LineDivider" parent="UI/BG/VBoxContainer/GalacticBulletinPanel/MarginContainer/VBoxContainer/Divider" instance=ExtResource("6_xaun7")]
+layout_mode = 2
+
+[node name="Spacer2" type="Control" parent="UI/BG/VBoxContainer/GalacticBulletinPanel/MarginContainer/VBoxContainer/Divider"]
+custom_minimum_size = Vector2(0, 14.925)
+layout_mode = 2
+
+[node name="ColorRect2" type="ColorRect" parent="UI/BG/VBoxContainer/GalacticBulletinPanel/MarginContainer/VBoxContainer/Divider"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+
+[node name="Spacer3" type="Control" parent="UI/BG/VBoxContainer/GalacticBulletinPanel/MarginContainer/VBoxContainer/Divider"]
+custom_minimum_size = Vector2(0, 14.925)
+layout_mode = 2
+
+[node name="ArticlesContainer" type="HBoxContainer" parent="UI/BG/VBoxContainer/GalacticBulletinPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="MainArticleContainer" type="VBoxContainer" parent="UI/BG/VBoxContainer/GalacticBulletinPanel/MarginContainer/VBoxContainer/ArticlesContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="MainArticleTitle" type="Label" parent="UI/BG/VBoxContainer/GalacticBulletinPanel/MarginContainer/VBoxContainer/ArticlesContainer/MainArticleContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+text = "Main article Title"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Spacer4" type="Control" parent="UI/BG/VBoxContainer/GalacticBulletinPanel/MarginContainer/VBoxContainer/ArticlesContainer/MainArticleContainer"]
+custom_minimum_size = Vector2(0, 14.925)
+layout_mode = 2
+
+[node name="MainArticle" type="Label" parent="UI/BG/VBoxContainer/GalacticBulletinPanel/MarginContainer/VBoxContainer/ArticlesContainer/MainArticleContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+text = "Inside Out Inc. has hired a new inspector, who will be responsible for the security of the Galactic Trade Union's Earth Department."
+autowrap_mode = 2
+
+[node name="Spacer5" type="Control" parent="UI/BG/VBoxContainer/GalacticBulletinPanel/MarginContainer/VBoxContainer/ArticlesContainer/MainArticleContainer"]
+custom_minimum_size = Vector2(0, 14.925)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/BG/VBoxContainer/GalacticBulletinPanel/MarginContainer/VBoxContainer/ArticlesContainer/MainArticleContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/BG/VBoxContainer/GalacticBulletinPanel/MarginContainer/VBoxContainer/ArticlesContainer/MainArticleContainer/HBoxContainer"]
+modulate = Color(1, 1, 1, 0.392157)
+texture_repeat = 2
+layout_mode = 2
+texture = ExtResource("6_ejg10")
+stretch_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="UI/BG/VBoxContainer/GalacticBulletinPanel/MarginContainer/VBoxContainer/ArticlesContainer/MainArticleContainer/HBoxContainer"]
+modulate = Color(1, 1, 1, 0.392157)
+texture_repeat = 2
+layout_mode = 2
+texture = ExtResource("6_ejg10")
+stretch_mode = 1
+
+[node name="SecondArticleContainer" type="HBoxContainer" parent="UI/BG/VBoxContainer/GalacticBulletinPanel/MarginContainer/VBoxContainer/ArticlesContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/BG/VBoxContainer/GalacticBulletinPanel/MarginContainer/VBoxContainer/ArticlesContainer/SecondArticleContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="TextureRect3" type="TextureRect" parent="UI/BG/VBoxContainer/GalacticBulletinPanel/MarginContainer/VBoxContainer/ArticlesContainer/SecondArticleContainer/VBoxContainer"]
+modulate = Color(1, 1, 1, 0.392157)
+texture_repeat = 2
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("6_ejg10")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/BG/VBoxContainer/GalacticBulletinPanel/MarginContainer/VBoxContainer/ArticlesContainer/SecondArticleContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="UI/BG/VBoxContainer/GalacticBulletinPanel/MarginContainer/VBoxContainer/ArticlesContainer/SecondArticleContainer/VBoxContainer/MarginContainer"]
+modulate = Color(1, 1, 1, 0.392157)
+texture_repeat = 2
+custom_minimum_size = Vector2(0, 50.56)
+layout_mode = 2
+texture = ExtResource("9_htb3x")
+expand_mode = 1
+
+[node name="TextureRect4" type="TextureRect" parent="UI/BG/VBoxContainer/GalacticBulletinPanel/MarginContainer/VBoxContainer/ArticlesContainer/SecondArticleContainer/VBoxContainer"]
+modulate = Color(1, 1, 1, 0.392157)
+texture_repeat = 2
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+texture = ExtResource("6_ejg10")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Spacer6" type="Control" parent="UI/BG/VBoxContainer/GalacticBulletinPanel/MarginContainer/VBoxContainer/ArticlesContainer/SecondArticleContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 14.925)
+layout_mode = 2
+
+[node name="SecondArticle" type="Label" parent="UI/BG/VBoxContainer/GalacticBulletinPanel/MarginContainer/VBoxContainer/ArticlesContainer/SecondArticleContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+text = "Second article"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="ThirdArticleContainer" type="VBoxContainer" parent="UI/BG/VBoxContainer/GalacticBulletinPanel/MarginContainer/VBoxContainer/ArticlesContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect5" type="TextureRect" parent="UI/BG/VBoxContainer/GalacticBulletinPanel/MarginContainer/VBoxContainer/ArticlesContainer/ThirdArticleContainer"]
+modulate = Color(1, 1, 1, 0.392157)
+texture_repeat = 2
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+texture = ExtResource("6_ejg10")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Spacer7" type="Control" parent="UI/BG/VBoxContainer/GalacticBulletinPanel/MarginContainer/VBoxContainer/ArticlesContainer/ThirdArticleContainer"]
+custom_minimum_size = Vector2(0, 14.925)
+layout_mode = 2
+
+[node name="ThirdArticle" type="Label" parent="UI/BG/VBoxContainer/GalacticBulletinPanel/MarginContainer/VBoxContainer/ArticlesContainer/ThirdArticleContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+text = "Third article"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="TextureRect6" type="TextureRect" parent="UI/BG/VBoxContainer/GalacticBulletinPanel/MarginContainer/VBoxContainer/ArticlesContainer/ThirdArticleContainer"]
+modulate = Color(1, 1, 1, 0.392157)
+texture_repeat = 2
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("6_ejg10")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Divider2" type="VBoxContainer" parent="UI/BG/VBoxContainer/GalacticBulletinPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="UI/BG/VBoxContainer/GalacticBulletinPanel/MarginContainer/VBoxContainer/Divider2"]
+custom_minimum_size = Vector2(0, 6.69)
+layout_mode = 2
+
+[node name="LineDivider" parent="UI/BG/VBoxContainer/GalacticBulletinPanel/MarginContainer/VBoxContainer/Divider2" instance=ExtResource("6_xaun7")]
+layout_mode = 2
+
+[node name="Spacer2" type="Control" parent="UI/BG/VBoxContainer/GalacticBulletinPanel/MarginContainer/VBoxContainer/Divider2"]
+custom_minimum_size = Vector2(0, 14.925)
+layout_mode = 2
+
+[node name="ColorRect2" type="ColorRect" parent="UI/BG/VBoxContainer/GalacticBulletinPanel/MarginContainer/VBoxContainer/Divider2"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+
+[node name="Spacer3" type="Control" parent="UI/BG/VBoxContainer/GalacticBulletinPanel/MarginContainer/VBoxContainer/Divider2"]
+custom_minimum_size = Vector2(0, 14.925)
+layout_mode = 2
+
+[node name="StartButton" type="Button" parent="UI/BG/VBoxContainer/GalacticBulletinPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
 theme_override_colors/font_hover_color = Color(0.180392, 0.133333, 0.184314, 1)
 theme_override_styles/normal = SubResource("StyleBoxTexture_g301u")
 theme_override_styles/hover = SubResource("StyleBoxTexture_1vqrt")
@@ -354,4 +600,4 @@ stream = ExtResource("9_2408p")
 stream = ExtResource("10_7iggp")
 autoplay = true
 
-[connection signal="pressed" from="UI/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="UI/BG/VBoxContainer/GalacticBulletinPanel/MarginContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
