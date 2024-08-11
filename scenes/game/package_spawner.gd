@@ -9,6 +9,8 @@ class_name PackageSpawner extends Node2D
 @export var laser_scene: PackedScene
 #@export var xray: Node2D
 @export var destroy_particles: CPUParticles2D
+@export var destroy_particles_2: CPUParticles2D
+@export var destroy_particles_3: CPUParticles2D
 @export var ceo_scene: PackedScene
 
 @onready var ceo_destination_point = %ceo_destination_point
@@ -95,6 +97,8 @@ func destroy_current_package() -> void:
 
 func _on_destroy_area_area_entered(area):
 	destroy_particles.emitting = true
+	destroy_particles_2.emitting = true
+	destroy_particles_3.emitting = true
 	package_destroyed.emit(current_package.is_evil())
 	laser.queue_free()
 	current_package.queue_free()

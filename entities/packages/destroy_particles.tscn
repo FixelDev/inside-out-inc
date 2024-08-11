@@ -3,7 +3,7 @@
 [ext_resource type="Material" uid="uid://4gnfyg7ugi1n" path="res://scenes/game/window_mask.tres" id="1_746xe"]
 
 [sub_resource type="Curve" id="Curve_1va6d"]
-_data = [Vector2(0.0326633, 1), 0.0, 0.0, 0, 0, Vector2(0.997487, 0.50625), 0.0, 0.0, 0, 0]
+_data = [Vector2(0.0326633, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [node name="DestroyParticles" type="CPUParticles2D"]
@@ -11,7 +11,7 @@ modulate = Color(0.162066, 0.162066, 0.162066, 1)
 material = ExtResource("1_746xe")
 position = Vector2(624, 268)
 emitting = false
-amount = 100
+amount = 120
 lifetime = 0.5
 one_shot = true
 explosiveness = 1.0

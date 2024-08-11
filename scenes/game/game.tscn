@@ -1437,8 +1437,10 @@ modulate = Color(0.0973698, 0.244086, 0.198459, 1)
 light_mask = 2
 visibility_layer = 2
 material = ExtResource("3_h6v4r")
-offset_right = 1280.0
-offset_bottom = 485.0
+offset_left = 206.0
+offset_top = 46.0
+offset_right = 1074.0
+offset_bottom = 452.0
 
 [node name="EmergencyLamp" type="Sprite2D" parent="WallWindow"]
 position = Vector2(116, 48)
@@ -1470,6 +1472,24 @@ position = Vector2(36, 8)
 [node name="DestroyParticles" parent="WallWindow" instance=ExtResource("55_4wqyy")]
 position = Vector2(641, 334)
 lifetime = 1.0
+
+[node name="DestroyParticles2" parent="WallWindow" instance=ExtResource("55_4wqyy")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(641, 334)
+amount = 90
+lifetime = 1.0
+initial_velocity_min = 100.0
+initial_velocity_max = 400.0
+color = Color(0.738572, 0.268614, 0.213874, 1)
+
+[node name="DestroyParticles3" parent="WallWindow" instance=ExtResource("55_4wqyy")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(641, 334)
+amount = 50
+lifetime = 1.0
+initial_velocity_min = 80.0
+initial_velocity_max = 300.0
+color = Color(0.964131, 0.608117, 0.109013, 1)
 
 [node name="EmergencyCrateStartingPoint" type="Marker2D" parent="WallWindow"]
 unique_name_in_owner = true
@@ -1562,7 +1582,7 @@ unique_name_in_owner = true
 wait_time = 0.1
 one_shot = true
 
-[node name="PackageSpawner" type="Node2D" parent="." node_paths=PackedStringArray("package_spawn_point", "package_destination_point", "package_forward_point", "laser_gun", "destroy_particles")]
+[node name="PackageSpawner" type="Node2D" parent="." node_paths=PackedStringArray("package_spawn_point", "package_destination_point", "package_forward_point", "laser_gun", "destroy_particles", "destroy_particles_2", "destroy_particles_3")]
 unique_name_in_owner = true
 script = ExtResource("46_mkleq")
 packages_scenes = Array[PackedScene]([ExtResource("45_e7rc1"), ExtResource("58_sqtdw"), ExtResource("59_3xmqr"), ExtResource("60_0gkwa"), ExtResource("61_gb2w0"), ExtResource("62_ec0rw"), ExtResource("63_0tuwt"), ExtResource("66_2ifts"), ExtResource("67_a448j"), ExtResource("78_c8agc")])
@@ -1573,6 +1593,8 @@ package_forward_point = NodePath("../WallWindow/PackageForwardPoint")
 laser_gun = NodePath("../WallWindow/LaserGun")
 laser_scene = ExtResource("54_6k7yb")
 destroy_particles = NodePath("../WallWindow/DestroyParticles")
+destroy_particles_2 = NodePath("../WallWindow/DestroyParticles2")
+destroy_particles_3 = NodePath("../WallWindow/DestroyParticles3")
 ceo_scene = ExtResource("61_7lq78")
 
 [node name="PackageSpawnedStreamPlayer" type="AudioStreamPlayer2D" parent="PackageSpawner"]
