@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://kdvmq4xn7bns" path="res://entities/packages/fridge/fridge.png" id="3_cc1vu"]
 
 [node name="Fridge" instance=ExtResource("1_s0wnd")]
+scale = Vector2(3.5, 3.5)
 x_ray_sprites = Array[Texture2D]([ExtResource("2_dal16")])
 
 [node name="NormalSprite" parent="." index="0"]

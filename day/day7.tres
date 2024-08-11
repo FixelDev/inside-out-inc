@@ -6,9 +6,9 @@
 script = ExtResource("1_rtitg")
 number = 7
 packages_amount = 16
-strikes_amount = 3
-normal_time_left = 6.0
-emergency_time_left = 5.0
+strikes_amount = 2
+normal_time_left = 5.0
+emergency_time_left = 4.0
 package_type_odds = {
 "evil_package": 0.55,
 "normal_package": 0.45

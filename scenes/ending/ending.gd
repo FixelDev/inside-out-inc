@@ -20,4 +20,5 @@ func _on_menu_button_pressed():
 	tween.tween_property(dark_panel, "modulate:a", 1, 1)
 	await tween.finished
 	
+	DayManager.set_current_day(DayManager.days.size() - 1)
 	SceneManager.load_scene(SceneManager.menu_scene)

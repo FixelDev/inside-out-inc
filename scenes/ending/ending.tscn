@@ -83,7 +83,7 @@ custom_minimum_size = Vector2(500, 10)
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
 text = "Inspector,
-Due to the unfortunate events that occurred with our former CEO, our company image was completely ruined. We will never be ever able to regain our customers' trust. We decided to shut down Inside Out Inc. for good."
+Due to the unfortunate events that occurred with our former CEO, our company image was completely ruined. We will never be able to regain our customers' trust. We decided to shut down Inside Out Inc. for good."
 autowrap_mode = 2
 
 [node name="Control3" type="Control" parent="CanvasLayer/InfoPaper/MarginContainer/VBoxContainer"]
@@ -123,6 +123,7 @@ layout_mode = 2
 [node name="MenuButton" type="Button" parent="CanvasLayer/InfoPaper/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_default_cursor_shape = 2
 text = "Main Menu"
 
 [node name="LogoPanel" type="Panel" parent="CanvasLayer"]

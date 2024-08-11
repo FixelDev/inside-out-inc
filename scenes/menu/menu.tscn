@@ -63,9 +63,9 @@ texture_margin_top = 30.0
 texture_margin_right = 14.0
 texture_margin_bottom = 30.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u5dmx"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pfkxa"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2tf36"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iec7s"]
 
 [sub_resource type="Animation" id="Animation_nu8nk"]
 length = 0.001
@@ -188,6 +188,7 @@ layout_mode = 2
 [node name="ContinueButton" type="Button" parent="UI/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxTexture_bes62")
 theme_override_styles/hover = SubResource("StyleBoxTexture_2u4s4")
@@ -202,12 +203,13 @@ layout_mode = 2
 
 [node name="NewGameButton" type="Button" parent="UI/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxTexture_h0hqk")
 theme_override_styles/hover = SubResource("StyleBoxTexture_a12q3")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_7b43u")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_u5dmx")
-theme_override_styles/focus = SubResource("StyleBoxFlat_2tf36")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_pfkxa")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_iec7s")
 text = "New Game"
 
 [node name="TextureRect4" type="TextureRect" parent="UI"]

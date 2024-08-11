@@ -14,6 +14,7 @@ extends Node2D
 @onready var normal_package_forwarded_stream_player = %NormalPackageForwardedStreamPlayer
 @onready var successful_check_audio_stream = %SuccessfulCheckAudioStream
 @onready var strike_audio_stream = %StrikeAudioStream
+@onready var game_button_2_audio_stream = %GameButton2AudioStream
 
 signal emergency_mode_toggled(enabled: bool)
 
@@ -164,6 +165,7 @@ func _on_package_spawner_package_destroyed(is_evil):
 
 
 func _on_begin_button_pressed():
+	game_button_2_audio_stream.play()
 	info_paper.visible = false
 	spawn_package()
 	

@@ -32,6 +32,7 @@ texture_margin_bottom = 14.0
 custom_minimum_size = Vector2(0, 60)
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_default_cursor_shape = 2
 theme_override_colors/font_hover_color = Color(0.194349, 0.194349, 0.194349, 1)
 theme_override_styles/normal = SubResource("StyleBoxTexture_ta5tk")
 theme_override_styles/hover = SubResource("StyleBoxTexture_u3ne2")
